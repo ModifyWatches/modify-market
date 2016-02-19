@@ -1,0 +1,378 @@
+@charset "UTF-8";
+
+/* UNDO DEFAULT PAGE STYLING */
+/* ========================= */
+.header div.header_border {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Make sure we take up the whole width of the page */
+body > .container {
+  width: 100%;
+}
+
+/* Center the header */
+.header > .container {
+  max-width: 960px;
+}
+
+/* Center the footer */
+.footer > .container {
+  max-width: 960px;
+}
+
+/* Remove Padding at top of content div */
+.main div.content {
+  padding: 0;
+}
+/* ========================= */
+
+* {
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: #fff;
+}
+/* FEATURED HEADER */
+.collab-main-header, .collab-main-header img {
+  width: 100%;
+}
+.collab-header {
+  display: inline-block;
+}
+  .collab-header h1, .collab-header p {
+    margin-bottom: 10px;
+  }
+  .collab-header p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #aaa;
+    display: inline-block
+  }
+/* FEATURED SECTION */
+.collab-featured-wrap {
+  width: 100%;
+  overflow: hidden;
+  height: 360px;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex; 
+  flex-wrap: nowrap;
+}
+
+.collab-feature-container {
+  width: 16.66%;
+  overflow: hidden;
+  float: left;
+  height: 360px;
+}
+  .collab-feature-container:hover {
+    width: 520px;
+  }
+  .collab-feature-container:hover .collab-feature-title {
+    left: 0px;
+    width: 100%;
+    bottom: 100px;
+    height: 100px;
+  }
+  .collab-feature-container:hover img {
+    margin-left: -8%;
+  }
+.collab-feature img {
+  height: 360px;
+  margin-left: -30%;
+}
+
+.collab-feature-title {
+  color: #fff;
+  position: relative;
+  width: 100%;
+  bottom: 146px;
+  height: 140px;
+  float: right;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+  .collab-feature-title h2 {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .collab-feature-title p {
+    margin-left: 20px;
+    font-weight: 600;
+  }
+
+/* COLLAB NAV */
+.collab-category-nav {
+  box-shadow: 0px 2px 4px #bbb;
+  text-align: center;
+  text-transform: uppercase;
+}
+  .collab-category-nav ul {
+    width: 100%;
+    margin: 0;
+  }
+  .collab-category-nav li {
+    display: inline-block;
+    margin: 20px 5%;
+  }
+  
+/* COLLAB PARTNERSHIP CTA */
+.collab-partner {
+  margin-top: 20px;
+}
+  .collab-partner p {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 300;
+    color: #aaa;
+    text-align: center;
+  }
+.collab-partner button {
+  text-transform: uppercase;
+  color: #aaa;
+  border: 2px solid #aaa;
+  background: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+  .collab-partner button:hover {
+    color: #ff8e04;
+    border: 2px solid #ff8e04;
+    background-color: #fff;
+  }
+    .collab-partner button:active {
+      background-color: #333;
+      border: 2px solid #333;
+      color: #fff;
+      -webkit-transition: none;
+      transition: none;
+    }  
+
+/* COLLAB CATEGORIES */
+.collab-category {
+  margin-bottom: 10px;
+}
+  .collab-category > a {
+    display: inline-block;
+    height: 90px;
+    line-height: 140px;
+  }
+  .collab-category.leader {
+    margin-top: -20px;
+  }
+.collab-header h1, .collab-category h1 {
+  margin-left: 40px;
+  margin-right: 15px;
+  display: inline-block;
+}
+.collab-category .collections p {
+  bottom: -15px;
+}
+/* FLEXSLIDER STYLING */
+.flexslider {
+	z-index: 10;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+}
+  .flexslider li {
+    margin-right: 10px;
+  }
+    .flexslider li:first-child {
+      margin-left: 40px;
+    }
+.slides > a {
+	width: 25%;
+	margin-left: 1%;
+	text-decoration: none;
+}
+  .flexslider .slides img {
+    width: 100%;
+  }
+/* FLEXSLIDER CONTROL ARROWS */
+.collab-category .flex-control-nav li:first-child {
+  margin-right: 10px;
+}
+.flex-direction-nav .flex-prev {
+  left: -64px;
+}
+.flex-direction-nav .flex-next {
+  right: -64px;
+}
+.flex-direction-nav .flex-disabled {
+  opacity: 0 !important;
+}
+
+/* FLEXSLIDER DOTS */
+.flex-control-nav {
+  position: relative;
+  margin: 10px auto;
+  bottom: 0;
+  right: 0;
+}
+.flex-control-nav li a.flex-active {
+  background: rgba(244,118,33,1);
+}
+
+/* COLLAB CATEGORY PAGES - COLLECTIONS LIST */
+  .collab-collection-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .collab-collection-list > div {
+    width: 24.5%;
+    display: inline-block;
+  }
+  .collections p {
+    bottom: -8px;
+  }
+/* DESKTOP */
+@media all and (min-width: 1024px) {
+  /* ESTABLISH FEATURE DISPLAY STATES ON INITIALIZE */
+  .desktop {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex; 
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+/* TABLET */
+@media all and (max-width: 1024px) {
+  /* FULL SIZE FLEX SLIDER FOR TABLET + MOBILE */
+  .feature-flexslider {
+    height: 360px;
+  }
+    .feature-flexslider .flex-control-nav {
+      bottom: 30px;
+      margin: 0;
+      left: 47.5%;
+    }
+    
+  .collab-feature-container {
+    width: 100%;
+  }
+    .collab-feature-container:hover {
+      width: 100%;
+    }
+    .collab-feature-container .collab-feature-title {
+      left: 0px;
+      width: 100%;
+      bottom: 90px;
+    }
+  .collab-feature img {
+    margin-left: 0px;
+  }
+    .collab-feature-container:hover img{
+      margin-left: 0px;
+    }
+  /* SWAP FEATURE FROM STATIC TILES TO FLEX SLIDER */  
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex; 
+  }
+  /* CATEGORY NAV */
+  .collab-category-nav li {
+    margin: 20px;
+  }
+  .collab-feature-wrap .feature-flexslider .flex-control-nav {
+    width: 110px;
+  }
+  /* COLLAB CATEGORY PAGES - COLLECTIONS LIST */
+  .collab-collection-list {
+    width: 90%;
+  }
+  .collab-collection-list > div {
+    width: 32.5%;
+  }
+}
+
+/* MOBILE */
+@media all and (min-width: 300px) and (max-width: 767px) {
+  /* FEATURE HEADER */
+  .collab-header {
+    text-align: center;
+  }
+  .collab-header h1 {
+    margin-bottom: 0px;
+  }
+  .collab-header p {
+    font-size: 16px;
+  }
+  /* COLLAB FEATURE */
+  .collab-feature-container .collab-feature-title {
+    bottom: 96px;
+    height: 90px;
+  }
+  .collab-feature-container:hover .collab-feature-title {
+    left: 0px;
+    width: 100%;
+    bottom: 106px;
+    height: 100px;
+  }
+  /* COLLAB CATEGORIES */
+  .collab-category {
+    margin-bottom: 0px;
+  }
+  .collab-header h1,  .collab-header p, .collab-category h1 {
+    margin-left: 20px;
+  }
+    .flexslider li:first-child {
+      margin-left: 20px;
+    }
+  /* COLLECTIONS INFO */
+  .collections p {
+    font-size: 12px;
+  }
+  /* FULL SIZE FLEX SLIDER FOR TABLET + MOBILE */
+  .feature-flexslider {
+    height: 400px;
+  }
+    .feature-flexslider .flex-control-nav {
+      left: 70%;
+    }
+  .collab-feature-container {
+    height: 400px;
+  }
+  .collab-feature img {
+    margin-left: -24%;
+    height: 400px;
+  }
+    .collab-feature-container:hover img{
+      margin-left: -24%;
+    }
+  .collab-feature-title {
+    width: 400px;
+    right: -186px;
+    bottom: 66%;
+  }
+  /* CATEGORY NAV */
+  .collab-category-nav li {
+    margin: 10px;
+  }
+  /* COLLAB CATEGORY PAGES - COLLECTIONS LIST */
+  .collab-collection-list > div {
+    width: 49%;
+  }
+}

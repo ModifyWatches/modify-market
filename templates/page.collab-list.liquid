@@ -1,0 +1,197 @@
+<!-- Define Collab Categories -->
+{% assign category1 = linklists.artists %}
+{% assign category1link = "/pages/all-collections" %}
+
+{% assign category2 = linklists.nonprofits %}
+{% assign category2link = "/pages/all-collections" %}
+
+{% assign category3 = linklists.musicians %}
+{% assign category3link = "/pages/all-collections" %}
+
+{% assign category4 = linklists.influencers %}
+{% assign category4link = "/pages/all-collections" %}
+
+{% assign category5 = linklists.brands %}
+{% assign category5link = "/pages/all-collections" %}
+
+{% assign category6 = linklists.all-collections %}
+{% assign category6link = "/pages/all-collections" %}
+
+<!-- LINK STYLESHEETS -->
+<link href="{{ 'collab_style.css' | asset_url }}" rel="stylesheet" type="text/css" media="all" />
+
+<!-- FEATURED COLLABS HEADER - DESKTOP -->
+<section class="collab-main-header">
+  <div>
+    <img src="https://cdn.shopify.com/s/files/1/0358/9733/files/CollabList_Header2.jpg?9910859589520655863" />
+  </div>
+</section>
+
+<!-- COLLAB CATEGORY NAVIGATION -->
+<div class="collab-category-nav">
+  <ul>
+    <li><a href="#artists">Artists</a></li>
+    <li><a href="#nonprofits">Nonprofits</a></li>
+    <li><a href="#music">Musicians</a></li>
+    <li><a href="#influencers">Influencers</a></li>
+    <li><a href="#brands">Brands</a></li>
+  </ul>
+</div>
+
+<!-- COLLAB PARTNER OFFER LINK -->
+<div class="collab-partner">
+  <p>Interested in partnering with us?<a href="/pages/collaboration-form"><button>APPLY HERE</button></a></p>
+</div>
+
+<!-- COLLAB CATEGORIES FLEX SLIDERS -->
+<div class="collab-category leader">
+  <a name="artists" href="/pages/artists"><h1>{{ category1.title }}</h1>See more ></a>
+  <div class="flexslider">
+    <ul class="slides">
+      {% for link in category1.links limit:24 %}
+       {% assign collection = link.object %}
+        <li class="">
+          <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
+            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+            <div class="info collections">
+              <p class="title">{{ collection.title }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <!--
+  <div class="custom-navigation">
+  	<a href="#" class="flex-prev">&lsaquo;</a>
+    <a href="#" class="flex-next">&rsaquo;</a>
+  </div>
+  -->
+</div>
+
+<div class="collab-category">
+  <a name="nonprofits" href="/pages/nonprofits"><h1>{{ category2.title }}</h1>See more ></a>
+  <div class="flexslider">
+    <ul class="slides">
+      {% for link in category2.links limit:24 %}
+       {% assign collection = link.object %}
+        <li>
+          <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
+            <img src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+            <div class="info collections">
+              <p class="title">{{ collection.title }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="collab-category">
+  <a name="music" href="/pages/musicians" ><h1>{{ category3.title }}</h1>See more ></a>
+  <div class="flexslider">
+    <ul class="slides">
+      {% for link in category3.links limit:24 %}
+       {% assign collection = link.object %}
+        <li>
+          <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
+            <img src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+            <div class="info collections">
+              <p class="title">{{ collection.title }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="collab-category">
+  <a name="influencers" href="/pages/influencers" ><h1>{{ category4.title }}</h1>See more ></a>
+  <div class="flexslider">
+    <ul class="slides">
+      {% for link in category4.links limit:24 %}
+       {% assign collection = link.object %}
+        <li>
+          <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
+            <img src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+            <div class="info collections">
+              <p class="title">{{ collection.title }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="collab-category">
+  <a name="brands" href="/pages/brands" ><h1>{{ category5.title }}</h1>See more ></a>
+  <div class="flexslider">
+    <ul class="slides">
+      {% for link in category5.links limit:24 %}
+       {% assign collection = link.object %}
+        <li>
+          <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
+            <img src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+            <div class="info collections">
+              <p class="title">{{ collection.title }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="collab-partner" style="background-color: #fafafa; padding: 20px 0 5px 0; margin-bottom: -15px;" >
+  <p>Interested in partnering with us?<a href="/pages/collaboration-form"><button>APPLY HERE</button></a></p>
+</div>
+    
+<!-- SCRIPTS -->
+<script defer src="https://cdn.shopify.com/s/files/1/0358/9733/t/3/assets/jquery.flexslider.js"></script>
+<script>
+/* FEATURE SLIDER SCRIPT */
+	$(window).ready(function() {
+		$('.collab-feature-wrap .feature-flexslider').flexslider({
+			animation : "slide",
+      itemWidth : 400,
+      minItems: 1,
+      maxItems: 2
+		});
+	});
+
+/* CATEGORY FLEXSLIDER SCRIPT */
+	$(window).ready(function() {
+		$('.collab-category .flexslider').flexslider({
+			animation : "slide",
+      animationLoop: false,
+			slideshow: false,
+			itemWidth : 300,
+      itemMargin: 10,
+      minItems: 2,
+      maxItems: 8
+		});
+	});
+  
+/* SMOOTH SCROLL PAGE JUMP */
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 500);
+        return false;
+      }
+    }
+  });
+});
+
+/* Mixpanel Events */
+  mixpanel.track("Page Views", {"Page": "Collaboration List Page"});
+  
+</script>
