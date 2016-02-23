@@ -1,3 +1,4 @@
+</main>
 <!-- Main Header Section -->
 <section class="grid--full large--one-whole">
     <img src="https://cdn.shopify.com/s/files/1/1159/6060/files/Lifestyle_HeaderDark.jpg?6729144987275242977">
@@ -10,12 +11,18 @@
 <!-- Open your shop CTA -->
 <section class="grid--full large--one-whole blueSection text-center">
     <div>
-        <button class="btn--secondary" name="form">Open your shop today!</button>
+        <a href="#form">
+            <button class="btn--secondary">Open your shop today!</button>
+        </a>
     </div>
 </section>
 
+
 <!-- First part of Process story section -->
 <section class="grid--full large--one-whole genSection light-bg storefrontProcess">
+    <!-- Wrapper Grid -->
+    <main class="wrapper main-content" role="main">
+        
     <h1 class="grid__item large--one-whole text-center">
         You bring your fans, we'll do all the work
     </h1>
@@ -52,9 +59,12 @@
             Your storefront will always live on our site. It can live on yours too if you want!
         </p>
     </div>
+    </main>
 </section>
 <!-- Second part of Process story section -->
 <section class="grid--full large--one-whole genSection">
+    <!-- Wrapper Grid -->
+    <main class="wrapper main-content" role="main">
     <div class="grid__item large--one-half push--one-twelfth">
         <div class="grid__item large--three-quarters push--one-qaurter">
             <img src="" />
@@ -79,14 +89,22 @@
         </div>
     </div>
     
-    <div class="grid__item large--one-half">
-        <img src="https://cdn.shopify.com/s/files/1/1159/6060/files/Lifestyle_HeaderDark.jpg?6729144987275242977" />
+    <div class="grid__item large--one-whole push--large--seven-twelfths">
+        <img src="{{ 'storefrontprocess_Macbook.jpg' | asset_url }}" alt="Your Storefront!" />
     </div>
+    
+    </main>
 </section>
 
 <!-- Wufoo Form Section -->
 <section class="grid--full large--one-whole genSection">
-    <h1 class="text-center">Sign-up and we'll get designing :)</h1>
+    <!-- Wrapper Grid -->
+    <main class="wrapper main-content" role="main">
+    <a name="form">
+        <h1 class="text-center">
+            Sign-up and we'll get designing :)
+        </h1>
+    </a>
     
     <div class="grid__item large--three-quarters push--large--one-eighth">
         <div id="wufoo-k1a3lhfc1m6ui47">
@@ -109,30 +127,37 @@
         var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
         })(document, 'script');</script>
     </div>
+    </main>
 </section>
 
 <!-- Press Bubbles Section -->
 <section class="grid--full large--one-whole genSection orange-bg">
-  <div class="grid__item large--one-whole">
-    <h6 class="text-center text-white">AS SEEN IN</h6>
-    <div class="grid__item large--one-whole press-top-row">
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.ellenshop.com/MODIFY-WATCH-pid4465-cid4984.html"><img class="leading" src="{{ 'Press_Ellen.png' | asset_url }}" alt="Ellen" /></a>
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://news.yahoo.com/deals-and-steals-beach-party-edition-173339934.html"><img src="{{ 'Press_GoodMorningAmerica.png' | asset_url }}" alt="CBS Good Morning America" /></a>
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.menshealth.com/style/watches-brights"><img src="{{ 'Press_MensHealth.png' | asset_url }}" alt="Men's Health" /></a>
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://old.modifywatches.com/templates/Modify/images/default/press/WomensHealthJune2013.pdf"><img src="{{ 'Press_WomensHealth.png' | asset_url }}" alt="Women's Health" /></a>
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.today.com/id/49063771/ns/today-video/#51036431"><img src="{{ 'Press_Today.png' | asset_url }}" alt="Today Show" /></a>
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="https://instagram.com/p/OooPktED28/"><img class="trailing" src="{{ 'Press_VanityFair.png' | asset_url }}" alt="Vanity Fair" /></a>
-      <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="#"><img class="leading" src="{{ 'Press_Self.png' | asset_url }}" alt="Self Magazine" /></a>
-      <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="http://boss.blogs.nytimes.com/2012/01/05/turning-facebook-followers-into-online-focus-groups/"><img src="{{ 'Press_NYT.png' | asset_url }}" alt="The New York Times" /></a>
-      <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third" href="https://twitter.com/mitsu_tsuchiya/status/354314395058319362"><img src="{{ 'Press_Nylon.png' | asset_url }}" alt="Nylon" /></a>
-      <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="#"><img src="{{ 'Press_Vogue.png' | asset_url }}" alt="Vogue" /></a>
-      <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="#"><img class="trailing" src="{{ 'Press_Lucky.png' | asset_url }}" alt="Lucky Magazine" /></a>
+    <!-- Wrapper Grid -->
+    <main class="wrapper main-content" role="main">
+    <div class="grid__item large--one-whole">
+        <h6 class="text-center text-white">AS SEEN IN</h6>
+        <div class="grid__item large--one-whole press-top-row">
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.ellenshop.com/MODIFY-WATCH-pid4465-cid4984.html"><img class="leading" src="{{ 'Press_Ellen.png' | asset_url }}" alt="Ellen" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://news.yahoo.com/deals-and-steals-beach-party-edition-173339934.html"><img src="{{ 'Press_GoodMorningAmerica.png' | asset_url }}" alt="CBS Good Morning America" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.menshealth.com/style/watches-brights"><img src="{{ 'Press_MensHealth.png' | asset_url }}" alt="Men's Health" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://old.modifywatches.com/templates/Modify/images/default/press/WomensHealthJune2013.pdf"><img src="{{ 'Press_WomensHealth.png' | asset_url }}" alt="Women's Health" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.today.com/id/49063771/ns/today-video/#51036431"><img src="{{ 'Press_Today.png' | asset_url }}" alt="Today Show" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="https://instagram.com/p/OooPktED28/"><img class="trailing" src="{{ 'Press_VanityFair.png' | asset_url }}" alt="Vanity Fair" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="#"><img class="leading" src="{{ 'Press_Self.png' | asset_url }}" alt="Self Magazine" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="http://boss.blogs.nytimes.com/2012/01/05/turning-facebook-followers-into-online-focus-groups/"><img src="{{ 'Press_NYT.png' | asset_url }}" alt="The New York Times" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third" href="https://twitter.com/mitsu_tsuchiya/status/354314395058319362"><img src="{{ 'Press_Nylon.png' | asset_url }}" alt="Nylon" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="#"><img src="{{ 'Press_Vogue.png' | asset_url }}" alt="Vogue" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="#"><img class="trailing" src="{{ 'Press_Lucky.png' | asset_url }}" alt="Lucky Magazine" /></a>
+        </div>
     </div>
-  </div>
+    </main>
 </section>
 
 <!-- Support Section -->
 <section class="grid__item large--one-whole genSection purple-bg text-white">
+    <!-- Wrapper Grid -->
+    <main class="wrapper main-content" role="main">
+        
     <h1 class="text-center">
         Help when you need it.
     </h1>
@@ -190,10 +215,13 @@
             </p>
         </div>
     </div>
+    </main>
 </section>
 
 <!-- Mini Partner FAQ Section -->
 <section class="grid__item large--one-whole genSection">
+    <!-- Wrapper Grid -->
+    <main class="wrapper main-content" role="main">
     <div class="large--one-whole">
         <h1 class="text-center">
             Frequently Asked Questions
@@ -257,6 +285,7 @@
             Your fans love your story - help them wear their passion on a daily basis.
         </p>
     </div>
+    </main>
 </section>
 
 <!-- Bottom CTA Section -->
@@ -267,7 +296,10 @@
     <p>
         Help your fans rep the brand they love... yours! It's completely free to get started.
     </p>
-    <button class="btn--secondary" name="form">
-        Get started, it's free!
-    </button>
+    
+    <a href="#form">
+        <button class="btn--secondary">
+            Get started, it's free!
+        </button>
+    </a>
 </section>

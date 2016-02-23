@@ -111,8 +111,35 @@
         </form>
 
       </div>
+      
+      {% comment %}
+        Product Info goes here, such as size and material.
+      {% endcomment %}
+      <div class="rte">
+          <h4>Product Info</h4>
+          <!-- Alloy Watch Product Info -->
+          {% if product.type == "Alloy watch" %}
+            <ul>
+                <li>Stainless steel back, gun metal case</li>
+                <li>Durable and comfortable, dense woven nylon strap</li>
+                <li>5ATM Water Resistant (Go swimming!)</li>
+                <li>Japanese Quartz Movement</li>
+            </ul>
+          {% endif %}
+          
+          <!-- Watch Product Info -->
+          {% if product.type == "Watch" %}
+            <ul>
+                <li>Stainless steel back, scratch-resistant PC</li>
+                <li>Super-soft, lightweight, and durable UV-coated silicone straps</li>
+                <li>5ATM Water Resistant</li>
+                <li>Japanese Quartz Movement</li>
+            </ul>
+          {% endif %}
+      </div>
 
       <div class="product-description rte" itemprop="description">
+        <h4>Product Description</h4>
         {{ product.description }}
       </div>
 
@@ -142,6 +169,13 @@
 
 </div>
 
+</main> 
+    <div class="grid__item large--grid-uniform text-center light-bg">
+        <h2>{{ product.vendor }}</h2>
+    </div>
+<!-- restart full width -->
+<main class="wrapper main-content" role="main">
+           
 {% comment %}
   To take advantage of a callback on the select dropdown, add option_selection.js
   and customize the JS in timber.productPage as needed.
