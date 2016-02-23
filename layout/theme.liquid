@@ -322,6 +322,89 @@
     </main>
 
     <!-- begin site-footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="wrapper">
+        <div class="grid">
+          <!-- Press bubbles in footer -->
+          <div class="grid__item large--one-third medium--one-half">
+              <h6>Press</h6>
+              <hr class="orangeDash" />
+              <div class="grid">
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.ellenshop.com/MODIFY-WATCH-pid4465-cid4984.html"><img src="{{ 'footerPress_Ellen.jpg' | asset_url }}" alt="Ellen" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://news.yahoo.com/deals-and-steals-beach-party-edition-173339934.html"><img src="{{ 'footerPress_GMA.jpg' | asset_url }}" alt="CBS Good Morning America" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.menshealth.com/style/watches-brights"><img src="{{ 'footerPress_MensHealth.jpg' | asset_url }}" alt="Men's Health" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://old.modifywatches.com/templates/Modify/images/default/press/WomensHealthJune2013.pdf"><img src="{{ 'footerPress_WomensHealth.jpg' | asset_url }}" alt="Women's Health" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.today.com/id/49063771/ns/today-video/#51036431"><img src="{{ 'footerPress_Today.jpg' | asset_url }}" alt="Today Show" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="https://instagram.com/p/OooPktED28/"><img src="{{ 'footerPress_VanityFair.jpg' | asset_url }}" alt="Vanity Fair" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.self.com/fitness/runners/2013/09/nighttime-running-gear-slideshow/"><img src="{{ 'footerPress_Self.jpg' | asset_url }}" alt="Self Magazine" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://boss.blogs.nytimes.com/2012/01/05/turning-facebook-followers-into-online-focus-groups/"><img src="{{ 'footerPress_NYT.jpg' | asset_url }}" alt="The New York Times" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.inc.com/young-entrepreneur-council/3-customer-service-rules-to-work-by.html"><img src="{{ 'footerPress_INC.jpg' | asset_url }}" alt="Inc" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.vogue.com/13295927/best-back-to-school-denim-kids-kidswear/"><img src="{{ 'footerPress_Vogue.jpg' | asset_url }}" alt="Vogue" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://techcrunch.com/2014/07/17/facebook-buy-button/"><img src="{{ 'footerPress_TechCrunch.jpg' | asset_url }}" alt="Tech Crunch" /></a>
+                    <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.si.com/extra-mustard/2015/11/20/st-louis-cardinals-watch-dirt-busch-stadium"><img src="{{ 'footerPress_SportsIllustrated.jpg' | asset_url }}" alt="Sports Illustrated" /></a>
+              </div>
+          </div>
+          <!-- Shop Linklist -->
+          <div class="grid__item large--one-sixth push--large--one-sixth medium--one-quarter small--one-half">
+              <h6>{{ linklists.shop.title }}</h6>
+              <hr class="orangeDash" />
+              <ul class="homeList">
+                {% for link in linklists.shop.links %}
+                <li>
+                    <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+          <!-- About Modify Linklist -->
+          <div class="grid__item large--one-sixth push--large--one-sixth medium--one-quarter small--one-half">
+              <h6>{{ linklists.footer.title }}</h6>
+              <hr class="orangeDash" />
+              <ul class="homeList">
+                {% for link in linklists.footer.links %}
+                <li>
+                    <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+          
+            <div class="grid__item large--one-sixth push--large--one-sixth medium--one-half small--one-half">
+                <h6>Talk to us</h6>
+                <hr class="orangeDash" />
+                <ul class="inline-list social-icons">
+                    <li>
+                      <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                        <span class="icon icon-instagram" aria-hidden="true"></span>
+                        <span class="fallback-text">Instagram</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                        <span class="icon icon-pinterest" aria-hidden="true"></span>
+                        <span class="fallback-text">Pinterest</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                        <span class="icon icon-twitter" aria-hidden="true"></span>
+                        <span class="fallback-text">Twitter</span>
+                      </a>
+                    </li>
+                                     <li>
+                      <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
+                        <span class="icon icon-facebook" aria-hidden="true"></span>
+                        <span class="fallback-text">Facebook</span>
+                      </a>
+                    </li>
+                  
+                </ul>
+            </div>
+       </div>
+    </footer>
+    
+    {% comment %}
+    Old Footer
     <footer class="site-footer small--text-center" role="contentinfo">
       <div class="wrapper">
         <div class="grid">
@@ -369,6 +452,7 @@
             </div>
        </div>
     </footer>
+    {% endcomment %}
     <!-- //site-footer -->
   </div>
 
