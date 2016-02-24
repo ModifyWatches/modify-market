@@ -9,6 +9,7 @@
 
 {% endcomment %}
 
+{% assign collab = product.vendor %}
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -188,9 +189,17 @@
 </div>
 
 </main> 
-    <div class="grid__item large--grid-uniform text-center light-bg">
-        <h2>{{ product.vendor }}</h2>
+    <div class="grid__item light-bg">
+        <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
+            <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
+            <h3>By, <a href="{{ collections[collab].url}}" > {{ collab }} </a></h3>
+            
+            <button class="btn--secondary follow">follow</button>
+            <p>Be the first in line for new products an limited editions!
+        </div>
     </div>
+    
+    <div style="clear: both;"></div>
 <!-- restart full width -->
 <main class="wrapper main-content" role="main">
            
