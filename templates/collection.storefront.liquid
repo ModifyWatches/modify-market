@@ -11,19 +11,16 @@
 
 {% assign collection_mod_asset = 'collection_small_mod_asset2.jpg' | asset_url %}
 
-{% assign pagination_limit = settings.pagination_limit %}
+{% assign pagination_limit = 50 %}
 {% paginate collection.products by pagination_limit %}
 {% assign tag_count = collection.all_tags | size %}
 {% assign tag_threshold = 8 %}
 
-<div class="expandedWidth collectionBanner">
-	<img src="{{ collection_banner }}" />
-</div>
 
 <div id="collectionBookmark">
-    <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon reallyRounded shadows">
+    <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
-	<a href="#"class="roundButton grey hidden">follow</a>
+	<button class="btn--secondary"><a href="#"class="">follow</a></button>
 	<p class="hiddenMobile">Learn more about {{ collection.title }} and get a first look at their new collections</p>
 	<hr>
 	<ul class="inline-list social-icons hiddenMobile">
@@ -53,8 +50,16 @@
                     </li>
                  
                 </ul>
- <div class="clear:both"></div>
+ <div style="clear:both"></div>
 </div>
+
+
+	 </main> 
+<div class="expandedWidth collectionBanner">
+	<img src="{{ collection_banner }}" />
+</div>
+ <main class="wrapper main-content" role="main">
+
 <div class="grid--rev">
   <div class="grid__item two-thirds">
   
@@ -63,6 +68,7 @@
   <div id="tabs">
 	  <ul class="inline-list collab-tiles">
 		  <li><a href="#product-tab" class="reverseLink">Products</a></li>
+		   <li><a href="#artwork-tab" class="reverseLink">Artwork</a></li>
 		  <li><a href="#profile-tab" class="reverseLink">Profile</a></li>
 	  </ul>
   
@@ -89,10 +95,25 @@
         </div>
       </div>
     {% else %}
-      {% assign products = collection.products %}
-      {% assign products_per_row = "4" %}
-      {% include 'product-loop' %}
+    	
+    	{% for product in collection.products %}
+    		{% if product.type !='Art' %}
+		   	{% include 'product-grid-item' %}
+		   	{% endif %}
+		{% endfor %}	
     {% endif %}
+    </div>
+    </div>
+     <div id="artwork-tab">
+	 
+	       <div class="collection_product">
+       	
+    	{% for product in collection.products %}
+    		{% if product.type =='Art' %}
+		   	{% include 'product-grid-item' %}
+		   	{% endif %}
+		{% endfor %}	
+   
     </div>
 
     
@@ -100,61 +121,13 @@
   </div>
   </div>
 </div>
-<div class="clear"></div>
+<div style="clear:both"></div>
+{% include 'trending-stores' %}
 
-<div class="grid-uniform">
-	<h2 class="text-center">Searching for a gift?</h2>
-	<div style="clear:both; height: 40px;"></div>
-  <div class="grid__item one-quarter text-center">
-	  <a href="/collections/watch-faces/for-him" class="grid__image reverseLink">
-	    <img src="{{ 'ForMen_Tile.jpg' | asset_url }}" alt="gifts for him" class="roundedBorder">
-	     <div class="buttonFrame"><button>SHOP</button></div>
-	
-	  <h5>
-	   Gifts for Him
-	  </h5>
-	  </a>
- </div>
- <div class="grid__item one-quarter text-center">
-	  <a href="/collections/watch-faces/for-her" class="grid__image reverseLink">
-	    <img src="{{ 'ForHer_Tile.jpg' | asset_url }}" alt="Gifts for her" class="roundedBorder">
-	     <div class="buttonFrame"><button>SHOP</button></div>
-	 
-	  <h5>
-	   Gifts for Her
-	  </h5>
-	  </a>
- </div>
- <div class="grid__item one-quarter text-center">
-	  <a href="/collections/watch-faces/for-kids" class="grid__image reverseLink">
-	    <img src="{{ 'ForKids_Tile.jpg' | asset_url }}" alt="gifts for kids" class="roundedBorder">
-	     <div class="buttonFrame"><button>SHOP</button></div>
-	  
-	  <h5>
-	   Gifts for Kids
-	  </h5>
-	  </a>
- </div>
- <div class="grid__item one-quarter text-center">
-	  <a href="/collections/watch-faces/for-pet-lovers" class="grid__image reverseLink">
-	    <img src="{{ 'PetLovers_Tile.jpg' | asset_url }}" alt="/collections/watch-faces/for-pet-lovers" class="roundedBorder">
-	     <div class="buttonFrame"><button>SHOP</button></div>
-	 
-	  <h5>
-	    Gifts for Pet Lovers
-	  </h5>
-	  </a>
- </div>
- <div class="clear"></div>
-</div>
+{% include 'collab-signup-link' %}
 
-<div class="grid-uniform purple text-center">
-	<h2>Know an organization that deserves to have <br>great products?</h2>
-	<h4>We'd love to do the work</h4>
-	<a class="roundButton orange" href="/pages/collaboration-form">
-		Get started, it's free
-	</a>
-</div>
+
+
 {% endpaginate %}
 
 <script>

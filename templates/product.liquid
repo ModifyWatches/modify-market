@@ -8,8 +8,13 @@
     - http://schema.org/docs/gs.html
 
 {% endcomment %}
+<<<<<<< HEAD
+{% assign collab = product.vendor %}
+{% assign artwork = product.title %}
+=======
 
 {% assign collab = product.vendor %}
+>>>>>>> master
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -191,7 +196,11 @@
 </div>
 
 </main> 
+<<<<<<< HEAD
+   <div class="grid__item light-bg big-padding big-margin">
+=======
     <div class="grid__item light-bg">
+>>>>>>> master
 	   <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
 		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
 	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ collab }} </a></h3>
@@ -199,9 +208,24 @@
 	   		<button class="btn--secondary follow">follow</button>
 	   		<p>Be the first in line for new products an limited editions!
 	   </div>
+<<<<<<< HEAD
+	   </div>
+	   <div style="clear:both"></div>
+<!-- restart full width -->
+=======
     </div>
 	   <!-- restart full width -->
+>>>>>>> master
 <main class="wrapper main-content" role="main">
+	<div class="grid__item large--grid-uniform text-center product-grid">
+	   		<h3>More products by {{ collab }}</h3>
+	   
+		   {% for product in collections[collab].products %}
+		   {% if product.type !='Art' %}
+		   	{% include 'product-grid-item' %}
+		   	{% endif %}
+		   {% endfor %}	
+		    </div>
            
 {% comment %}
   To take advantage of a callback on the select dropdown, add option_selection.js
