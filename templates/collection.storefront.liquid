@@ -20,7 +20,7 @@
 <div id="collectionBookmark">
     <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
-	<a href="#"class="roundButton grey hidden">follow</a>
+	<button class="btn--secondary"><a href="#"class="">follow</a></button>
 	<p class="hiddenMobile">Learn more about {{ collection.title }} and get a first look at their new collections</p>
 	<hr>
 	<ul class="inline-list social-icons hiddenMobile">
@@ -122,57 +122,11 @@
   </div>
 </div>
 <div style="clear:both"></div>
-<div class="grid-uniform text-center">
-<h2>Checkout these trending stores</h2>
+{% include 'trending-stores' %}
 
-{% comment %}
-  Use class grid-uniform to have evenly sized columns clear
-  each other properly at each breakpoint.
-{% endcomment %}
-<div class="grid-uniform">
-
-  {% comment %}
-    Loop through products in your Frontpage collection.
-    This collection is created by default, but you must add products to it.
-  {% endcomment %}
-  {% for product in collections.frontpage.products limit:4 %}
-
-    {% comment %}
-      Change the grid item width by using classes from the grid in
-      the grid_item_width variable.
-
-      Example:
-        - {% assign grid_item_width = 'large--one-third medium--one-half' %}
-    {% endcomment %}
-    {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
-    {% include 'art-grid' %}
-
-  {% else %}
-    {% comment %}
-      For onboarding new users to your theme, we add some default products and onboarding tutorials to help populate their store
-    {% endcomment %}
-    {% unless emptyState %}
-      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-      {% assign emptyState = true %}
-    {% endunless %}
-
-    {% include 'onboarding-featured-products' %}
-
-  {% endfor %}
-
-</div>
-</div>
+{% include 'collab-signup-link' %}
 
 
-	 </main>
-<div class="grid-uniform purple-bg text-center big-margin">
-	<h2>Know an organization that deserves to have <br>great products?</h2>
-	<h4>We'd love to do the work</h4>
-	<a class="roundButton orange" href="/pages/collaboration-form">
-		Get started, it's free
-	</a>
-</div>
-<main class="wrapper main-content" role="main">
 
 {% endpaginate %}
 

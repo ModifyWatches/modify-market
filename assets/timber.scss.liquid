@@ -179,6 +179,10 @@ $socialIconFontStack: 'icons';
 .orange-bg {
     background-color: #E4572E;
 }
+.orange-text {
+	color: #E4572E;
+	font-weight: bold;
+}
 .purple-bg {
     background-color: #3A3042;
     color:#ffffff;
@@ -206,6 +210,13 @@ $socialIconFontStack: 'icons';
 	margin-right: 50px;
 	height: auto;
 	width: 30%;
+}
+.tinyArt {
+	float: left;
+	margin-right: 10px;
+	height: auto;
+	width: 10%;
+	margin-bottom: 50px;
 }
 .artBanner {
 	margin: 0 auto;
@@ -251,8 +262,20 @@ $socialIconFontStack: 'icons';
 	margin-left: 5%;
 }
 .big-margin {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;
+}
+.big-padding {
+	padding-top: 30px !important;
+	padding-bottom: 30px !important;
+}
+.super-small {
+	font-size: 10px;
+}
+.product-grid p {
+	padding: 0px;
+	margin: 0px;
+	
 }
 /*============================================================================
   #Sass Mixins
@@ -1189,6 +1212,7 @@ html input[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 100px;
+  min-width: 100px;
 
   /*================ Set primary button colors - can override later ================*/
   background-color: $colorBtnPrimary;
@@ -1242,6 +1266,9 @@ html input[disabled] {
 
 .btn--full {
   width: 100%;
+}
+.btn--secondary a{
+	color: #ffffff;	
 }
 
 /*================ Force an input/button to look like a text link ================*/

@@ -1,4 +1,5 @@
 <!-- /snippets/product-grid-item.liquid -->
+{% assign collab = product.vendor %}
 {% comment %}
 
   This snippet is used to showcase each product during the loop,
@@ -37,7 +38,7 @@
   {% assign sold_out = false %}
 {% endif %}
 
-<div class="grid__item {{ grid_item_width }}">
+<div class="grid__item {{ grid_item_width }} product-grid">
 
   {% comment %}
     Link to your product with the 'within: collection' filter for the link to be aware of the collection.
@@ -54,15 +55,20 @@
   <a href="{{ product.url | within: collection }}" class="grid__image">
     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
-
-  <p class="h6">
+  <img src="{{ collections[collab].image | img_url: 'small' }}" class="tinyArt roundedBorder" />
+  <p class="h5 text-left">
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
   </p>
-  <p class="hideAll">
+  <p class="super-small text-left">
+	  by {{ collab }}
+  </p>
+  <p class="text-left orange-text">
+	   {{ product.price | money }}
+  </p>
     {% comment %}
       You can show a leading 'from' or 'up to' by checking 'product.price_varies'
       if your variants have different prices.
-    {% endcomment %}
+    
     {% if on_sale %}
       {% if product.price_varies %}
         {% assign sale_price = product.price | money %}
@@ -87,5 +93,5 @@
       <br><s>{{ product.compare_at_price | money }}</s>
     {% endif %}
   </p>
-
+{% endcomment %}
 </div>
