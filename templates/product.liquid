@@ -8,8 +8,13 @@
     - http://schema.org/docs/gs.html
 
 {% endcomment %}
+<<<<<<< HEAD
 {% assign collab = product.vendor %}
 {% assign artwork = product.title %}
+=======
+
+{% assign collab = product.vendor %}
+>>>>>>> master
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -23,7 +28,7 @@
   {% include 'breadcrumb' %}
 
   <div class="grid product-single">
-    <div class="grid__item large--one-half text-center">
+    <div class="grid__item large--one-half push--large--one-twelfth text-center">
       <div class="product-single__photos" id="ProductPhoto">
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
         <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
@@ -32,11 +37,12 @@
       {% comment %}
         Create thumbnails if we have more than one product image
       {% endcomment %}
+      
       {% if product.images.size > 1 %}
         <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
 
           {% for image in product.images %}
-            <li class="grid__item one-quarter">
+            <li class="grid__item one-sixth">
               <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
                 <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
               </a>
@@ -45,9 +51,10 @@
 
         </ul>
       {% endif %}
+
     </div>
 
-    <div class="grid__item large--one-half">
+    <div class="grid__item large--one-third push--large--one-sixth">
 
       <h1 itemprop="name">{{ product.title }}</h1>
 
@@ -189,7 +196,11 @@
 </div>
 
 </main> 
+<<<<<<< HEAD
    <div class="grid__item light-bg big-padding big-margin">
+=======
+    <div class="grid__item light-bg">
+>>>>>>> master
 	   <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
 		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
 	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ collab }} </a></h3>
@@ -197,9 +208,14 @@
 	   		<button class="btn--secondary follow">follow</button>
 	   		<p>Be the first in line for new products an limited editions!
 	   </div>
+<<<<<<< HEAD
 	   </div>
 	   <div style="clear:both"></div>
 <!-- restart full width -->
+=======
+    </div>
+	   <!-- restart full width -->
+>>>>>>> master
 <main class="wrapper main-content" role="main">
 	<div class="grid__item large--grid-uniform text-center product-grid">
 	   		<h3>More products by {{ collab }}</h3>
