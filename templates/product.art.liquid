@@ -1,6 +1,6 @@
 <!-- /templates/product.liquid -->
 {% comment %}
-{% assign collab = product.vendor %}
+
   Rich snippets (itemscope, itemtype, etc.) for products are a theme requirement,
   and allow search engines to easily understand what the content is.
 
@@ -8,7 +8,8 @@
     - http://schema.org/docs/gs.html
 
 {% endcomment %}
-
+{% assign collab = product.vendor %}
+{% assign artwork = product.title %}
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -125,11 +126,28 @@
 	 </div>
 	 </div>
 	 </main> 
-	   <div class="grid__item large--grid-uniform text-center light-bg">
-	   		<h3>By, {{ product.vendor }}</h3>
+	 	<div class="grid__item light-bg">
+	   <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
+		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
+	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ collab }} </a></h3>
+	   		
+	   		<button class="btn--secondary follow">follow</button>
+	   		<p>Be the first in line for new products an limited editions!
+	   </div>
 	   </div>
 	   <!-- restart full width -->
 	   <main class="wrapper main-content" role="main">
+		    <div class="grid__item large--grid-uniform text-center">
+	   		<h3>Products</h3>
+	   
+		   {% for product in collections[collab].products %}
+		   	{% if product.tags contains artwork %}
+		   	{% include 'product-grid-item' %}
+		   	{% endif %}
+		   {% endfor %}	
+		    </div>
+		   
+		   
       {% comment %}
         If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
         in the URL, we can show next/previous links to other products in the collection.

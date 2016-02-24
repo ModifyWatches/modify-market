@@ -2,8 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900">
-{{ 'collection_small.css' | asset_url | stylesheet_tag }}
-{{ 'ethos.css' | asset_url | stylesheet_tag }}
 {% assign prefix = collection.handle | prepend: '' %}
 
 {% assign collection_banner = prefix | append: '_banner.jpg' | asset_url %}
