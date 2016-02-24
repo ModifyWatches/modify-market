@@ -15,13 +15,12 @@
 {% paginate collection.products by pagination_limit %}
 {% assign tag_count = collection.all_tags | size %}
 {% assign tag_threshold = 8 %}
-
+	 </main> 
 <div class="expandedWidth collectionBanner">
 	<img src="{{ collection_banner }}" />
-</div>
 
 <div id="collectionBookmark">
-    <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon reallyRounded shadows">
+    <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
 	<a href="#"class="roundButton grey hidden">follow</a>
 	<p class="hiddenMobile">Learn more about {{ collection.title }} and get a first look at their new collections</p>
@@ -55,6 +54,8 @@
                 </ul>
  <div class="clear:both"></div>
 </div>
+</div>
+ <main class="wrapper main-content" role="main">
 <div class="grid--rev">
   <div class="grid__item two-thirds">
   
