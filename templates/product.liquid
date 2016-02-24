@@ -136,6 +136,24 @@
                 <li>Japanese Quartz Movement</li>
             </ul>
           {% endif %}
+          
+          <!-- T-Shirt Product Info -->
+          {% if product.type == "T-Shirt" %}
+            <ul>
+                <li>All colors are 4.1 oz 100% cotton jersey regular fit (soft, vintage feel), tearaway label for neck comfort. Heather gray is a different fabric: 4.1 oz., 67% polyester, 33% cotton.</li>
+                <li>Slim fit. For a looser fit, please order one size up *or* look at our other shirt for this design :)</li>
+                <li>Printed (just for you) and shipped from our secret lair, which is located in the U.S.A.</li>
+            </ul>
+          {% endif %}
+          
+          <!-- iPhone Case Product Info -->
+          {% if product.type == "case" %}
+            <ul>
+                <li>All colors are 4.1 oz 100% cotton jersey regular fit (soft, vintage feel), tearaway label for neck comfort (The heather grey color is a different fabric: 4.1 oz., 67% polyester, 33% cotton.)</li>
+                <li>Slim fit. For a looser fit, please order one size up *or* look at our other shirt for this design :)</li>
+                <li>Printed (just for you) and shipped from our secret lair, which is located in the U.S.A.</li>
+            </ul>
+          {% endif %}
       </div>
 
       <div class="product-description rte" itemprop="description">
