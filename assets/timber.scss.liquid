@@ -10,7 +10,7 @@
     - You cannot use @imports in this file
         * Use grunt or gulp tasks to enable @imports - https://github.com/Shopify/shopify-css-import
     - Helpers variables, mixins, and starter classes are provided. Change as needed.
-    - The file is prepped with a CSS reset
+    - The file is prepped with a CSS reset 
     - The font icons are prepared using https://icomoon.io/app
 ==============================================================================*/
 
@@ -193,9 +193,28 @@ $socialIconFontStack: 'icons';
 	display: none !important;
 }
 .roundedBorder {
-	-webkit-border-radius: 20px;
-	border-radius:20px;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
 	border: 0px solid #ffffff;
+	-webkit-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.4);
+	box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.4);
+}
+.artImage {
+	float: left;
+	margin-right: 50px;
+	height: auto;
+	width: 30%;
+}
+.artBanner {
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	float: none !important;
+}
+.follow {
+	min-width: 100px;
+	text-transform: uppercase;
 }
 /*============================================================================
   #Sass Mixins
@@ -2314,7 +2333,6 @@ label.error {
 	background-position: center center;
 	background-repeat: no-repeat;
 	margin-bottom: 20px;
-    padding-top: 4%;
 }
 .homeBanner {
 	background-image: url('{{ "home.jpg" | asset_url }}');
@@ -2327,7 +2345,7 @@ label.error {
   background-color: $colorFooterBg;
   padding: $gutter 0;
   color: $colorFooterText;
-  border-top: 1px solid #979797;
+  border-top: 1px solid #363635;
   font-size: 15px;
 
   @include at-query ($min, $large) {
@@ -2452,18 +2470,8 @@ label.error {
 .product-single__photos,
 .product-single__thumbnails {
   a, img {
-<<<<<<< HEAD
-<<<<<<< HEAD
     display: inline-block;
     margin: 0 auto;
-=======
-    display: block;
-    margin: 0;
->>>>>>> master
-=======
-    display: block;
-    margin: 0;
->>>>>>> master
   }
 
   li {
@@ -3039,6 +3047,8 @@ ul.homeList {
 .blueSection {
     background-color: #405862;
     padding: 15px 0;
+<<<<<<< HEAD
+=======
 }
 
 /* Storefront Process Images */
@@ -3066,4 +3076,5 @@ button#AddToCart {
 
 #ProductPrice {
     color: #E4572E;
+>>>>>>> master
 }
