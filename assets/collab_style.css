@@ -175,9 +175,7 @@ h2 {
   margin-right: 15px;
   display: inline-block;
 }
-.collab-category .collections p {
-  bottom: -15px;
-}
+
 /* FLEXSLIDER STYLING */
 .flexslider {
 	z-index: 10;
@@ -233,9 +231,20 @@ h2 {
   .collab-collection-list > div {
     width: 24.5%;
     display: inline-block;
+    position: relative;
   }
-  .collections p {
-    bottom: -8px;
+  .collections:hover .info {
+      padding: 10px 0;
+      background-color: rgba(255,255,255,1);
+  }
+  div.info {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding: 4px 0;
+    text-align: center;
+    color: #333;
+    background-color: rgba(255,255,255,0.75);
   }
 /* DESKTOP */
 @media all and (min-width: 1024px) {
