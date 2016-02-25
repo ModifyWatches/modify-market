@@ -1,5 +1,5 @@
 <!-- /snippets/product-grid-item.liquid -->
-{% assign collab = product.vendor | handleize %}
+{% assign collab = collection.handle | handleize %}
 {% comment %}
 
   This snippet is used to showcase each product during the loop,
@@ -60,7 +60,7 @@
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
   </p>
   <p class="super-small text-left">
-	  by {{ collab }}
+	  by {{ collection.title }}
   </p>
   <p class="text-left orange-text">
 	   {{ product.price | money }}

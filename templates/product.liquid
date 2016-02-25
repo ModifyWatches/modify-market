@@ -9,7 +9,7 @@
 
 {% endcomment %}
 
-{% assign collab = product.vendor | handleize %}
+{% assign collab = collection.title | handleize %}
 {% assign artwork = product.title %}
 
 
@@ -201,7 +201,7 @@
 
 	   <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
 		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
-	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ collab }} </a></h3>
+	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ collection.title }} </a></h3>
 	   		
 	   		{% include 'follow' %}
 	   		<p>Be the first in line for new products an limited editions!
