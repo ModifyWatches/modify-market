@@ -1,0 +1,12 @@
+<!-- The elusive follow button -->
+{{ 'follow.js' | asset_url | script_tag }}
+<div id="followFrame">
+	<div class="" id="followForm">
+		<form action="" method="post" id="followers" name="followers" class="" target="">
+			<input type="email" value="{{ customer.email }}" name="EMAIL" class="{% if customer %} hideAll {% endif %}" id="EMAIL" placeholder="email">
+			<input type="hidden" value="{{ collection.title }}" name="collection" class="required" id="collection">
+		</form>
+	</div>
+		
+	<button class="btn--secondary" id="follower" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
+</div>

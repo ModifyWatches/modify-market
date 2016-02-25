@@ -20,7 +20,7 @@
 <div id="collectionBookmark">
     <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
-	<button class="btn--secondary"><a href="#"class="">follow</a></button>
+	{% include 'follow' %}
 	<p class="hiddenMobile">Learn more about {{ collection.title }} and get a first look at their new collections</p>
 	<hr>
 	<ul class="inline-list social-icons hiddenMobile">

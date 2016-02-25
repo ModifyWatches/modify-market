@@ -1,5 +1,5 @@
 <!-- /snippets/product-grid-item.liquid -->
-{% assign collab = product.vendor %}
+{% assign collab = product.vendor | handleize %}
 {% comment %}
 
   This snippet is used to showcase each product during the loop,
