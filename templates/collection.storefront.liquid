@@ -132,6 +132,11 @@
 
 <script>
   $(function() {
-    $( "#tabs" ).tabs();
+   $('#tabs').tabs().find( 'ul.ui-tabs-nav a' ).bind( 'click', function(e){
+      e.preventDefault();
+      e.stopImmediatePropagation()
+	});
+
   });
+ 
 </script>
