@@ -1,5 +1,5 @@
 <!-- Filter Menu brought to you by Shopify Power Tools -->
-{% assign pt_refine_text = 'Refine' %}
+{% assign pt_refine_text = 'Filter' %}
 {% assign pt_clear_text = 'clear' %}
 {% assign pt_view_all_text = 'view all' %}
 {% assign pt_collection_text = 'Collection' %}
@@ -7,9 +7,9 @@
 {{ shop.metafields.pt_filter_css['system'] }}
 {{ shop.metafields.pt_filter_css['user'] }}
 </style>
-<div class="filter-menu filter-selected-{{ collection.handle }}{% for tag in current_tags %} filter-selected-{{ tag | handleize }}{% endfor %}">
+<div id="Filter" class="filter-menu filter-selected-{{ collection.handle }}{% for tag in current_tags %} filter-selected-{{ tag | handleize }}{% endfor %}">
     <div class="filter-group refine-header">
-        <h4>{{ pt_refine_text }}</h4>
+        <h3 style="margin: 0.5em 0 0 0;">{{ pt_refine_text }}</h3>
         {% unless collection.handle == 'all' or collection.handle == nil and current_tags == nil %}
         <a class="filter-clear" href="/collections/all">{{ pt_view_all_text }}</a>
         {% endunless %}
@@ -66,6 +66,7 @@
     {% assign header_handle = menu_header.first | replace: header_handle.first, '' %}
     <div class="filter-group filter-group{{ header_handle }} {% if has_selected %}has_group_selected{% endif %} {% if has_multiple_items %}has_mutliple_items{% else %}has_single_item{% endif %}">
         <h4>{{ shop.metafields.pt_filter_header[menu_header.first] }}</h4>
+
         <ul class="nav{{ header_handle }} {% if has_selected %}has_selected{% endif %}">
             {% for menu_item in menu_items %}
             {% assign filter_collection = collections[menu_item] %}
@@ -87,6 +88,7 @@
             {% endif %}
             {% endfor %}
         </ul>
+
         {% unless '|' == current_selected %}
         {% assign current_collection_handle_sep = current_collection_handle | prepend: '|' | append: '|' %}
         {% if current_selected contains current_collection_handle_sep %}{% assign current_collection_handle_sep = 'all' %}{% assign current_selected = current_selected | replace: current_collection_handle_sep, '|' %}{% else %}{% assign current_collection_handle_sep = collection.handle %}{% endif %}
@@ -130,7 +132,7 @@
 <script type="text/javascript">
 $(function() {
     $('.filter-group ul:not(.has_selected)').each(function(){
-      var max = 10;
+      var max = 20;
       if ($(this).find("li:not(.selected)").length > (max+1)) {
         $(this).find('li:gt('+(max-1)+'):not(.selected)')
         .hide()
@@ -143,4 +145,15 @@ $(function() {
       }
     });
   });
+  
+    $('#Filter').accordion({
+        heightStyle: "content",
+        collapsible: true,
+        active: false,
+        header: "h4",
+        icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+    });
+    // Get Icons
+    var icons = $('#FAQ').accordion( "option", "icons" );
+
 </script>

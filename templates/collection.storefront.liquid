@@ -61,22 +61,22 @@
  <main class="wrapper main-content" role="main">
 
 <div class="grid--rev">
-  <div class="grid__item two-thirds">
+  <div class="grid__item three-quarters">
   
   
   
   <div id="tabs">
 	  <ul class="inline-list collab-tiles">
-		  <li><a href="#product-tab" class="reverseLink">Products</a></li>
-		   <li><a href="#artwork-tab" class="reverseLink">Artwork</a></li>
-		  <li><a href="#profile-tab" class="reverseLink">Profile</a></li>
+		  <li><a href="#product-tab" class="reverseLink"><h5>Products</h5></a></li>
+		   <li><a href="#artwork-tab" class="reverseLink"><h5>Artwork</h5></a></li>
+		  <li><a href="#profile-tab" class="reverseLink"><h5>Profile</h5></a></li>
 	  </ul>
   
     <div id="profile-tab">
 	    <p>
 	       {% if collection.description != blank %}
 	      <header class="section-header">
-	        <h3 class="section-header__title">About {{ collection.title }}</h1><br>
+	        <h3 class="section-header__title">About {{ collection.title }}</h3><br>
 	        <div class="rte rte--header">
 	          {{ collection.description }}
 	        </div>
