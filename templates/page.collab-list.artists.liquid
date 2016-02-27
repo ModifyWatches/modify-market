@@ -29,6 +29,8 @@
 
 <!-- COLLAB COLLECTIONS LIST -->
 <div class="collab-collection-list">
+	
+	
   {% for collection in collections %}
     {% if collection.tags contains 'artist' %}
         {% unless collection.handle == 'all' or collection.handle == 'black' or collection.handle == 'pattern' or collection.handle == 'watch' or collection.handle == 'photography' %}

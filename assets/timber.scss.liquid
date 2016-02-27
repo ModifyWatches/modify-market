@@ -337,6 +337,8 @@ a.whiteLink {
 .collection-matrix {
 	list-style: none;
 	width: 100%;
+	margin:0px;
+	padding:0px;
 	
 }
 .collabType {
@@ -361,6 +363,12 @@ a.whiteLink {
 	width:120px;
 	color: #8e8e8e !important;
 	font-weight: bold;
+}
+.top {
+	text-align: center;
+}
+.more {
+	text-align: center;
 }
 /*============================================================================
   #Sass Mixins
@@ -490,6 +498,7 @@ $max: max-width;
 html, body {
   padding: 0;
   margin: 0;
+  top:0px;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
@@ -932,6 +941,7 @@ body {
   margin-top: $gutter;
   padding-bottom:0;
   position: relative;
+  top:60px;
 }
 
 /*============================================================================
@@ -1969,6 +1979,12 @@ label.error {
 .site-header {
   padding: ($gutter / 2) 0;
   height: 60px;
+  width:100%;
+  position: fixed;
+  z-index: 10000;
+  top:0px !important;
+  background-color: #ffffff;
+
 
   .grid--table {
     display: table;
@@ -2070,7 +2086,9 @@ label.error {
   background-color: $colorNav;
   width:100%;
   margin: 0 auto;
-  position: relative;
+  position: fixed;
+  top:60px;
+  left:0px;
    z-index: 1000;
    
 
@@ -2498,6 +2516,7 @@ label.error {
   color: $colorFooterText;
   border-top: 1px solid #363635;
   font-size: 15px;
+  margin-top: 80px;
 
   @include at-query ($min, $large) {
     padding: ($gutter * 2) 0;
@@ -2933,6 +2952,7 @@ label.error {
 
 .filter-group {
     position: relative;
+    cursor: pointer;
 }
 
 .filter-group .filter-clear {
