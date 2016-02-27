@@ -37,7 +37,7 @@
   {% assign sold_out = false %}
 {% endif %}
 
-<div class="grid__item {{ grid_item_width }} artGrid">
+<div class="artGrid">
 
   {% comment %}
     Link to your product with the 'within: collection' filter for the link to be aware of the collection.
@@ -52,6 +52,21 @@
 
   {% endcomment %}
   <a href="{{ product.url | within: collection }}" class="grid__image">
+	<div class="collabType">
+		<div class="collabText">
+			{% for tag in product.tags %}
+				{% if tag == 'nonprofit' %}
+					Nonprofit
+				{% elsif  tag == 'brand' %}
+					Brand
+				{% elsif  tag == 'artist' %}
+					Artist
+				{% elsif  tag == 'musician' %}
+					Musician		
+				{% endif %}	
+			{% endfor %}	
+		</div>
+	</div>  
     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
   

@@ -45,7 +45,7 @@
     {% endfor %}
 </section>
 
-<section class="grid__item large--three-quarters small--three-quarters">
+<section class="grid__item large--three-quarters small--three-quarters" id="pageTop">
 {% comment %}
 
   This is the homepage of your site.
@@ -60,13 +60,32 @@
   Use class grid-uniform to have evenly sized columns clear
   each other properly at each breakpoint.
 {% endcomment %}
-<div class="grid-uniform">
+	 {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+		<div class="grid-uniform">
+			{% paginate collections.home-page.products by 12 %}
+		<ul class="collection-matrix">
+		 {% for product in collections.home-page.products %}
+		 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+		  {% include 'art-grid' %}
+		 </li> 
+		 {% endfor %}
+		  <div style="clear: both"></div>
+		 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+		 {% if paginate.next %}
+		  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+		 {% endif %}
+		 <div style="clear: both"></div>
+		</ul>
+		
+		<div id="product-list-foot"></div>
+		{% endpaginate %}
+
 
   {% comment %}
     Loop through products in your Frontpage collection.
     This collection is created by default, but you must add products to it.
-  {% endcomment %}
-  {% for product in collections.frontpage.products limit:12 %}
+  
+  {% for product in collections.home-page.products limit:12 %}
 
     {% comment %}
       Change the grid item width by using classes from the grid in
@@ -75,7 +94,7 @@
       Example:
         - {% assign grid_item_width = 'large--one-third medium--one-half' %}
     {% endcomment %}
-    {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+   
     {% include 'art-grid' %}
 
   {% else %}
@@ -90,7 +109,7 @@
     {% include 'onboarding-featured-products' %}
 
   {% endfor %}
-
+{% endcomment %}
 </div>
 <!--
 <hr>
