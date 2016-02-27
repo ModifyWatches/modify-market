@@ -517,7 +517,11 @@
             }());
         </script>
     {% endif %}
-    
+ <script>
+	 $(document).ready(function () {
+		attachClickEvent();
+	});
+</script>   
 {% include 'sca-quick-view-template' %} 
  </body>
 </html>

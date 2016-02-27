@@ -129,7 +129,7 @@
 	 	<div class="grid__item light-bg big-padding big-margin">
 	   <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
 		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
-	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ collab }} </a></h3>
+	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a></h3>
 	   		
 	   		{% include 'follow' %}
 	   		<p>Be the first in line for new products an limited editions!
@@ -140,12 +140,28 @@
 	   <main class="wrapper main-content big-margin" role="main">
 		    <div class="grid__item large--grid-uniform text-center">
 	   		<h3>Products</h3>
-	   
-		   {% for product in collections[collab].products %}
-		   	{% if product.tags contains artwork %}
-		   	{% include 'product-grid-item' %}
-		   	{% endif %}
-		   {% endfor %}	
+	   		<div class="grid-uniform">
+		   	{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+			{% paginate collections[collab].products by 12 %}
+				<ul class="collection-matrix">
+				 {% for product in collections[collab].products %}
+				 	{% if product.tags contains artwork %}
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				  {% include 'product-grid-item' %}
+				 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				 {% if paginate.next %}
+				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				 {% endif %}
+				 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			{% endpaginate %}
+
 		    </div>
 		   
 		   

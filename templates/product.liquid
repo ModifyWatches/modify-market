@@ -260,16 +260,39 @@
 	   <!-- restart full width -->
 <div style="clear:both"></div>
 <main class="wrapper main-content" role="main">
-	<div class="grid__item large--grid-uniform text-center product-grid">
-	   		<h3>More products by {{ collab }}</h3>
+	<div class="grid__item large--grid-uniform text-center">
+	   		<h3>More products by {{ product.vendor }}</h3>
 	   
-		   {% for product in collections[collab].products %}
-		   {% if product.type !='Art' %}
-		   	{% include 'product-grid-item' %}
-		   	{% endif %}
-		   {% endfor %}	
-		    </div>
-           
+	   			{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+			{% paginate collections[collab].products by 12 %}
+				<ul class="collection-matrix">
+				 {% for product in collections[collab].products %}
+				 	 {% if product.type !='Art' %}
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				  {% include 'product-grid-item' %}
+				 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				 {% if paginate.next %}
+				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				 {% endif %}
+				 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			{% endpaginate %}
+
+	   
+	   
+	   
+	   
+		  
+		   <div style="clear: both"></div>
+	</div>
+
+<div class="grid__item large--grid-uniform text-center">           
 {% comment %}
   To take advantage of a callback on the select dropdown, add option_selection.js
   and customize the JS in timber.productPage as needed.
@@ -321,3 +344,4 @@
 <div title="Recently Viewed Products" sources="related_recently_viewed,related_top_products" layout="horizontal" max_suggest="5" id="isp-related-widget-4"></div>
 <script src="https://acp-magento.appspot.com/js/isp_related_products.js?v=1.0.7&UUID=07233f61-ec24-4ef7-bd9d-80d9f82cd02a&store=11596060"></script>
 <!-- IS+ Product Recommendation Widget END -->
+    </div>

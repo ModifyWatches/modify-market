@@ -95,12 +95,26 @@
         </div>
       </div>
     {% else %}
-    	
-    	{% for product in collection.products %}
-    		{% if product.type !='Art' %}
-		   	{% include 'product-grid-item' %}
-		   	{% endif %}
-		{% endfor %}	
+    	{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+			{% paginate collection.products by 12 %}
+				<ul class="collection-matrix">
+				 {% for product in collection.products %}
+				 	 {% if product.type !='Art' %}
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				  {% include 'product-grid-item' %}
+				 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				 {% if paginate.next %}
+				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				 {% endif %}
+				 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			{% endpaginate %}
     {% endif %}
     </div>
     </div>
@@ -108,11 +122,27 @@
 	 
 	       <div class="collection_product">
        	
-    	{% for product in collection.products %}
-    		{% if product.type =='Art' %}
-		   	{% include 'product-grid-item' %}
-		   	{% endif %}
-		{% endfor %}	
+    	{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+			{% paginate collection.products by 12 %}
+				<ul class="collection-matrix">
+				 {% for product in collection.products %}
+				 	 {% if product.type =='Art' %}
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				  {% include 'art-grid' %}
+				 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				 {% if paginate.next %}
+				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				 {% endif %}
+				 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			{% endpaginate %}
+
    
     </div>
 
