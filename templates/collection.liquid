@@ -55,45 +55,28 @@
         Loop through our products in the current collection.
         See the snippet 'product-grid-item' for the layout.
       {% endcomment %}
-      {% for product in collection.products %}
-
-        {% include 'product-grid-item' %}
-
-      {% else %}
-
-        {% if collection.handle == 'all' and current_tags == '' %}
-
-          {% comment %}
-            Add default products to help with onboarding for collections/all only
-          {% endcomment %}
-          {% unless emptyState %}
-            {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-            {% assign emptyState = true %}
-          {% endunless %}
-          {% include 'onboarding-empty-collection' %}
-
-        {% else %}
-
-          {% comment %}
-            If collection exists but is empty, display message
-          {% endcomment %}
-          <div class="grid__item">
-            <p>{{ 'collections.general.no_matches' | t }}</p>
-          </div>
-
-        {% endif %}
-
-      {% endfor %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+			{% paginate collection.products by 12 %}
+				<ul class="collection-matrix">
+				 {% for product in collection.products %}
+				 	 {% if product.type !='Art' %}
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				  {% include 'product-grid-item' %}
+				 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				 {% if paginate.next %}
+				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				 {% endif %}
+				 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			{% endpaginate %}
 
     </div>
-
-    {% if paginate.pages > 1 %}
-      <hr>
-      <div class="pagination">
-        {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
-      </div>
-    {% endif %}
-
   </div>
 
 </div>
