@@ -51,9 +51,12 @@
 
       <h1 itemprop="name">{{ product.title }}</h1>
       <hr class="orangeDash-center">
-      Share: 
+      <div class="one-sixth text-left" style="margin:0 auto">
+      <p>Share:
+      {% include 'addthis' %}
+      </p>
       <!-- hidden stuff for now -->
-      
+      </div>
 	  <div class="hideAll">
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">

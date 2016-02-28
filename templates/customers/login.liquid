@@ -1,9 +1,23 @@
 <!-- /templates/customers/login.liquid -->
 
 <div class="grid">
-
+	
   <div class="grid__item large--one-third push--large--one-third text-center">
+	  
 
+	<h1>Feeling Lazy? Log in with Facebook</h1>
+	<div class="one-click-social-login"></div>
+	
+
+<section class="signupOr">
+	
+		<hr>OR<hr>
+
+</section>
+
+	<h2>Log in with your email</h2>
+	<div id="create-customer" class="signupSignin">
+  	
     {% comment %}
       If a user has successfully requested a new password, the form.posted_successfully? variable
       is set to true within the 'recover_customer_password' form only. Within that form you'll see
@@ -15,8 +29,6 @@
 
     <div id="CustomerLoginForm" class="form-vertical">
       {% form 'customer_login' %}
-
-        <h1>{{ 'customer.login.title' | t }}</h1>
 
         {{ form.errors | default_errors }}
 
