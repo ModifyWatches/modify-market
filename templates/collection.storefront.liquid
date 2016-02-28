@@ -18,10 +18,11 @@
 
 
 <div id="collectionBookmark">
-    <img src="{{ collection_tile }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
+
+    <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
 	{% include 'follow' %}
-	<p class="hiddenMobile">Learn more about {{ collection.title }} and get a first look at their new collections</p>
+	
 	<hr>
 	<ul class="inline-list social-icons hiddenMobile">
                     <li>
@@ -105,10 +106,9 @@
 				 </li> 
 				 	{% endif %}
 				 {% endfor %}
-				  <div style="clear: both"></div>
-				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				  <div style="clear: both"></div>      
 				 {% if paginate.next %}
-				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				  <li class="more"><a href="{{ paginate.next.url }}">More</a></li>        
 				 {% endif %}
 				 <div style="clear: both"></div>
 				</ul>
@@ -133,9 +133,9 @@
 				 	{% endif %}
 				 {% endfor %}
 				  <div style="clear: both"></div>
-				 <li class="top"><a href="#pageTop">Back to Top</a> &uarr;</li>        
+				      
 				 {% if paginate.next %}
-				  <li class="more">&darr; <a href="{{ paginate.next.url }}">More</a></li>        
+				  <li class="more"><a href="{{ paginate.next.url }}">More</a></li>        
 				 {% endif %}
 				 <div style="clear: both"></div>
 				</ul>
