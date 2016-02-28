@@ -16,9 +16,10 @@
 {% comment %}
   Toggle between collection.liquid and collection.list.liquid with the
   ?view= parameter.
-{% endcomment %}
+
 <div class="collection-view">
   <button type="button" title="{{ 'collections.general.grid_view' | t }}" class="change-view{% unless template contains 'list' %} change-view--active{% endunless %}" data-view="grid">
+  
     <span class="icon-fallback-text">
       <span class="icon icon-grid-view" aria-hidden="true"></span>
       <span class="fallback-text">{{ 'collections.general.grid_view' | t }}</span>
@@ -31,7 +32,7 @@
     </span>
   </button>
 </div>
-
+{% endcomment %}
 <script>
   /*============================================================================
     Inline JS because collection liquid object is only available
