@@ -1,0 +1,140 @@
+<style>
+    #FAQ h5 {
+        cursor: pointer;
+    }
+</style>
+
+<!-- /templates/page.liquid -->
+<div class="grid">
+  <div id="FAQ" class="grid__item large--two-thirds push--large--one-sixth">
+    <h1 class="text-center">Storefront Guide</h1>
+    
+    <div class="grid__item large--three-quarters push--large--one-eighth medium--one-whole genSection">
+        <h2>Info to help you manage your store!</h2>
+        
+        <h5>How can I access my storefront account?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                Currently, we do not have a way to show real-time sales or make edits to your storefront. We're working on creating a dashboard for this purpose and more!          
+            </p>
+            <p>
+                If you have any questions please contact 
+                <a href="mailto:storefronts@modify.com">
+                    storefronts@modify.com.
+                </a>
+            </p>
+        </div>
+        
+        <h5>How do I add more designs to my storefront?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                If you ever want to add designs to your page, just fill out the form below again selecting the "YES, I want to add designs..." option. This will go straight our creative team to put 'em up!                
+            </p>
+            <p>
+                <a class="rte" href="https://modifywatches.wufoo.com/forms/zf5lnk21p6pl7z/">
+                    Storefront Submission Form
+                </a>
+            </p>
+        </div>
+        
+        <h5>How can I view my sales?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                Currently, we do not have a way to show real-time sales, but we're working on creating a dashboard in the for this purpose and more!                
+            </p>
+            <p>
+                Payments are processed by the 15th of the following month, so we can account for returns.Once you reach $50 in sales we will send through your royalty payment via paypal or check.                
+            </p>
+            <p>
+                We’d be more than happy to send you a sales report upon request. Please contact <a href="mailto:storefronts@modify.com">storefronts@modify.com</a>
+            </p>
+        </div>  
+        
+        <h5>What types of products do you offer?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                The 1 year warranty covers defective products from the date of shipment. For example, should your watch stop working properly, we will send you a new one. Contact us if the battery stops, we've stocked extras so you don't have to go on a pesky battery hunt! Watches are not considered defective if you cause physical harm to it. Basically, if the watch stops working on its own, we got your back. Simply send us an email to help@modifywatches.com and we will gladly walk you through the process.
+            </p>
+        </div>
+        
+        <h5>How do I add merchandise to my storefront?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                If there are any defects with your products, we got your back. Return, refund, exchange, we'll make it up to you.
+            </p>
+            <p>
+                Since all of our products are printed on demand when you order them, we cannot accept returns unless products are defective. We hope to update this policy in the near-future but as a small startup we don't have the means to offer returns on non-defective custom products.
+            </p>
+        </div> 
+        
+        <h5>Can I add metal watches to my storefront?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                Absolutely! We're currently adding metal watches to all storefronts. Please email 
+                <a href="storefronts@modify.com">
+                    storefronts@modify.com                    
+                </a> 
+                and we’ll get them up asap!
+            </p>
+        </div>
+        
+        <h5>Can I make edits post-launch?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                Congratulations on opening your storefront! If you would like to make any changes, please contact 
+                <a href="storefronts@modify.com">
+                    storefront@modify.com
+                </a> with a detailed list of edits. You can then sit back and relax, we'll handle the rest! 
+            </p>
+        </div>
+        
+        <h5>Can I order in bulk?</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                Absolutely! Ordering in bulk is a great way to show off your passion. Please fill out the order form below and send to: 
+                <a href="storefronts@modify.com">
+                    storefront@modify.com
+                </a>
+            </p>
+            <p>
+                <a href="http://bit.ly/1Hf4dDv">Purchase Order Form</a>
+            </p>
+            <p>
+                Note: If you are submitting a custom design not currently on our website, please attach artwork/print files with file names corresponding to the Purchase Order Form. We accept Credit Card (preferred), Bank Wire, or Check. We will send you an invoice with payment instructions once you submit your order.
+            </p>
+        </div>
+        
+        <h5>Modify Merch Price List</h5>
+        <div>
+            <hr class="orangeDash">
+            <p>
+                Silicone watch $25.00, 
+            </p>
+        </div>
+                                                       
+    </div>
+    
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#FAQ').accordion({
+        heightStyle: "content",
+        collapsible: "true",
+        active: "false",
+        header: "h5",
+        icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+    });
+    // Get Icons
+    var icons = $('#FAQ').accordion( "option", "icons" );
+});
+</script>
