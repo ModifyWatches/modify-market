@@ -1,8 +1,27 @@
+<style>
+    .storefrontHeader {
+        background-image: url({{ 'storefront_Header.jpg' | asset_url }});
+        background-size: cover;
+        padding: 120px 0;
+    }
+    h2 {
+        margin-bottom: 4px;
+    }  
+    .subCopy {
+        margin-bottom: 20px;
+    }  
+    .press img {
+        opacity: 0.6;
+    }
+        .press img:hover {
+            opacity: 1;
+        }
+</style>
+
 </main>
 <!-- Main Header Section -->
-<section class="grid--full large--one-whole">
-    <img src="{{ 'storefront_Header.jpg' | asset_url }}" alt="Custom merchandise for your fans.">
-    <h1 class="grid__item text-center text-white" style="position: relative; margin-top: -20%;">
+<section class="grid--full large--one-whole storefrontHeader">
+    <h1 class="grid__item text-center text-white">
         Custom merchandise for your fans. <br />
         Brand building and fundraising for you.
     </h1>
@@ -19,13 +38,13 @@
 
 
 <!-- First part of Process story section -->
-<section class="grid--full large--one-whole genSection light-bg storefrontProcess">
+<section class="grid--full large--one-whole genSection light-bg storefrontProcess rte">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
+    <main class="wrapper" role="main">
         
-    <h1 class="grid__item large--one-whole text-center">
+    <h2 class="grid__item large--one-whole text-center" style="margin-bottom: 20px;">
         You bring your fans, we'll do all the work
-    </h1>
+    </h2>
     
     <div class="grid__item large--one-third text-center">
         <img class="large--two-thirds small--one-half push--small--one-quarter" src="{{ 'storefrontprocess_1.jpg' | asset_url }}" />
@@ -64,13 +83,13 @@
 <!-- Second part of Process story section -->
 <section class="grid--full large--one-whole genSection">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
-    <div class="grid__item large--one-third push--large--one-twelfth">
+    <main class="wrapper" role="main">
+    <div class="grid__item large--one-third push--large--one-twelfth rte">
         <div class="grid__item large--one-whole">
             <img src="" />
-            <h2>
+            <h3>
                 4. Build Your Brand
-            </h2>
+            </h3>
             <hr class="orangeDash" />
             <p>
                 You'll get awesome images to help spread the word.
@@ -79,9 +98,9 @@
         
         <div class="grid__item large--one-whole">
             <img src="" />
-            <h2>
+            <h3>
                 5. Earn Cash
-            </h2>
+            </h3>
             <hr class="orangeDash" />
             <p>
                 You'll receive 20% of revenue from your products. (30% if you're a Nonprofit)
@@ -99,11 +118,11 @@
 <!-- Wufoo Form Section -->
 <section class="grid--full large--one-whole genSection">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
+    <main class="wrapper" role="main">
     <a name="form">
-        <h1 class="text-center">
+        <h2 class="text-center subCopy">
             Sign-up and we'll get designing :)
-        </h1>
+        </h2>
     </a>
     
     <div class="grid__item large--three-quarters push--large--one-eighth">
@@ -131,37 +150,36 @@
 </section>
 
 <!-- Press Bubbles Section -->
-<section class="grid--full large--one-whole genSection orange-bg">
+<section class="grid--full large--one-whole genSection orange-bg press">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
+    <main class="wrapper" role="main">
     <div class="grid__item large--one-whole">
-        <h6 class="text-center text-white">AS SEEN IN</h6>
         <div class="grid__item large--one-whole press-top-row">
-        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.ellenshop.com/MODIFY-WATCH-pid4465-cid4984.html"><img class="leading" src="{{ 'Press_Ellen.png' | asset_url }}" alt="Ellen" /></a>
-        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://news.yahoo.com/deals-and-steals-beach-party-edition-173339934.html"><img src="{{ 'Press_GoodMorningAmerica.png' | asset_url }}" alt="CBS Good Morning America" /></a>
-        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.menshealth.com/style/watches-brights"><img src="{{ 'Press_MensHealth.png' | asset_url }}" alt="Men's Health" /></a>
-        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://old.modifywatches.com/templates/Modify/images/default/press/WomensHealthJune2013.pdf"><img src="{{ 'Press_WomensHealth.png' | asset_url }}" alt="Women's Health" /></a>
-        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.today.com/id/49063771/ns/today-video/#51036431"><img src="{{ 'Press_Today.png' | asset_url }}" alt="Today Show" /></a>
-        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="https://instagram.com/p/OooPktED28/"><img class="trailing" src="{{ 'Press_VanityFair.png' | asset_url }}" alt="Vanity Fair" /></a>
-        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="#"><img class="leading" src="{{ 'Press_Self.png' | asset_url }}" alt="Self Magazine" /></a>
-        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="http://boss.blogs.nytimes.com/2012/01/05/turning-facebook-followers-into-online-focus-groups/"><img src="{{ 'Press_NYT.png' | asset_url }}" alt="The New York Times" /></a>
-        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third" href="https://twitter.com/mitsu_tsuchiya/status/354314395058319362"><img src="{{ 'Press_Nylon.png' | asset_url }}" alt="Nylon" /></a>
-        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="#"><img src="{{ 'Press_Vogue.png' | asset_url }}" alt="Vogue" /></a>
-        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="#"><img class="trailing" src="{{ 'Press_Lucky.png' | asset_url }}" alt="Lucky Magazine" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="https://www.youtube.com/watch?v=4ugFPIfG5b0#t=2m21s"><img class="five-sixths push--one-twelfth" src="{{ 'Press_Ellen.png' | asset_url }}" alt="Ellen" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://news.yahoo.com/deals-and-steals-beach-party-edition-173339934.html"><img class="five-sixths push--one-twelfth" src="{{ 'Press_GoodMorningAmerica.png' | asset_url }}" alt="CBS Good Morning America" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.menshealth.com/style/watches-brights"><img class="five-sixths push--one-twelfth" src="{{ 'Press_MensHealth.png' | asset_url }}" alt="Men's Health" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://old.modifywatches.com/templates/Modify/images/default/press/WomensHealthJune2013.pdf"><img class="five-sixths push--one-twelfth" src="{{ 'Press_WomensHealth.png' | asset_url }}" alt="Women's Health" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="http://www.today.com/id/49063771/ns/today-video/#51036431"><img class="five-sixths push--one-twelfth" src="{{ 'Press_Today.png' | asset_url }}" alt="Today Show" /></a>
+        <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="https://instagram.com/p/OooPktED28/"><img class="trailing" class="five-sixths push--one-twelfth" src="{{ 'Press_VanityFair.png' | asset_url }}" alt="Vanity Fair" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="#"><img class="leading" class="five-sixths push--one-twelfth" src="{{ 'Press_Self.png' | asset_url }}" alt="Self Magazine" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter small--one-third" href="http://boss.blogs.nytimes.com/2012/01/05/turning-facebook-followers-into-online-focus-groups/"><img class="five-sixths push--one-twelfth" src="{{ 'Press_NYT.png' | asset_url }}" alt="The New York Times" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third" href="https://twitter.com/mitsu_tsuchiya/status/354314395058319362"><img class="five-sixths push--one-twelfth" src="{{ 'Press_Nylon.png' | asset_url }}" alt="Nylon" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="http://www.vogue.com/13295927/best-back-to-school-denim-kids-kidswear/"><img class="five-sixths push--one-twelfth" src="{{ 'Press_Vogue.png' | asset_url }}" alt="Vogue" /></a>
+        <a class="grid__item large--one-sixth push--large--one-twelfth medium--one-quarter push--medium--one-eighth small--one-third push--small--one-sixth" href="http://www.inc.com/young-entrepreneur-council/3-customer-service-rules-to-work-by.html"><img class="five-sixths push--one-twelfth" src="{{ 'Press_Inc.png' | asset_url }}" alt="Inc" /></a>
         </div>
     </div>
     </main>
 </section>
 
 <!-- Support Section -->
-<section class="grid__item large--one-whole genSection purple-bg text-white">
+<section class="grid__item large--one-whole genSection purple-bg text-white rte">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
+    <main class="wrapper" role="main">
         
-    <h1 class="text-center">
+    <h2 class="text-center">
         Help when you need it.
-    </h1>
-    <p class="text-center">
+    </h2>
+    <p class="text-center subCopy">
         Building your brand comes first. Got a question? Just ask!
     </p>
     
@@ -178,7 +196,7 @@
         </div>
     </div>
     
-    <div class="grid__item large--one-half medium--one-half small--one-half">
+    <div class="grid__item large--one-half medium--one-half small--one-half rte">
         <img class="grid__item large--one-fifth medium--one-half push--medium--one-quarter" src="{{ 'Support_GuideIcon.png' | asset_url }}" alt="Your guide to success" />
         <div class="grid__item large--four-fifths">
             <h3>
@@ -197,7 +215,7 @@
             <h3>
                 Partner newsletters
             </h3>
-            <p>
+            <p class="subCopy">
                 Every month we send out a newsletter just for our partners, with case studies and tips to help you grow!
             </p>
         </div>
@@ -219,81 +237,85 @@
 </section>
 
 <!-- Mini Partner FAQ Section -->
-<section class="grid__item large--one-whole genSection">
+<section class="grid__item large--one-whole genSection rte">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
+    <main class="wrapper" role="main">
     <div class="large--one-whole">
-        <h1 class="text-center">
+        <h2 class="text-center">
             Frequently Asked Questions
-        </h1>
-        <p class="text-center">
+        </h2>
+        <p class="text-center subCopy">
             Here are some common questions about partnering with Modify.
         <p>
     </div>
+    
+    <div class="grid">    
+        <div class="grid__item large--one-half">
+            <h3>
+                What do you mean, No Cost and No Risk?
+            </h3>
+            <p>
+                You're busy. You are building your brand, helping folks/animals/the environment with your nonprofit, or maybe just creating exceptional art or music.
+            </p>
+            <p>
+                We are not busy! So we've invested in the ability to bring the best of what the "big guys" get to you. 
+            </p>
+            <p>
+                That means: free design, print-on-demand production (you don't pay a cent!), great marketing advice and of course, fast fulfillment and great service.
+            </p>
+        </div>
         
-    <div class="grid__item large--one-half">
-        <h3>
-            What do you mean, No Cost and No Risk?
-        </h3>
-        <p>
-            You're busy. You are building your brand, helping folks/animals/the environment with your nonprofit, or maybe just creating exceptional art or music.
-        </p>
-        <p>
-            We are not busy! So we've invested in the ability to bring the best of what the "big guys" get to you. 
-        </p>
-        <p>
-            That means: free design, print-on-demand production (you don't pay a cent!), great marketing advice and of course, fast fulfillment and great service.
-        </p>
+        <div class="grid__item large--one-half">
+            <h3>
+                Why print-on-demand?
+            </h3>
+            <p>
+                Waste stinks ... and so does riskk. By creating everything print-on-demand, your fans will be getting the freshest product (literally hot off the presses). And no one will sit on inventory that is stale. 
+            </p>
+            <p>    
+                AND, well, sometimes a great design doesn't sell. So this gives you an opportunity to test out a lot of products before you make a commitment. That way your fans always get designs that they love.
+            </p>
+        </div>
     </div>
     
-    <div class="grid__item large--one-half">
-        <h3>
-            Why print-on-demand?
-        </h3>
-        <p>
-            Waste stinks ... and so does riskk. By creating everything print-on-demand, your fans will be getting the freshest product (literally hot off the presses). And no one will sit on inventory that is stale. 
-        </p>
-        <p>    
-            AND, well, sometimes a great design doesn't sell. So this gives you an opportunity to test out a lot of products before you make a commitment. That way your fans always get designs that they love.
-        </p>
-    </div>
-    
-    <div class="grid__item large--one-half">
-        <h3>
-            How do I sign up?
-        </h3>
-        <p>
-            All you need to do to sign up is fill in this 
-            <a href="">form.</a>
-        </p>
-        <p>
-            Ethos works with any individual or organization that has an audience. 1,000 fans on Facebook? That works for us. 2,500 people on a newsletter you send? GREAT. 
-        </p>
-        <p>
-            Your fans and supporters should be able to wear their passion ... we'll help you deliver this.
-        </p>
-    </div>
-    
-    <div class="grid__item large--one-half">
-        <h3>
-            How much do I get?
-        </h3>
-        <p>
-            20% of the revenue of every sale goes to you! If you're a nonprofit - or if you want to donate your proceeds to a nonprofit - you get 30%. Not profit. Not margin. But revenue. Sell a shirt for $25? You get $5 (or $7.50).
-        </p>
-        <p>
-            Your fans love your story - help them wear their passion on a daily basis.
-        </p>
+    <div class="grid">
+        <div class="grid__item large--one-half">
+            <h3>
+                How do I sign up?
+            </h3>
+            <p>
+                All you need to do to sign up is fill in this 
+                <a href="">form.</a>
+            </p>
+            <p>
+                Ethos works with any individual or organization that has an audience. 1,000 fans on Facebook? That works for us. 2,500 people on a newsletter you send? GREAT. 
+            </p>
+            <p>
+                Your fans and supporters should be able to wear their passion ... we'll help you deliver this.
+            </p>
+        </div>
+        
+        <div class="grid__item large--one-half">
+            <h3>
+                How much do I get?
+            </h3>
+            <p>
+                20% of the revenue of every sale goes to you! If you're a nonprofit - or if you want to donate your proceeds to a nonprofit - you get 30%. Not profit. Not margin. But revenue. Sell a shirt for $25? You get $5 (or $7.50).
+            </p>
+            <p>
+                Your fans love your story - help them wear their passion on a daily basis.
+            </p>
+        </div>
     </div>
     </main>
 </section>
 
 <!-- Bottom CTA Section -->
-<section class="grid--full large--one-whole genSection grey-bg text-center text-white">
-    <h1>
+<section class="grid--full large--one-whole genSection grey-bg text-center text-white rte">
+    <h1 style="margin-bottom: 4px;">
         Open your store <u>today!</u>
     </h1>
-    <p>
+    <p class="subCopy">
         Help your fans rep the brand they love... yours! It's completely free to get started.
     </p>
     
