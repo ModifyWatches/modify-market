@@ -55,16 +55,22 @@
   <a href="{{ product.url | within: collection }}" class="grid__image">
     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
-  <img src="{{ collections[collab].image | img_url: 'small' }}" class="tinyArt roundedBorder" />
-  <p class="h5 text-left">
-    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-  </p>
-  <p class="super-small text-left">
-	  by {{ product.vendor }}
-  </p>
-  <p class="text-left orange-text">
-	   {{ product.price | money }}
-  </p>
+  <div class="grid--full">
+    <div class="grid__item one-sixth">
+        <img src="{{ collections[collab].image | img_url: 'small' }}" class="tinyArt roundedBorder" />
+    </div>
+    <div class="grid__item five-sixths">
+        <p class="h5 text-left">
+            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </p>
+        <p class="super-small text-left">
+            by {{ product.vendor }}
+        </p>
+        <p class="text-left orange-text">
+            {{ product.price | money }}
+        </p>
+    </div>
+  </div>
     {% comment %}
       You can show a leading 'from' or 'up to' by checking 'product.price_varies'
       if your variants have different prices.
