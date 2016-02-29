@@ -1,12 +1,12 @@
 </main>
 <!-- /snippets/trending-stores.liquid -->
-<div class="text-center big-margin big-padding light-bg">
+<div class="text-center big-margin medium-padding light-bg">
     <!-- Wrapper Grid -->
-    <main class="wrapper main-content" role="main">
+    <main class="wrapper main-content small-margin" role="main">
         <h2>Checkout these trending stores</h2>
 
         {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
-		<div class="grid-uniform">
+		<div class="grid-uniform big-padding">
 					<ul class="collection-matrix">
 		 {% for product in collections.home-page.products limit:4 %}
 		 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">

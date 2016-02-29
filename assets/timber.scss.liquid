@@ -282,9 +282,18 @@ $socialIconFontStack: 'icons';
 	margin-bottom: 40px !important;
 	top:0px !important;
 }
+.small-margin {
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	top:0px !important;
+}
 .big-padding {
 	padding-top: 30px !important;
-	padding-bottom: 30px !important;
+	padding-bottom: 0px !important;
+}
+.medium-padding {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
 }
 .super-small {
 	font-size: 10px;
@@ -1369,6 +1378,10 @@ html input[disabled] {
   &:focus {
    background-color: $colorBtnSecondaryActive;
    color: $colorBtnSecondaryText;
+  }
+  &:disabled {
+	 background-color: #626262 !important;
+	 color:#ffffff !important; 
   }
 }
 
