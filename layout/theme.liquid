@@ -154,17 +154,15 @@
       <header class="site-header" role="banner">
       <div class="wrapper">
 
-        <div class="grid--full grid--table">
-          <div class="grid__item large--two-thirds">
+        <div class="grid--full grid">
+          <div class="grid__item large--three-quarters medium--three-quarters small--one-whole">
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
               Site name gets precedence with H1 tag on homepage, div on other pages.
             {% endcomment %}
-            {% if template == 'index' %}
-              <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
+            
+              <h1 class="site-header__logo left large--one-sixth medium--one-fifth small--one-quarter" itemscope itemtype="http://schema.org/Organization">
+           
               {% if settings.logo_use_image %}
                 <a href="/" itemprop="url" class="site-header__logo-link">
                   <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
@@ -172,21 +170,19 @@
               {% else %}
                 <a href="/" itemprop="url">{{ shop.name }}</a>
               {% endif %}
-            {% if template == 'index' %}
+            
               </h1>
-            {% else %}
-              </div>
-            {% endif %}
-             <div id="browseBox" class="left">
-	        <b>Browse</b>
-	        1,000+ Stores 
-	    </div>
-             <div class="site-header__search">
+           
+            <div id="browseBox" class="left large--one-sixth medium--one-fifth small--hide">
+		        <b>Browse</b>
+		        1,000+ Stores 
+		    </div>
+             <div class="site-header__search large--two-thirds medium--three-fifths small--one-half small--right">
               {% include 'search-bar' %}
             </div>
 
           </div>
-          <div class="grid__item large--one-third large--text-right medium-down--hide">
+          <div class="grid__item large--one-quarter text-right medium--one-quarter small--hide">
             {% comment %}
               Show number of items in the cart and total cost in the /cart link
 
@@ -242,7 +238,7 @@
     </header>
     <nav class="nav-bar" role="navigation">
       <div class="wrapper">
-        <div class="medium-down--hide">
+        <div class="small-down--hide">
           {% comment %}
             List out your main-menu linklist (default)
 
@@ -297,7 +293,7 @@
   
   <div id="PageContainer" class="is-moved-by-drawer">
 
-        <div class="large--hide medium-down--show">
+        <div class="large--hide medium--hide small-down--show">
           <div class="grid">
             <div class="grid__item one-half">
               <div class="site-nav--mobile">
