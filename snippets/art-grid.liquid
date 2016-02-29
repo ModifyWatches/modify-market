@@ -52,20 +52,20 @@
 
   {% endcomment %}
   <a href="{{ product.url | within: collection }}" class="grid__image">
-	<div class="collabType">
-		<div class="collabText">
+	
+		
 			{% for tag in product.tags %}
 				{% if tag == 'nonprofit' %}
-					Nonprofit
+					<div class="collabType nonprofitCollab">	
 				{% elsif  tag == 'brand' %}
-					Brand
+					<div class="collabType brandCollab">	
 				{% elsif  tag == 'artist' %}
-					Artist
+					<div class="collabType artistCollab">
 				{% elsif  tag == 'musician' %}
-					Musician		
+					<div class="collabType musicianCollab">		
 				{% endif %}	
 			{% endfor %}	
-		</div>
+		
 	</div>  
     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
