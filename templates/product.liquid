@@ -272,7 +272,7 @@
 	   
 	   			{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
 			{% paginate collections[collab].products by 12 %}
-				<ul class="collection-matrix">
+				<ul class="collection-matrix big-padding">
 				 {% for product in collections[collab].products %}
 				 	 {% if product.type !='Art' %}
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
