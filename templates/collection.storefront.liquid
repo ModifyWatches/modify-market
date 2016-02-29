@@ -17,14 +17,14 @@
 {% assign tag_threshold = 8 %}
 
 
-<div id="collectionBookmark" class="large--one-quarter medium--one-quarter">
+<div id="testing" class="collectionBookmark large--one-quarter medium--one-quarter small--one-whole">
 
     <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
 	{% include 'follow' %}
 	
 	<hr>
-	<ul class="inline-list social-icons hiddenMobile">
+	<ul class="inline-list social-icons hide">
                     <li>
                       <a class="icon-fallback-text reverseLink" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
                         <span class="fa fa-instagram" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
 <div class="expandedWidth collectionBanner">
 	<img src="{{ collection_banner }}" />
 </div>
- <main class="wrapper main-content" role="main">
+ <main class="wrapper main-content big-margin" role="main">
 
 <div class="grid--rev">
   <div class="grid__item large--three-quarters medium--three-quarters right">
@@ -67,7 +67,7 @@
   
   
   <div id="tabs">
-	  <ul class="inline-list collab-tiles">
+	  <ul class="inline-list collab-tiles small--text-center">
 		  <li><a href="#product-tab" class="reverseLink"><h5>Products</h5></a></li>
 		   <li><a href="#artwork-tab" class="reverseLink"><h5>Artwork</h5></a></li>
 		  <li><a href="#profile-tab" class="reverseLink"><h5>Profile</h5></a></li>
@@ -97,13 +97,16 @@
       </div>
     {% else %}
     	{% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
-			{% paginate collection.products by 12 %}
+			{% paginate collection.products by 16 %}
 				<ul class="collection-matrix">
+					
 				 {% for product in collection.products %}
 				 	 {% if product.type !='Art' %}
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
 				  {% include 'product-grid-item' %}
 				 </li> 
+				 	
+				 	
 				 	{% endif %}
 				 {% endfor %}
 				  <div style="clear: both"></div>      

@@ -166,241 +166,6 @@ $socialIconFontStack: 'icons';
 	bg colors 
 ****************/
 
-.grey-bg {
-	background-color: #363635;
-	display: inline-block;
-}
-.light-bg {
-	background-color: #f6f6f6;
-}	
-.blue-bg {
-    background-color: #405862;
-}
-.orange-bg {
-    background-color: #E4572E;
-}
-.orange-text {
-	color: #E4572E;
-	font-weight: bold;
-}
-.purple-bg {
-    background-color: #3A3042;
-    color:#ffffff;
-}
-
-.bannerClass {
-	width:100%;
-	height: auto;
-}
-
-
-.hideAll {
-	display: none !important;
-}
-.roundedBorder {
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	border: 0px solid #ffffff;
-	-webkit-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
-}
-.artImage {
-	float: left;
-	margin-right: 50px;
-	margin-bottom:30px;
-	height: auto;
-	width: 30%;
-}
-.tinyArt {
-	float: left;
-	margin-right: 2%;
-	height: auto;
-	width: 10%;
-	margin-bottom: 50px;
-}
-.productsInfo {
-	position: relative;
-	float: left;
-	width:88%;
-	height:95px;
-}
-.bottom {
-	position: absolute;
-	left: 0px;
-	bottom:0px;
-}
-.artBanner {
-	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	float: none !important;
-}
-.follow {
-	min-width: 100px;
-	text-transform: uppercase;
-}
-.collectionBanner {
-	position: relative;
-	max-height:280px;
-	overflow: hidden;
-}
-    .collectionBanner img {
-        width: 100%;
-    }
-#collectionBookmark {
-	position: absolute;
-	top:0px;
-	max-width:260px;
-	height: 500px;
-	background-color: rgba(255,255,255,0.9);
-	z-index: 500;
-	text-align: center;
-	padding: 30px;
-	-webkit-box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.15);
-	box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.15);
-}
-#collectionBookmark  hr {
-	width: 80%;
-	margin: 0 auto;
-	border-top:1px solid #979797;
-	margin-bottom: 15px;
-}
-.collab-tiles li {
-	margin-left: 10px;
-	margin-left: 10px;
-	text-decoration: underline;
-}
-.collectionLifestyle {
-	width:45%;
-	float: left;
-	margin-left: 5%;
-}
-.big-margin {
-	margin-top: 40px !important;
-	margin-bottom: 40px !important;
-	top:0px !important;
-}
-.small-margin {
-	margin-top: 10px !important;
-	margin-bottom: 10px !important;
-	top:0px !important;
-}
-.big-padding {
-	padding-top: 30px !important;
-	padding-bottom: 0px !important;
-}
-.medium-padding {
-	padding-top: 15px !important;
-	padding-bottom: 15px !important;
-}
-.super-small {
-	font-size: 10px;
-}
-.small {
-	font-size: 12px;
-	line-height: 14px;
-	margin-top: 5px;
-}
-.product-grid {
-	min-height: 290px !important;
-    height: 340px;
-}
-    .product-grid:hover > .grid__image img {
-        -webkit-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.6);
-        -moz-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.6);
-        box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.6);
-    }
-.product-grid p {
-	padding: 0px;
-	margin: 0px;
-	
-}
-a.whiteLink {
-	color: #ffffff;
-	text-decoration: underline;
-}
-#followFrame {
-	position: relative;
-	width:100%;
-	display: block;
-	height: auto;
-	
-}
-#followForm {
-	position: relative;
-	padding-top: 7px;
-	padding-bottom: 7px;
-	float: left;
-	width: 100%;
-	max-width: 200px;
-}
-#followForm input {
-	width: 100%;
-	
-	font-size: 11px;
-}
-#followForm .button {
-	float: right;
-	width: 35%;
-	
-}
-#follower:focus {
-	border: none;
-	outline: none;
-}
-.required {
-	border:1px solid #d40000;
-}
-.fullArtImage {
-	width:20%;
-	min-width: 300px;
-	height: auto;
-}
-#follower {
-
-	margin-top: 10px;
-}
-.collection-matrix {
-	list-style: none;
-	width: 100%;
-	margin:0px;
-	padding:0px;
-	
-}
-.collabType {
-	position: absolute;
-	right:0px;
-	top:0px;
-	width:100%;
-	height: 100%;
-	background-image: url('{{ "collabTriangle.png" | asset_url }}');
-	background-size: cover;
-}
-.collabText {
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	writing-mode: lr-tb;
-	position: absolute;
-	right: -15%;
-	top:9%;
-	font-size: 12px;
-	text-align: center;
-	width:120px;
-	color: #8e8e8e !important;
-	font-weight: bold;
-}
-.top {
-	text-align: center;
-}
-.more {
-	text-align: center;
-}
-#one-click-social-login-buttons {
-	height: 60px !important;
-}
 /*============================================================================
   #Sass Mixins
 ==============================================================================*/
@@ -1344,6 +1109,10 @@ html input[disabled] {
   -moz-appearance: none;
   border-radius: 100px;
   min-width: 100px;
+  
+   @include at-query ($max, $small) {
+		padding:0px;   
+	}
 
   /*================ Set primary button colors - can override later ================*/
   background-color: $colorBtnPrimary;
@@ -3306,4 +3075,292 @@ button#AddToCart {
 /* Footer Styling */
 .footerPress .grid__item {
     padding-left: 0px;
+}
+
+
+/* steves styles */
+.grey-bg {
+	background-color: #363635;
+	display: inline-block;
+}
+.light-bg {
+	background-color: #f6f6f6;
+}	
+.blue-bg {
+    background-color: #405862;
+}
+.orange-bg {
+    background-color: #E4572E;
+}
+.orange-text {
+	color: #E4572E;
+	font-weight: bold;
+}
+.purple-bg {
+    background-color: #3A3042;
+    color:#ffffff;
+}
+
+.bannerClass {
+	width:100%;
+	height: auto;
+}
+
+
+.hideAll {
+	display: none !important;
+}
+.roundedBorder {
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: 0px solid #ffffff;
+	-webkit-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
+}
+.artImage {
+	float: left;
+	margin-right: 50px;
+	margin-bottom:30px;
+	height: auto;
+	width: 30%;
+}
+.tinyArt {
+	float: left;
+	margin-right: 2%;
+	height: auto;
+	width: 10%;
+	margin-bottom: 50px;
+}
+.productsInfo {
+	position: relative;
+	float: left;
+	width:88%;
+	height:95px;
+}
+.bottom {
+	position: absolute;
+	left: 0px;
+	bottom:0px;
+}
+.artBanner {
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	float: none !important;
+}
+.follow {
+	min-width: 100px;
+	text-transform: uppercase;
+}
+.collectionBanner {
+	position: relative;
+	max-height:280px;
+	overflow: hidden;
+	@include at-query ($max, $small) {
+		height: 125px;	
+	}
+}
+.collectionBanner img {
+        width: 100%;
+}
+.collectionBookmark {
+	position: absolute;
+	top:0px;
+	max-width:260px;
+	height: 500px;
+	background-color: rgba(255,255,255,0.9);
+	z-index: 500;
+	text-align: center;
+	padding: 30px;
+	box-sizing: border-box;
+	-webkit-box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.15);
+	box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.15);
+	
+	@include at-query ($max, $small) {
+	 	max-width: 100%;
+	 	height:125px;
+	 	
+	 	background: none;
+	 	box-shadow: none;
+	 	padding: 0px;
+	 	padding-top: 10px;
+	 	
+		
+
+  }
+}
+.collectionBookmark img {
+        width: 100%;
+        @include at-query ($max, $small) {
+	    	height:92%;
+	    	width:auto;
+	    	border: 3px solid #ffffff;
+	    	margin-bottom: 5px;
+	    	   
+	    }
+}
+.collectionBookmark  hr {
+	width: 80%;
+	margin: 0 auto;
+	border-top:1px solid #979797;
+	margin-bottom: 15px;
+}
+.collab-tiles li {
+	margin-left: 10px;
+	margin-left: 10px;
+	text-decoration: underline;
+}
+.collectionLifestyle {
+	width:45%;
+	float: left;
+	margin-left: 5%;
+}
+.big-margin {
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;
+	top:0px !important;
+}
+.medium-margin {
+	margin-top: 30px !important;
+	margin-bottom: 30px !important;
+	top:0px !important;
+}
+.small-margin {
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	top:0px !important;
+}
+.big-padding {
+	padding-top: 30px !important;
+	padding-bottom: 0px !important;
+}
+.medium-padding {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+.super-small {
+	font-size: 10px;
+}
+.small {
+	font-size: 12px;
+	line-height: 14px;
+	margin-top: 5px;
+}
+.product-grid {
+	min-height: 290px !important;
+    height: 340px;
+}
+    .product-grid:hover > .grid__image img {
+        -webkit-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.6);
+        -moz-box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.6);
+        box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.6);
+    }
+.product-grid p {
+	padding: 0px;
+	margin: 0px;
+	
+}
+a.whiteLink {
+	color: #ffffff;
+	text-decoration: underline;
+}
+#followFrame {
+	position: relative;
+	width:100%;
+	display: block;
+	height: auto;
+	
+	 
+	
+}
+.collctionFollow {
+	@include at-query ($max, $small) {
+		position: absolute !important;
+		right: 20px !important;
+		bottom:-35px !important;
+		text-align: right !important;
+		width: 20% !important;	 
+	}
+}
+#followForm {
+	position: relative;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	float: left;
+	width: 100%;
+	max-width: 200px;
+}
+#followForm input {
+	width: 100%;
+	
+	font-size: 11px;
+}
+#followForm .button {
+	float: right;
+	width: 35%;
+	
+}
+#follower:focus {
+	border: none;
+	outline: none;
+}
+.required {
+	border:1px solid #d40000;
+}
+.fullArtImage {
+	width:20%;
+	min-width: 300px;
+	height: auto;
+}
+#follower {
+
+	margin-top: 10px;
+}
+.collection-matrix {
+	list-style: none;
+	width: 100%;
+	margin:0px;
+	padding:0px;
+	
+}
+.trending {
+	list-style: none;
+	width: 100%;
+	margin:0px;
+	padding:0px;
+	
+}
+.collabType {
+	position: absolute;
+	right:0px;
+	top:0px;
+	width:100%;
+	height: 100%;
+	background-image: url('{{ "collabTriangle.png" | asset_url }}');
+	background-size: cover;
+}
+.collabText {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	writing-mode: lr-tb;
+	position: absolute;
+	right: -15%;
+	top:9%;
+	font-size: 12px;
+	text-align: center;
+	width:120px;
+	color: #8e8e8e !important;
+	font-weight: bold;
+}
+.top {
+	text-align: center;
+}
+.more {
+	text-align: center;
+}
+#one-click-social-login-buttons {
+	height: 60px !important;
 }
