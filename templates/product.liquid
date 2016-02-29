@@ -247,18 +247,14 @@
 
 </main> 
 	<div style="clear:both"></div>
-   <div class="grid__item light-bg big-padding big-margin">
-
-    <div class="grid__item light-bg">
-
-	   <div class="grid__item large--one-third medium--one-half small--one-half artBanner">
+  <div class="grid__item light-bg big-padding big-margin">
+	   <div class="grid__item large--one-third medium--one-half small--one-whole artBanner">
 		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
-	   		<h3>By, <a href="{{ collections[collab].url}}" > {{  collections[collab].title }} </a></h3>
+	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a></h3>
 	   		
 	   		{% include 'follow' %}
 	   		
 	   </div>
-
 	   </div>
 	   <div style="clear:both"></div>
 <!-- restart full width -->

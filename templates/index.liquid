@@ -9,30 +9,34 @@
 
 
 <!-- /templates/index.liquid -->
-<section class="grid__item large--one-quarter grey-bg pageBanner text-center text-white genSection">
-	<h5 class="grid__item large--three-quarters push--one-tenth">
-        That could be <u>your</u> brand on that shirt.
-    </h5>
-    <button class="btn--secondary"><a href="/pages/storefronts">Open your Shop</a></button>
-    <p>
-        <i>
-        It's free!
-        </i>
-    </p>
-</section>
-<section class="grid__item large--three-quarters pageBanner homeBanner genSection">
+<section class="grid__item large--three-quarters  medium--three-quarters  small--one-whole pageBanner homeBanner genSection right">
 	<h1 class="  text-white text-center">
        Great art from nonprofits, artists and more!
     </h1>
 </section>
+<section class="grid__item large--one-quarter medium--one-quarter small--one-whole grey-bg pageBanner text-center text-white genSection">
+	<h5 class="large--one-whole medium--one-whole small--three-quarters small--left">
+        That could be <u>your</u> brand on that shirt.
+    </h5>
+    <div class="small--one-quarter small--right">
+	    <a href="/pages/storefronts" class="large--hide medium--hide small-down--show text-white"><b>Open your Shop</b></a>
+    <button class="btn--secondary small-margin small--hide"><a href="/pages/storefronts">Open your Shop</a></button>
+    <p class="small--hide">
+        <i>
+        It's free!
+        </i>
+    </p>
+    </div>
+</section>
 
-<section class="grid__item large--one-quarter medium--one-whole small--one-quarter clear">
+
+<section class="grid__item large--one-quarter medium--one-quarter small--one-whole clear">
     {% comment %}
         Make sure array here matches variables at the top of page.
     {% endcomment %}
     {% assign sidenavArray = "sidenav1|sidenav2|sidenav3|sidenav4" | split: "|" %}
     {% for item in sidenavArray %}
-        <div class="grid__item large--one-whole medium--one-quarter">
+        <div class="grid__item large--one-whole medium--one-whole small--one-half">
             <h4>{{ [item].title }}</h4>
             <hr class="orangeDash">
             <ul class="homeList">
@@ -46,7 +50,7 @@
     {% endfor %}
 </section>
 
-<section class="grid__item large--three-quarters small--three-quarters" id="pageTop">
+<section class="grid__item large--three-quarters medium--three-quarters small--one-whole" id="pageTop">
 {% comment %}
 
   This is the homepage of your site.
@@ -61,7 +65,7 @@
   Use class grid-uniform to have evenly sized columns clear
   each other properly at each breakpoint.
 {% endcomment %}
-	 {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+	 {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
 		<div class="grid-uniform">
 			{% paginate collections.home-page.products by 16 %}
 		<ul class="collection-matrix">

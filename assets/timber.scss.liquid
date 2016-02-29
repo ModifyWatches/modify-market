@@ -54,9 +54,9 @@
 ==============================================================================*/
 $viewportIncrement: 1px;
 
-$small: 480px;
-$medium: 768px;
-$large: 769px;
+$small: 767px;
+$medium: 960px;
+$large: 961px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -972,7 +972,11 @@ body {
  
   padding-bottom:0;
   position: relative;
-  margin-top:60px;
+  margin-top:120px;
+   @include at-query ($min, $small) {
+	    margin-top:60px;
+
+	}
 }
 
 /*============================================================================
@@ -2071,7 +2075,7 @@ label.error {
   display: inline-block;
   max-width: 400px;
   margin-top: $gutter / 2;
-  width: 100%;
+  
   
 }
 .site-header__search input {
@@ -2094,11 +2098,12 @@ label.error {
 
 #browseBox {
 	font-size: 13px;
-	margin-left: 35px;
-	margin-right: 35px;
 	cursor: pointer;
 	padding-top: 7px;
+	padding-right: 2%;
+	padding-left: 2%;
 	line-height: 18px;
+	box-sizing: border-box;
 	
 }
 #browseBox b {
@@ -2533,16 +2538,32 @@ label.error {
 ****************/
 .pageBanner {
 	display:block;
-	height:200px;
+	height:30px;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	margin-bottom: 20px;
+	 @include at-query ($min, $small) {
+	 	margin-bottom: 20px;
+	 	height:200px;
+
+  }
+   @include at-query ($max, $small) {
+	 font-size: 10px !important;
+	 line-height: 10px !important;
+
+  }
+	
 }
 .homeBanner {
 	background-image: url('{{ "home.jpg" | asset_url }}');
-	border-left:15px solid #ffffff;
+	height:200px;	
+	 @include at-query ($min, $small) {
+	 	border-left:15px solid #ffffff;
+	 	height:200px;
+
+  }
 }
+
 /*============================================================================
   #Site Footer
 ==============================================================================*/
@@ -3250,6 +3271,9 @@ ul.homeList {
 /* Full Section BGs */
 .genSection {
     padding: 40px 0;
+    @include at-query ($max, $small) {
+	    padding: 10px 0;
+    }
 }
 .blueSection {
     background-color: #405862;
