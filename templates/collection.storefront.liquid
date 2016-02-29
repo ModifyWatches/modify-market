@@ -17,7 +17,7 @@
 {% assign tag_threshold = 8 %}
 
 
-<div id="collectionBookmark">
+<div id="collectionBookmark" class="large--one-quarter medium--one-quarter">
 
     <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
 	<h3>{{ collection.title }}</h3>
@@ -62,7 +62,7 @@
  <main class="wrapper main-content" role="main">
 
 <div class="grid--rev">
-  <div class="grid__item three-quarters">
+  <div class="grid__item large--three-quarters medium--three-quarters right">
   
   
   
@@ -96,7 +96,7 @@
         </div>
       </div>
     {% else %}
-    	{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+    	{% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
 			{% paginate collection.products by 12 %}
 				<ul class="collection-matrix">
 				 {% for product in collection.products %}
@@ -122,7 +122,7 @@
 	 
 	       <div class="collection_product">
        	
-    	{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+    	{% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
 			{% paginate collection.products by 12 %}
 				<ul class="collection-matrix">
 				 {% for product in collection.products %}
