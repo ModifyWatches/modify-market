@@ -2,17 +2,19 @@
 {{ 'follow.js' | asset_url | script_tag }}
 {% if product.vendor %}
 	{% assign collaboration = product.vendor %}
+	<div id="followFrame">
 {% else %}
 	{% assign collaboration = collection.title %}
+	<div id="followFrame" class="collctionFollow">
 {% endif %}	
-<div id="followFrame">
+
 	<div class="" id="followForm">
 		<form action="" method="post" id="followers" name="followers" class="" target="">
 			<input type="email" value="{{ customer.email }}" name="EMAIL" class="{% if customer %} hideAll {% endif %}" id="EMAIL" placeholder="email">
 			<input type="hidden" value="{{ collaboration }}" name="collection" class="required" id="collection">
 		</form>
 		<button class="btn--secondary" id="follower" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
-		<p class="hiddenMobile small" id="followText">Learn more about {{ collaboration }} and get a first look at their new collections</p>
+		<p class="hiddenMobile small small--hide" id="followText">Learn more about {{ collaboration }} and get a first look at their new collections</p>
 	</div>
 	<div style="clear: both"></div>
 </div>

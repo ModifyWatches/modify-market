@@ -7,20 +7,17 @@
 
         {% assign grid_item_width = 'large--one-quarter medium--one-quarter small--one-half' %}
 		<div class="grid-uniform big-padding">
-					<ul class="collection-matrix">
+					<ul class="trending">
 		 {% for product in collections.home-page.products limit:4 %}
 		 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
 		  {% include 'art-grid' %}
 		 </li> 
 		 {% endfor %}
 		 <!--<li class="top"><a href="#pageTop">Back to Top</a></li>  -->      
-		 {% if paginate.next %}
-		  <li class="more"><a href="{{ paginate.next.url }}">See More</a></li>        
-		 {% endif %}
-		 <div style="clear: both"></div>
+				 <div style="clear: both"></div>
 		</ul>
 		
-		<div id="product-list-foot"></div>
+		
 		<a href="/pages/stores">Browse 1,000 more stores ></a>
 
 
