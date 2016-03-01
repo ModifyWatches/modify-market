@@ -97,7 +97,7 @@
       </div>
     {% else %}
     	{% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
-			{% paginate collection.products by 16 %}
+			
 				<ul class="collection-matrix">
 					
 				 {% for product in collection.products %}
@@ -110,14 +110,11 @@
 				 	{% endif %}
 				 {% endfor %}
 				  <div style="clear: both"></div>      
-				 {% if paginate.next %}
-				  <li class="more"><a href="{{ paginate.next.url }}">More</a></li>        
-				 {% endif %}
-				 <div style="clear: both"></div>
+								 <div style="clear: both"></div>
 				</ul>
 				
 				<div id="product-list-foot"></div>
-			{% endpaginate %}
+			
     {% endif %}
     </div>
     </div>
@@ -137,10 +134,7 @@
 				 {% endfor %}
 				  <div style="clear: both"></div>
 				      
-				 {% if paginate.next %}
-				  <li class="more"><a href="{{ paginate.next.url }}">More</a></li>        
-				 {% endif %}
-				 <div style="clear: both"></div>
+								 <div style="clear: both"></div>
 				</ul>
 				
 				<div id="product-list-foot"></div>
