@@ -4,7 +4,7 @@ $(document).ready(function() {
 			data = $('#followers').serialize();
 			$('#EMAIL').hide();
 			$('#follower').text('following').prop( "disabled", true );
-			$('#followText').html('You are now following '+$('#collection').val());
+			$('#followText').html("You’re now first in line to see all of "+$('#collection').val()+"'s new products!");
 			$.ajax({
 			  type: "POST",
 			  url: 'http://dev.modifywatches.com/sadhorse/followers.php',
