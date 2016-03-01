@@ -34,7 +34,7 @@
 
       {% comment %}
         Create thumbnails if we have more than one product image
-      {% endcomment %}
+      
       
       {% if product.images.size > 1 %}
         <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
@@ -49,7 +49,7 @@
 
         </ul>
       {% endif %}
-
+	  {% endcomment %}
     </div>
 
     <div class="grid__item large--one-third push--large--one-sixth">

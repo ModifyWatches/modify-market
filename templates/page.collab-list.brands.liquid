@@ -10,6 +10,7 @@
     <img src="https://cdn.shopify.com/s/files/1/0358/9733/files/CollabList_HeaderArtist.jpg?13321020809815609926" />
   </div>
 </section>
+ <main class="wrapper main-content big-margin" role="main">
 
 <!-- COLLAB CATEGORY NAVIGATION
 <div class="collab-category-nav">
@@ -24,15 +25,17 @@
 -->
 <!-- COLLAB PARTNER OFFER LINK -->
 <div class="collab-partner" style="margin-bottom: 40px;">
-  <p>Interested in partnering with us?<a href="/pages/collaboration-form"><button>APPLY HERE</button></a></p>
+  <p>Interested in partnering with us?<a href="/pages/storefronts"><button>APPLY HERE</button></a></p>
 </div>
 
 <!-- COLLAB COLLECTIONS LIST -->
-<div class="collab-collection-list">
+
+
+	<div class="grid__item large--one-whole medium--one-whole small--one-whole" id="pageTop">
   {% for collection in collections %}
     {% if collection.tags contains 'brand' %}
-        {% unless collection.handle == 'all' or collection.handle == 'black' or collection.handle == 'pattern' or collection.handle == 'watch' or collection.handle == 'photography' %}
-            <div class="thumbnail">
+       {% if collection.template_suffix == 'storefront' %}
+            <div class="grid__item large--one-quarter medium--one-third small--one-half collabTiles">
                 <a class="collections" href="{{ collection.url }}" title="Browse {{ collection_title }}">
                 {% if collection.image %}
                     <img class="collections" {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
@@ -45,17 +48,17 @@
                 </div>
                 </a>
             </div>
-      {% endunless %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 </div>
-
+<div style="clear:both"></div>
 <!-- Bottom Partner CTA -->
-<div class="grid__item large--one-whole light-bg genSection" >
-    <h4 class="grid__item large--one-half large--text-right medium--text-center small--text-center">
+<div class="grid__item large--one-whole light-bg genSection text-center" >
+    <h4 class="">
         Interested in partnering with us?            
     </h4>
-    <a class="grid__item large--one-half medium--text-center small--text-center" href="/pages/collaboration-form">
+    <a class="" href="/pages/collaboration-form">
         <button class="btn--secondary">
             APPLY HERE                
         </button>
