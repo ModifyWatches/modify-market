@@ -1,0 +1,66 @@
+<!-- LINK STYLESHEETS -->
+<link href="{{ 'collab_style.css' | asset_url }}" rel="stylesheet" type="text/css" media="all" />
+
+<!-- Break main wrapper -->
+</main>
+
+<!-- FEATURED COLLABS HEADER - DESKTOP -->
+<section class="collab-main-header">
+  <div>
+    <img src="{{ 'partnerHeader_main.jpg' | asset_url }}" alt="Great art by awesome brands!" />
+  </div>
+</section>
+ <main class="wrapper main-content big-margin" role="main">
+
+<!-- COLLAB CATEGORY NAVIGATION
+<div class="collab-category-nav">
+  <ul>
+    <li><a href="#artists">Artists</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#influencers">Influencers</a></li>
+    <li><a href="#music">Musicians</a></li>
+    <li><a href="#nonprofits">Nonprofits and Schools</a></li>
+  </ul>
+</div>
+-->
+<!-- COLLAB PARTNER OFFER LINK -->
+<div class="collab-partner" style="margin-bottom: 40px;">
+  <p>Interested in partnering with us?<a href="/pages/storefronts"><button>APPLY HERE</button></a></p>
+</div>
+
+<!-- COLLAB COLLECTIONS LIST -->
+
+
+	<div class="grid__item large--one-whole medium--one-whole small--one-whole" id="pageTop">
+  {% for collection in collections %}
+    {% if collection.tags contains 'sports' %}
+       {% if collection.template_suffix == 'storefront' %}
+            <div class="grid__item large--one-quarter medium--one-third small--one-half collabTiles">
+                <a class="collections" href="{{ collection.url }}" title="Browse {{ collection_title }}">
+                {% if collection.image %}
+                    <img class="collections" {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+                {% else %}
+                    {{ collection.products.first.featured_image | product_img_url: 'large' | img_tag: collection_title }}
+                {% endif %}
+            
+                <div class="info collections">
+                    <p class="title">{{ collection.title }}</span>
+                </div>
+                </a>
+            </div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+<div style="clear:both"></div>
+<!-- Bottom Partner CTA -->
+<div class="grid__item large--one-whole light-bg genSection text-center" >
+    <h4 class="">
+        Interested in partnering with us?            
+    </h4>
+    <a class="" href="/pages/collaboration-form">
+        <button class="btn--secondary">
+            APPLY HERE                
+        </button>
+    </a>
+</div>
