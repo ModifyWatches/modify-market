@@ -98,11 +98,11 @@ html[xmlns] .slides {display: block;}
 </style>
 
 <!-- Define Collab Categories -->
-{% assign category1 = linklists.nonprofits %}
-{% assign category1link = "/pages/nonprofits" %}
+{% assign category1 = linklists.artists %}
+{% assign category1link = "/pages/artists" %}
 
-{% assign category2 = linklists.artists %}
-{% assign category2link = "/pages/artists" %}
+{% assign category2 = linklists.nonprofits %}
+{% assign category2link = "/pages/nonprofits" %}
 
 {% assign category3 = linklists.musicians %}
 {% assign category3link = "/pages/musicians" %}
@@ -134,7 +134,7 @@ html[xmlns] .slides {display: block;}
     <ul>
         <li><a href="#artists">Artists</a></li>
         <li><a href="#nonprofits">Nonprofits</a></li>
-        <li><a href="#music">Musicians</a></li>
+        <li><a href="#musicians">Musicians</a></li>
         <li><a href="#influencers">Influencers</a></li>
         <li><a href="#brands">Brands</a></li>
     </ul>
@@ -203,7 +203,7 @@ html[xmlns] .slides {display: block;}
 </div>
 
 <div class="collab-category">
-  <a name="music" href="{{ category3link }}" ><h1>{{ category3.title }}</h1>See more ></a>
+  <a name="musicians" href="{{ category3link }}" ><h1>{{ category3.title }}</h1>See more ></a>
   <div class="flexslider">
     <ul class="slides">
       {% for link in category3.links limit:24 %}
