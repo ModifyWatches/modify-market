@@ -10,36 +10,35 @@
 
 <!-- /templates/index.liquid -->
 <section class="grid__item large--three-quarters  medium--three-quarters  small--one-whole pageBanner homeBanner genSection right">
-	<h1 class="grid__item two-thirds text-white">
+	<h1 class="grid__item two-thirds text-white small--four-fifths">
        Great products from nonprofits, artists and more!
     </h1>
 </section>
 <section class="grid__item large--one-quarter medium--one-quarter small--one-whole light-bg pageBanner genSection">
 	<div class="grid__item">
-        <div class="grid__item">
-            <h5 class="large--eleven-twelfths medium--one-whole small--three-quarters small--left">
-                Help your fans get the products they love, yours.
-            </h5>
-            <div class="small--one-quarter small--right">
-                <button class="btn--secondary small-margin small--hide"><a href="/pages/storefronts">Get Started</a></button>
-                <p class="small--hide">
-                    <i>
-                    It's free!
-                    </i>
-                </p>
-            </div>
+               <h5 class="large--eleven-twelfths medium--one-whole small--one-whole small--text-center">
+            Help your fans get the products they love, yours.
+        </h5>
+        <div class="small--one-whole small--text-center">
+            <button class="btn--secondary small-margin "><a href="/pages/storefronts">Get Started</a></button>
+            <p class="small--hide">
+                <i>
+                It's free!
+                </i>
+            </p>
+        
         </div>
     </div>
 </section>
 
 
-<section class="grid__item large--one-quarter medium--one-quarter small--hide clear">
+<section class="grid__item large--one-quarter medium--one-quarter small--hide clear ">
     {% comment %}
         Make sure array here matches variables at the top of page.
     {% endcomment %}
     {% assign sidenavArray = "sidenav1|sidenav2|sidenav3|sidenav4" | split: "|" %}
     {% for item in sidenavArray %}
-        <div class="grid__item large--one-whole medium--one-whole small--one-half">
+        <div class="grid__item large--one-whole medium--one-whole small--one-half ">
             <h4>{{ [item].title }}</h4>
             <hr class="orangeDash">
             <ul class="homeList">
@@ -53,7 +52,7 @@
     {% endfor %}
 </section>
 
-<section class="grid__item large--three-quarters medium--three-quarters small--one-whole" id="pageTop">
+<section class="grid__item large--three-quarters medium--three-quarters small--one-whole big-padding" id="pageTop">
 {% comment %}
 
   This is the homepage of your site.
