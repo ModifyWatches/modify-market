@@ -61,7 +61,7 @@
 	    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
 	  </p>
 	  <p class="super-small text-left">
-		  by {{ product.vendor }}
+		 By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a>
 	  </p>
 	  <p class="text-left orange-text bottom">
 		   {{ product.price | money }}
