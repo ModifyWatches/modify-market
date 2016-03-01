@@ -3143,6 +3143,9 @@ button#AddToCart {
 	float: left;
 	width:88%;
 	height:95px;
+	@include at-query ($max, $small) {
+		height:110px;	
+	}
 }
 .bottom {
 	position: absolute;
@@ -3360,7 +3363,7 @@ a.whiteLink {
 	font-size: 11px;
 	@include at-query ($max, $small) {
 		padding:2px 2px;
-		width:60%;
+		width:45%;
 		float: left;	
 	}
 	
@@ -3454,6 +3457,12 @@ a.whiteLink {
 }
 .more {
 	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	
+}
+.more a {
+	color: #ffa02f !important;
 }
 #one-click-social-login-buttons {
 	height: 60px !important;
