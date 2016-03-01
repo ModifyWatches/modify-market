@@ -22,6 +22,19 @@
 
   {% include 'breadcrumb' %}
 
+  
+  <div id="artBookmark" class="artBookmark large--one-quarter medium--one-quarter small--one-whole">
+
+    <a href="{{ collections[collab].url}}"><img src="{{ collections[collab].image | img_url: 'medium' }}" alt="{{ collections[collab].title }} tile image" class="partnerIcon roundedBorder"></a>
+	<h3><a href="{{ collections[collab].url}}">{{ collections[collab].title }}</a></h3>
+	{% include 'follow' %}
+	
+	
+	 <div style="clear:both"></div>
+</div>
+
+   <div style="clear:both"></div>
+  
   <div class="grid product-single">
     <div class="grid__item large--grid-uniform text-center">
       <div class="product-single__photos" id="ProductPhoto">
@@ -129,7 +142,7 @@
 	 </div>
 	 </div>
 	 </main> 
-	 	<div class="grid__item light-bg big-padding big-margin">
+	 	<div class="hide grid__item light-bg big-padding big-margin">
 	   <div class="grid__item large--one-third medium--one-half small--one-whole artBanner">
 		   <a href="{{ collections[collab].url}}" ><img src="{{ collections[collab].image | img_url: 'medium' }}" class="artImage roundedBorder" /></a>
 	   		<h3>By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a></h3>
@@ -145,7 +158,7 @@
 	   		<h3>Products</h3>
 	   		<div class="grid-uniform big-padding">
 		   	{% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
-			{% paginate collections[collab].products by 12 %}
+			
 				<ul class="collection-matrix">
 				 {% for product in collections[collab].products %}
 				 	{% if product.tags contains artwork %}
@@ -163,7 +176,7 @@
 				</ul>
 				
 				<div id="product-list-foot"></div>
-			{% endpaginate %}
+			
 
 		    </div>
 		   

@@ -2342,7 +2342,7 @@ label.error {
   color: $colorFooterText;
   border-top: 1px solid #363635;
   font-size: 15px;
-  margin-top: 60px;
+  margin-top: 20px;
 
   @include at-query ($min, $large) {
     padding: ($gutter * 2) 0;
@@ -2688,6 +2688,8 @@ label.error {
   max-width: 100px;
   min-width: 75px;
   overflow: visible;
+ 
+  
 
   input {
     display: block;
@@ -2697,6 +2699,9 @@ label.error {
     padding: 5px 25px;
     margin: 0;
   }
+  @include at-query ($max, $small) {
+	display: inline-block;  
+	}
 }
 
 .js-qty__adjust {
@@ -3159,6 +3164,9 @@ button#AddToCart {
 	overflow: hidden;
 	@include at-query ($max, $small) {
 		height: 125px;	
+		position: absolute;
+		top:120px;
+		left:0px;
 	}
 }
 .collectionBanner img {
@@ -3181,7 +3189,7 @@ button#AddToCart {
 	@include at-query ($max, $small) {
 	 	max-width: 100%;
 	 	height:125px;
-	 	
+	 	position:relative;
 	 	background: none;
 	 	box-shadow: none;
 	 	padding: 0px;
@@ -3207,6 +3215,58 @@ button#AddToCart {
 	border-top:1px solid #979797;
 	margin-bottom: 15px;
 }
+
+
+.artBookmark {
+	position: absolute;
+	top:30px;
+	max-width:260px;
+	min-height: 380px;
+	
+	background-color: rgba(255,255,255,0.9);
+	z-index: 500;
+	text-align: center;
+	padding: 30px;
+	box-sizing: border-box;
+	border: 1px solid #dfdfdf;
+	
+	@include at-query ($max, $small) {
+	 	max-width: 100%;
+	 	height:80px;
+	 	min-height: 10px;
+	 	background-color: #ffffff;
+	 	position: relative;
+	 	text-align: left;
+	 	background: none;
+	 	box-shadow: none;
+	 	padding: 0px;
+	 	padding-top: 10px;
+	 	margin-bottom: 10px;
+	 	top:5px;
+	 	
+		
+
+  }
+}
+.artBookmark img {
+        width: 100%;
+        @include at-query ($max, $small) {
+	    	height:92%;
+	    	width:auto;
+	    	border: 3px solid #ffffff;
+	    	margin-bottom: 5px;
+	    	float: left;
+	    	   
+	    }
+}
+.artBookmark  hr {
+	width: 80%;
+	margin: 0 auto;
+	border-top:1px solid #979797;
+	margin-bottom: 15px;
+}
+
+
 .collab-tiles li {
 	margin-left: 10px;
 	margin-left: 10px;
@@ -3275,7 +3335,7 @@ a.whiteLink {
 	 
 	
 }
-.collctionFollow {
+.collectionFollow {
 	@include at-query ($max, $small) {
 		position: absolute !important;
 		right: 20px !important;
@@ -3291,27 +3351,42 @@ a.whiteLink {
 	float: left;
 	width: 100%;
 	max-width: 200px;
+	@include at-query ($max, $small) {
+		max-width:70%;
+	}
 }
 #followForm input {
 	width: 100%;
-	
 	font-size: 11px;
+	@include at-query ($max, $small) {
+		padding:2px 2px;
+		width:60%;
+		float: left;	
+	}
+	
+	
 }
 #followForm .button {
 	float: right;
 	width: 35%;
-	
-}
+	}
 #follower:focus {
 	border: none;
 	outline: none;
+}
+#follower {
+	@include at-query ($max, $small) {
+		float: right;
+		margin-top: 0px !important;	
+	}
+
 }
 .required {
 	border:1px solid #d40000;
 }
 .fullArtImage {
 	width:20%;
-	min-width: 300px;
+	min-width: 250px;
 	height: auto;
 }
 #follower {
@@ -3382,4 +3457,9 @@ a.whiteLink {
 }
 #one-click-social-login-buttons {
 	height: 60px !important;
+}
+#AddToCartForm select {
+	@include at-query ($max, $small) {
+		display: inline-block;	
+	}
 }
