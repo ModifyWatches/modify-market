@@ -152,10 +152,10 @@
     </div>
     <div id="CartContainer"></div>
   </div>
-      <header class="site-header" role="banner">
+      <header class="site-header small--hide" role="banner">
       <div class="wrapper">
 
-        <div class="grid--full grid">
+        <div class="grid--full grid ">
           <div class="grid__item large--two-thirds medium--three-quarters small--one-whole">
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
@@ -296,15 +296,21 @@
 
         <div class="large--hide medium--hide small-down--show">
           <div class="grid">
-            <div class="grid__item one-half">
+            <div class="grid__item one-third">
               <div class="site-nav--mobile">
                 <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
                   <span class="icon icon-hamburger" aria-hidden="true"></span>
                   <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+                  <span class="icon icon-search" aria-hidden="true"></span>
                 </button>
               </div>
             </div>
-            <div class="grid__item one-half text-right">
+            <div class="grid__item one-third text-center mobile-logo">
+	             <a href="/" itemprop="url" class="site-header__logo-link">
+                  <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+                </a>	
+            </div>
+            <div class="grid__item one-third text-right">
               <div class="site-nav--mobile">
                 <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
                   <span class="icon-fallback-text">
@@ -373,7 +379,7 @@
             </ul>
           </div>
           
-            <div class="grid__item large--one-sixth push--large--one-sixth medium--one-half small--one-half">
+            <div class="grid__item large--one-sixth push--large--one-sixth medium--one-half small--one-whole">
                 <h6>Talk to us</h6>
                 <hr class="orangeDash" />
                 <ul class="inline-list social-icons">
@@ -403,6 +409,24 @@
                     </li>
                   
                 </ul>
+                 {% if settings.footer_newsletter_enable %}
+            <div class="large--one-whole medium--one-whole">
+              <p class="small">Sign up for early access to new collections and exclusive deals.</p>
+              {% if settings.newsletter_form_action != blank %}
+                {% assign form_action = settings.newsletter_form_action %}
+              {% else %}
+                {% assign form_action = '#' %}
+              {% endif %}
+              <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="email" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                <span class="input-group-btn">
+                  <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                </span>
+              </form>
+              <p class="small">We'll hook you up with sweet offers and entertain you with awesome jokes. Get. Excited.</p>
+            </div>
+          {% endif %}
+
             </div>
        </div>
     </footer>
@@ -453,7 +477,7 @@
                     </li>
                   
                 </ul>
-            </div>
+                      </div>
        </div>
     </footer>
     {% endcomment %}
