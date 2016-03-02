@@ -1897,9 +1897,12 @@ label.error {
   width:100%;
   margin: 0 auto;
   position: fixed;
-  top:0px;
+  top:60px;
   left:0px;
-   z-index: 1000;
+  z-index: 1000;
+  @include at-query ($max, $small) {
+	  top:0px; 
+	}
    
 
 }
