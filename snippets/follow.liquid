@@ -2,16 +2,22 @@
 {{ 'follow.js' | asset_url | script_tag }}
 {% if product.vendor %}
 	{% assign collaboration = product.vendor %}
+	{% assign handles = product.vendor | handleize %}
+	{% assign colID = collections[handles].id %}
+	
 	<div id="followFrame">
 {% else %}
 	{% assign collaboration = collection.title %}
+	{% assign colID = collection.id %}
 	<div id="followFrame">
 {% endif %}	
+
 
 	<div class="" id="followForm">
 		<form action="http://dev.modifywatches.com/sadhorse/followers.php" method="post" id="followers" name="followers" class="" target="_blank">
 			<input type="email" value="{{ customer.email }}" name="EMAIL" class="{% if customer %} hideAll {% endif %}" id="EMAIL" placeholder="email">
 			<input type="hidden" value="{{ collaboration }}" name="collection" class="required" id="collection">
+			<input type="hidden" value="{{ colID }}" name="id" class="required" id="id">
 			<button class="btn--secondary" id="follower" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
 			 <div style="clear:both"></div>
 		</form>
