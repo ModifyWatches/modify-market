@@ -4,14 +4,16 @@
 	{% assign collaboration = product.vendor %}
 	{% assign handles = product.vendor | handleize %}
 	{% assign colID = collections[handles].id %}
-	
+	{% assign followers = collections[handles].metafields.followers %}
 	<div id="followFrame">
 {% else %}
 	{% assign collaboration = collection.title %}
 	{% assign colID = collection.id %}
+	{% assign followers = collection.metafields.followers %}
 	<div id="followFrame">
 {% endif %}	
-
+	{% assign followed = followers | size %}
+	{% assign following = followed | divided_by: 2 %}
 
 	<div class="" id="followForm">
 		<form action="http://dev.modifywatches.com/sadhorse/followers.php" method="post" id="followers" name="followers" class="" target="_blank">
@@ -21,7 +23,9 @@
 			<button class="btn--secondary" id="follower" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
 			 <div style="clear:both"></div>
 		</form>
-		
+		{% if following>0 %}
+		<p><b>{{ following }} Fans</b></p>
+		{% endif %}
 		<p class="hiddenMobile small small--hide" id="followText">Learn more about {{ collaboration }} and get a first look at their new collections</p>
 	</div>
 	<div style="clear: both"></div>
