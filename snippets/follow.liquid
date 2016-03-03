@@ -9,7 +9,7 @@
 {% endif %}	
 
 	<div class="" id="followForm">
-		<form action="" method="post" id="followers" name="followers" class="" target="">
+		<form action="http://dev.modifywatches.com/sadhorse/followers.php" method="post" id="followers" name="followers" class="" target="_blank">
 			<input type="email" value="{{ customer.email }}" name="EMAIL" class="{% if customer %} hideAll {% endif %}" id="EMAIL" placeholder="email">
 			<input type="hidden" value="{{ collaboration }}" name="collection" class="required" id="collection">
 			<button class="btn--secondary" id="follower" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
