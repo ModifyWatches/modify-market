@@ -263,4 +263,10 @@
     </main>
 </section>
 
+<!-- Scripts -->
 {{ 'smooth-scroll.js' | asset_url | script_tag }}
+
+<scripts>
+/* Mixpanel Events */
+  mixpanel.track("Page Views", {"Page": "Storefront Form Page Reg Converted"});
+</scripts>
