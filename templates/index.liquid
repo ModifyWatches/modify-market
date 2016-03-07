@@ -72,7 +72,7 @@
 {% endcomment %}
 	 {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
 		<div class="grid-uniform">
-			{% paginate collections.home-page.products by 16 %}
+			{% paginate collections.home-page.products by 32 %}
 		<ul class="collection-matrix">
 		 {% for product in collections.home-page.products %}
 		 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
@@ -81,7 +81,7 @@
 		 {% endfor %}
 		 <!--<li class="top"><a href="#pageTop">Back to Top</a></li>  -->      
 		 {% if paginate.next %}
-		  <li class="more"><a href="{{ paginate.next.url }}">See More</a></li>        
+		  <li class="more"><button class="btn--secondary"><a href="{{ paginate.next.url }}">See More</a></button></li>        
 		 {% endif %}
 		 <div style="clear: both"></div>
 		</ul>

@@ -56,7 +56,7 @@
         See the snippet 'product-grid-item' for the layout.
       {% endcomment %}
       {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
-			{% paginate collection.products by 12 %}
+			{% paginate collection.products by 32 %}
 				<ul class="collection-matrix">
 				 {% for product in collection.products %}
 				 	 {% if product.type !='Art' %}
@@ -68,7 +68,7 @@
 				  <div style="clear: both"></div>
 				      
 				 {% if paginate.next %}
-				  <li class="more"><a href="{{ paginate.next.url }}">See More</a></li>        
+				  <li class="more"><button class="btn--secondary"><a href="{{ paginate.next.url }}">See More</a></button></li>       
 				 {% endif %}
 				 <div style="clear: both"></div>
 				</ul>
