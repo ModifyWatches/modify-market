@@ -65,7 +65,12 @@
           ID addToCartForm is a selector for the ajax cart plugin
         {% endcomment %}
         <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
-
+        
+        <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+          <span id="ProductPrice" class="h2" itemprop="price">
+            {{ current_variant.price | money }}
+          </span>
+          
           {% comment %}
             Add product variants as a dropdown.
               - By default, each variant (or combination of variants) will display as its own <option>
@@ -95,11 +100,6 @@
               {% endif %}
             {% endfor %}
           </select>
-
-          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          <span id="ProductPrice" class="h2" itemprop="price">
-            {{ current_variant.price | money }}
-          </span>
 
           {% if product.compare_at_price_max > product.price %}
             <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
