@@ -237,6 +237,12 @@ h2 {
       padding: 10px 0;
       background-color: rgba(255,255,255,1);
   }
+  img.collections {
+      width: 100%;
+  }
+  .collabTiles {
+      margin: 4px 0;
+  }
   div.info {
     position: absolute;
     width: 100%;
