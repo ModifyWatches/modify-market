@@ -11,7 +11,7 @@
 
 {% assign collection_mod_asset = 'collection_small_mod_asset2.jpg' | asset_url %}
 
-{% assign pagination_limit = 50 %}
+{% assign pagination_limit = 150 %}
 {% paginate collection.products by pagination_limit %}
 {% assign tag_count = collection.all_tags | size %}
 {% assign tag_threshold = 8 %}
