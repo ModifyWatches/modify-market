@@ -158,8 +158,12 @@
 
 {% endpaginate %}
 
+<!-- Scripts -->
 <script>
   $(function() {
     $( "#tabs" ).tabs();
   });
+
+/* Mixpanel Scripts */
+  mixpanel.track("Page Views" , {"Page": "{{ collection.title }} Storefront Page"});  
 </script>
