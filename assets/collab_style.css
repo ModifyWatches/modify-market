@@ -340,6 +340,13 @@ h2 {
     bottom: 106px;
     height: 100px;
   }
+  /* COLLAB PARTNER CTA TOP */
+  .collab-partner p {
+      font-size: 14px;
+  }
+  .collab-partner button {
+      padding: 5px 10px;
+  }
   /* COLLAB CATEGORIES */
   .collab-category {
     margin-bottom: 0px;
@@ -378,7 +385,7 @@ h2 {
   }
   /* CATEGORY NAV */
   .collab-category-nav li {
-    margin: 10px;
+    margin: 4px;
   }
   /* COLLAB CATEGORY PAGES - COLLECTIONS LIST */
   .collab-collection-list > div {
