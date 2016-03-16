@@ -135,7 +135,7 @@
           {% endif %}
           
           <!-- Watch Product Info -->
-          {% if product.type == "Watch" %}
+          {% if product.type == "Sport Watch" %}
             <ul>
                 <li>38mm case size</li>
                 <li>Stainless steel back, scratch-resistant PC</li>
@@ -211,6 +211,14 @@
                 <li>Super bright colors embedded Directly into the case</li>
                 <li>.08" thick ultra slim clip style case</li>
                 <li>Extremely durable, shatterproof poly-carbonate plastic</li>
+            </ul>
+          {% endif %}  
+          
+          <!-- Mug Product Info -->
+          {% if product.type == "Mug" %}
+            <ul>
+                <li>Super Bright Colors Embedded Directly into the Mug</li>
+                <li>11 oz, dishwasher and microwave safe</li>
             </ul>
           {% endif %}
       </div>

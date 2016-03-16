@@ -1,0 +1,196 @@
+<style type="text/css">
+  .email-container {
+    position: fixed;
+    display: block;
+    z-index: 8000;
+    bottom: 0;
+    left: 0;
+    background: rgba( 56, 49, 65, 0.95 );
+    width: 100%; 
+    color: #fff;
+    display: none;
+    padding-top: 10px;
+  }
+  .modalContain {
+    display: inline-block;
+    position: relative;
+    margin-top: 10px;
+  }
+  
+  .modalContain input[type="text"], .modalContain input[type="number"], .modalContain input[type="password"], .modalContain input[type="email"], .modalContain textarea, .modalContain select {
+    display: inline;
+    margin: 10px 0;
+    padding: 8px 14px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #BBB;
+    border: none;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+  }
+  
+  .modalContain a.button, .modalContain button, .modalContain input[type="submit"], .modalContain input[type="reset"], .modalContain input[type="button"], .modalContain .action_button, .modalContain a.action_button, .modalContain input.action_button[type="submit"], .modalContain input.action_button[type="button"] {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px 14px;
+    text-shadow: none;
+    background: #fd9823;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+  }
+  .modalContain input[type="submit"]:hover {
+    background: #fff;
+    color: #000;
+  }
+  
+  form {
+    margin: 0;
+    display: inline;
+  }
+  
+  div.email-signup {
+    font-size: 21px;
+  }
+    .email-signup p {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 60px;
+      margin-right: 40px;
+    }
+    .email-signup span {
+      font-style: italic;
+      font-weight: 300;
+      font-size: 36px;
+    }
+  
+  .subcode {
+    font-weight: 600;
+    font-size: 21px;
+    color: #000;
+  }
+  
+  .modalContain .mc-embedded-subscribe .thankscopy, .modalContain .mc-embedded-subscribe .subcode, .modalContain .mc-embedded-subscribe .thanks {
+    position: relative;
+    bottom: auto;
+    width: auto;
+    font-weight: 300;
+  }
+  
+  .hp-newsletter {
+    padding-top: 0px;
+    margin-bottom: 10px;
+  }
+  /* CLOSE BUTTON */
+  div.email-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  /* TABLET */
+  @media all and (max-width: 1024px) {
+  }
+
+  /* MOBILE */
+  @media all and (min-width: 300px) and (max-width: 767px) {
+    .email-signup p {
+      font-size: 30px;
+      line-height: 36px;
+      margin: 0;
+    }
+    .email-signup span {
+      font-size: 18px;
+    }
+    .modalContain {
+      margin: 0 0 10px 0;
+    }
+  }
+</style>
+<div class="grid--full email-container" style="box-shadow: none;">
+  <div class="wrapper email-signup">
+      
+    <div class="grid__item large--one-half large--text-right">
+        <p>Get $5 OFF <span>today!</span></p>
+    </div>
+    
+    <div class="grid__item large--one-half modalContain hp-newsletter">
+      <form action="https://modify.us2.list-manage.com/subscribe/post?u=ff6348c49444f0d8101e7a204&amp;id=6dcbc9bc6a" method="post" class="mc-embedded-subscribe" name="mc-embedded-subscribe-form" target="_blank">
+        <input name="EMAIL" onfocus="if(this.value == 'E-mail Address') { this.value = ''; }" value="E-mail Address" class="nInput" type="text">
+        <input type="submit" alt="Go" class="nBut" value="Sign Up">
+        <input type="hidden" class="source" value="popup" />
+        <div class="thanks"></div>
+        <div class="subcode"></div>
+        <div class="thankscopy"></div>
+      </form>
+    </div>
+    
+  </div>
+  <div class="email-close">X</div>
+</div>
+
+<script type="text/javascript">
+$('.email-container').show('fade');
+
+$(function() {
+  //$.cookie('email_upsell', '');
+  // only show if hasn't been shown previously and don't show on mobile
+  if ( (!$.cookie('email_upsell')) ) {
+    setTimeout(function() {
+      $.cookie('email_upsell', 'true');
+      $('.email-container').show('fade');
+    }, 3000);
+  };
+  
+  mcEmbeddedSubscribe();
+});
+
+function mcEmbeddedSubscribe() {
+  $('.mc-embedded-subscribe').submit(function(e) {
+    var form = $(this);
+    var source = form.children('.source').val();
+    var email = form.children('.nInput').val();
+    
+    if (validateEmail(email)) {
+      // try and signup through our tools
+      $.get('//old.modifywatches.com/admin/tools/', {
+        action: 'utility_subscribe',
+        email: email
+      }, function(data) {
+        data = $.parseJSON(data);
+        if (data.invalid == true)
+          invalidEmail();
+        // so done with first phase, let's open an optional survey
+        else if (data.success) {
+          form.children('input').hide();
+          form.children('.thanks').text('Thanks for signing up! Your discount code is:').show();
+          form.children('.subcode').text('modify5-h948gy').show();
+          form.children('.thankscopy').text('"Copy" your code now to use at checkout!').show();
+          //$.get('/emailsignupthankyou.php?utm=' + source);
+          setTimeout(function() {
+            //$('.fancybox-item.fancybox-close').click();
+          }, 2000);
+        }
+          });
+    } else
+      invalidEmail();
+    
+    e.preventDefault();
+  });
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function invalidEmail() {
+    alert("Please enter a valid email address");
+}
+
+$('.email-close').click(function () {
+  $('.email-container').hide('fade');
+});
+</script>

@@ -39,9 +39,9 @@
             <div class="grid__item large--one-quarter medium--one-third small--one-half collabTiles">
                 <a class="collections" href="{{ collection.url }}" title="Browse {{ collection_title }}">
                 {% if collection.image %}
-                    <img class="collections" {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+                    <img class="collections" {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ collection.image.src | collection_img_url: 'medium' }}" alt="{{ collection.image.alt }}" />
                 {% else %}
-                    {{ collection.products.first.featured_image | product_img_url: 'large' | img_tag: collection_title }}
+                    {{ collection.products.first.featured_image | product_img_url: 'medium' | img_tag: collection_title }}
                 {% endif %}
             
                 <div class="info collections">
