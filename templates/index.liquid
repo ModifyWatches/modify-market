@@ -8,8 +8,26 @@
 {% assign sidenav4 = linklists.styles %}
 
 
-
-<!-- /templates/index.liquid -->
+<!-- Main Featured Header -->
+</main>
+<section class="grid--full feature-header">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+          <a href="/collections/all"><img src="{{ 'Homepage_Header1.jpg'' | asset_url }}" /></a>
+        </li>
+        <li>
+          <a href="/pages/storefronts"><img src="{{ 'Homepage_Header2.jpg'' | asset_url }}" /></a>
+        </li>
+        <li>
+          <a href="/pages/shops"><img src="{{ 'Homepage_Header3.jpg'' | asset_url }}" /></a>
+        </li>    
+      </ul>
+    </div>
+</section>
+<main class="wrapper main-content big-margin" role="main">
+    
+<!-- /templates/index.liquid 
 <section class="grid__item large--three-quarters  medium--three-quarters  small--one-whole pageBanner homeBanner genSection right">
 	<h1 class="grid__item two-thirds text-white small--four-fifths">
        Great products from causes, artists and more!
@@ -34,67 +52,76 @@
     </div>
 </section>
 
+-->
 
-<section class="grid__item large--one-quarter medium--one-quarter small--hide clear ">
+<section class="grid--full">
+    <div class="grid__item large--one-quarter medium--one-quarter small--hide clear ">
+        {% comment %}
+            Make sure array here matches variables at the top of page.
+        {% endcomment %}
+        {% assign sidenavArray = "sidenav1|sidenav2|sidenav3|sidenav4" | split: "|" %}
+        {% for item in sidenavArray %}
+            <div class="large--one-whole">
+                <h4>{{ [item].title }}</h4>
+                <hr class="orangeDash">
+                <ul class="homeList">
+                    {% for link in [item].links %}
+                    <li>
+                        <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="grid__item large--three-quarters medium--three-quarters small--one-whole" id="pageTop">
     {% comment %}
-        Make sure array here matches variables at the top of page.
+
+    This is the homepage of your site.
+
+    More info on global variables (available on all templates):
+        - http://docs.shopify.com/themes/liquid-variables/global
     {% endcomment %}
-    {% assign sidenavArray = "sidenav1|sidenav2|sidenav3|sidenav4" | split: "|" %}
-    {% for item in sidenavArray %}
-        <div class="grid__item large--one-whole medium--one-whole small--one-half ">
-            <h4>{{ [item].title }}</h4>
-            <hr class="orangeDash">
-            <ul class="homeList">
-                {% for link in [item].links %}
-                <li>
-                    <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endfor %}
-</section>
 
-<section class="grid__item large--three-quarters medium--three-quarters small--one-whole big-padding" id="pageTop">
-{% comment %}
+    <h2>Trending Designs</h2>
 
-  This is the homepage of your site.
-
-  More info on global variables (available on all templates):
-    - http://docs.shopify.com/themes/liquid-variables/global
-{% endcomment %}
-
-<h2>Trending Designs</h2>
-
-{% comment %}
-  Use class grid-uniform to have evenly sized columns clear
-  each other properly at each breakpoint.
-{% endcomment %}
+    {% comment %}
+    Use class grid-uniform to have evenly sized columns clear
+    each other properly at each breakpoint.
+    {% endcomment %}
 	 {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
 		<div class="grid-uniform">
 			{% paginate collections.home-page.products by 32 %}
-		<ul class="collection-matrix">
-		 {% for product in collections.home-page.products %}
-		 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
-		  {% include 'art-grid' %}
-		 </li> 
-		 {% endfor %}
-		 <!--<li class="top"><a href="#pageTop">Back to Top</a></li>  -->      
-		 {% if paginate.next %}
-		  <li class="more"><button class="btn--secondary"><a href="{{ paginate.next.url }}">See More</a></button></li>        
-		 {% endif %}
-		 <div style="clear: both"></div>
-		</ul>
-		
-		<div id="product-list-foot"></div>
-		{% endpaginate %}
-
-
-</div>
+            <ul class="collection-matrix">
+            {% for product in collections.home-page.products %}
+            <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+            {% include 'art-grid' %}
+            </li> 
+            {% endfor %}
+            <!--<li class="top"><a href="#pageTop">Back to Top</a></li>  -->      
+            {% if paginate.next %}
+            <li class="more"><button class="btn--secondary"><a href="{{ paginate.next.url }}">See More</a></button></li>        
+            {% endif %}
+            <div style="clear: both"></div>
+            </ul>
+            
+            <div id="product-list-foot"></div>
+            {% endpaginate %}
+        </div>
+    </div>
 </section>
 
 <!-- Scripts -->
 <script>
+    
+/* FEATURE SLIDER SCRIPT */
+$(window).ready(function() {
+    $('.feature-header .flexslider').flexslider({
+        animation : "fade"
+    });
+});
+
 /* Mixpanel Scripts */
   mixpanel.track("Page Views" , {"Page": "Homepage"});  
 </script>
