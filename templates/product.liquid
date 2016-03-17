@@ -54,7 +54,7 @@
 
     <div class="grid__item large--one-third push--large--one-sixth">
 
-      <h1 itemprop="name">{{ product.title }}</h1>
+      <h2 itemprop="name">{{ product.title }}</h2>
 
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="small--text-center">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -67,7 +67,7 @@
         <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
         
         <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          <span id="ProductPrice" class="h2" itemprop="price">
+          <span id="ProductPrice" class="h3" itemprop="price">
             {{ current_variant.price | money }}
           </span>
           
