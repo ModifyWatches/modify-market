@@ -54,7 +54,7 @@
 
     <div class="grid__item large--one-third push--large--one-sixth">
 
-      <h1 itemprop="name">{{ product.title }}</h1>
+      <h2 itemprop="name">{{ product.title }}</h2>
 
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="small--text-center">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -67,7 +67,7 @@
         <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
         
         <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          <span id="ProductPrice" class="h2" itemprop="price">
+          <span id="ProductPrice" class="h3" itemprop="price">
             {{ current_variant.price | money }}
           </span>
           
@@ -122,9 +122,9 @@
         Product Info goes here, such as size and material.
       {% endcomment %}
       <div class="rte">
-          <h4>Product Info</h4>
+          <h5>Product Info</h5>
           <!-- Alloy Watch Product Info -->
-          {% if product.type == "Alloy watch" %}
+          {% if product.type == "Watch" or product.type == "Alloy watch" %}
             <ul>
                 <li>38mm case size</li>
                 <li>Stainless steel back, gun metal case</li>
@@ -186,7 +186,7 @@
           {% endif %}
           
           <!-- Pullover Hoodie Product Info -->
-          {% if product.type == "Pullover Hoodie" %}
+          {% if product.type == "Hoodie" or product.type == "Pullover Hoodie" %}
             <ul>
                 <li>Comfort fit ringspun pre-shrunk fleece</li>
                 <li>80% cotton/20% polyester, 9 oz</li>
@@ -206,7 +206,7 @@
           {% endif %}
           
           <!-- iPhone Case Product Info -->
-          {% if product.type == "case" %}
+          {% if product.type == "6/6s Case" or product.type == "5/5s Case" %}
             <ul>
                 <li>Super bright colors embedded Directly into the case</li>
                 <li>.08" thick ultra slim clip style case</li>
