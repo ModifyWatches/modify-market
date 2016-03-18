@@ -508,6 +508,7 @@
     Documentation:
       - http://shopify.com/timber#ajax-cart
   {% endcomment %}
+  {% comment %}
   {% if settings.ajax_cart_method == "drawer" %}
     {{ 'handlebars.min.js' | asset_url | script_tag }}
     {% include 'ajax-cart-template' %}
@@ -530,6 +531,7 @@
       });
     </script>
   {% endif %}
+  {% endcomment %}
     
     {% comment %}
     <!-- Power Tools view count code (Featured on top) -->
