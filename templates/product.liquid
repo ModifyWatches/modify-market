@@ -50,6 +50,32 @@
         </ul>
       {% endif %}
 	  {% endcomment %}
+      
+      {% comment %}
+        Product specific Alt images
+      {% endcomment %}
+      <!-- Metal Watch Alt Images -->
+        
+        {% if product.type == "Watch" %}
+            <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+                <li class="grid__item one-sixth">
+                    <a href="{{ featured_image | img_url: 'large' }}" class="product-single__thumbnail">
+                        <img src="{{ featured_image | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                    </a>
+                </li>
+                <li class="grid__item one-sixth">
+                    <a href="{{ 'MetalAltAngle_Side.jpg' | asset_url }}" class="product-single__thumbnail">
+                        <img src="{{ 'MetalAltAngle_SideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+                    </a>
+                </li>
+                <li class="grid__item one-sixth">
+                    <a href="{{ 'MetalAltAngle_Angle.jpg' | asset_url }}" class="product-single__thumbnail">
+                        <img src="{{ 'MetalAltAngle_AngleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+        
     </div>
 
     <div class="grid__item large--one-third push--large--one-sixth">
