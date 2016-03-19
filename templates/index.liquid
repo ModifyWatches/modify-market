@@ -55,7 +55,7 @@
 -->
 
 <section class="grid--full">
-    <div class="grid__item large--one-quarter medium--one-quarter small--hide clear ">
+    <div class="grid__item large--one-fifth medium--one-quarter small--hide clear ">
         {% comment %}
             Make sure array here matches variables at the top of page.
         {% endcomment %}
@@ -75,7 +75,7 @@
         {% endfor %}
     </div>
 
-    <div class="grid__item large--three-quarters medium--three-quarters small--one-whole" id="pageTop">
+    <div class="grid__item large--four-fifths medium--three-quarters small--one-whole" id="pageTop">
     {% comment %}
 
     This is the homepage of your site.
@@ -92,7 +92,7 @@
     {% endcomment %}
 	 {% assign grid_item_width = 'large--one-fifth medium--one-quarter small--one-third' %}
 		<div class="grid-uniform">
-			{% paginate collections.home-page.products by 32 %}
+			{% paginate collections.home-page.products by 35 %}
             <ul class="collection-matrix">
             {% for product in collections.home-page.products %}
             <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
