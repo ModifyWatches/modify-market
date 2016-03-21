@@ -247,4 +247,9 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
+  
+
+/* Mixpanel Scripts */
+  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Art Page"});  
+
 </script>

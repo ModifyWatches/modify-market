@@ -374,6 +374,10 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
+  
+  /* Mixpanel Scripts */
+  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  
+  
 </script>
 
 <!-- IS+ Product Recommendation Widget START -->
