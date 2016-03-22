@@ -58,7 +58,7 @@
         {% if product.type == "Watch" or product.type =="Alloy watch"%}
             <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
                 <li class="grid__item one-sixth">
-                    <a href="{{ featured_image | img_url: 'large' }}" class="product-single__thumbnail">
+                    <a href="{{ featured_image | img_url: 'grande' }}" class="product-single__thumbnail">
                         <img src="{{ featured_image | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
                     </a>
                 </li>
