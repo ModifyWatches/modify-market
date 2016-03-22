@@ -82,3 +82,8 @@
 </div>
 
 {% endpaginate %}
+
+<script>
+/* Mixpanel Scripts */
+  mixpanel.track("Page Views" , {"Page": "{{ collection.title }} Collection Page"});  
+</script>

@@ -116,3 +116,8 @@
   <p>{{ 'cart.general.empty' | t }}</p>
   <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
 {% endif %}
+
+<script>
+/* Mixpanel Scripts */
+  mixpanel.track("Page Views" , {"Page": "Cart Page"});  
+</script>
