@@ -3212,6 +3212,7 @@ button#AddToCart {
 	height:auto;
 	background-position: left center;
 	background-size: cover;
+
 	@include at-query ($max, $small) {
 		background-position:left top;
 		
@@ -3239,8 +3240,10 @@ button#AddToCart {
 	position:relative;
 	float: right;
 	background-color: #ffffff;
+	min-height: 300px;
 	@include at-query ($max, $small) {
-		width: 100%;	
+		width: 100%;
+		min-height: 100px;	
 		padding:1%;
 		position: relative;
 		margin-top:150px;
@@ -3325,6 +3328,15 @@ button#AddToCart {
 }
 .readMore a {
 	margin-top: 10px;
+}
+#shareHolder {
+	width: 100%;
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	@include at-query ($max, $small) {
+		text-align: center;	
+	}
 }
 .collectionBookmark {
 	position: absolute;
