@@ -1,0 +1,33 @@
+<!-- The elusive follow button -->
+{{ 'follow.js' | asset_url | script_tag }}
+{% if product.vendor %}
+	{% assign collaboration = product.vendor %}
+	{% assign handles = product.vendor | handleize %}
+	{% assign colID = collections[handles].id %}
+	{% assign followers = collections[handles].metafields.followers %}
+	<div id="followFrame">
+{% else %}
+	{% assign collaboration = collection.title %}
+	{% assign colID = collection.id %}
+	{% assign followers = collection.metafields.followers %}
+	<div id="followFrame">
+{% endif %}	
+	{% assign followed = followers | size %}
+	{% assign following = followed | divided_by: 2 %}
+
+	<div class="" id="newfollowForm">
+		<form action="http://dev.modifywatches.com/sadhorse/followers.php" method="post" id="followers" name="followers" class="" target="_blank">
+			<input type="email" value="{{ customer.email }}" name="EMAIL" class="{% if customer %} hideAll {% endif %}" id="EMAIL" placeholder="email">
+			<input type="hidden" value="{{ collaboration }}" name="collection" class="required" id="collection">
+			<input type="hidden" value="{{ colID }}" name="id" class="required" id="id">
+			<input type="hidden" value="{{ followed }}" name="numFollowers" class="required" id="numFollowers">
+			<button class="btn--secondary" id="follower-new" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
+			 <div style="clear:both"></div>
+		</form>
+		
+		{% if followed > 0 %}
+		<p><b id="followText">{{ followed }} Fans</b></p>
+		{% endif %}
+	</div>
+	<div style="clear: both"></div>
+</div>
