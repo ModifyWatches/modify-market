@@ -3279,12 +3279,32 @@ button#AddToCart {
 		float: none;	
 	}
 }
+
 .iconHolder img {
 	width: 80%;
 	height: auto;
 	@include at-query ($max, $small) {
 		width: 100px;
 		margin-top: -60px;
+	}
+}
+.iconHolder2 {
+	width:20%;
+	height:auto;
+	text-align: center;
+	float: left;
+	@include at-query ($max, $small) {
+		width:100%;
+		float: none;
+		text-align: center;	
+	}
+}
+.iconHolder2 img {
+	width: 80%;
+	height: auto;
+	@include at-query ($max, $small) {
+		width: 10%;
+		
 	}
 }
 .namesHolder {
@@ -3296,6 +3316,17 @@ button#AddToCart {
 	@include at-query ($max, $small) {
 		text-align: center;	
 		width: 100%;
+	}
+}
+.namesHolder2 {
+	width: 80%;
+	height: auto;
+	float: left;
+	box-sizing: border-box;
+	padding: 0%;
+	@include at-query ($max, $small) {
+		width: 100%;
+		float: none;
 	}
 }
 .collectionBio {
@@ -3499,8 +3530,15 @@ button#AddToCart {
 	padding-top: 15px !important;
 	padding-bottom: 15px !important;
 }
+.tiny-margin {
+	margin-top: 5px;
+}
 .super-small {
 	font-size: 11px;
+	line-height: 12px;
+}
+.italics {
+	font-style: italic;
 }
 .small {
 	font-size: 12px;
@@ -3632,9 +3670,24 @@ a.whiteLink {
 	border:1px solid #d40000;
 }
 .fullArtImage {
-	width:20%;
+	width:70%;
 	min-width: 250px;
 	height: auto;
+	-webkit-box-shadow:0px 5px 5px rgba(0,0,0,0.8);
+  -moz-box-shadow:0px 5px 5px rgba(0,0,0,0.8);
+  box-shadow:0px 5px 5px rgba(0,0,0,0.8);
+  @include at-query ($max, $small) {
+		width: 80%;	  
+	}
+
+	
+}
+
+.artInfo {
+	margin-top: 15%;
+	@include at-query ($max, $small) {
+		margin-top: 5px;	
+	}
 }
 #follower {
 
