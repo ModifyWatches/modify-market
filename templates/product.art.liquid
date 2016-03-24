@@ -36,7 +36,7 @@
       <h1 itemprop="name">{{ product.title }}</h1>
       <div class="collectNames small--text-center">
 			<div class="iconHolder2">
-			 	<img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class=" roundedBorder">
+			 	<img src="{{ collections[collab].image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class=" roundedBorder">
 			</div>
 			<div class="namesHolder2">
 			 	<h3 class="small--text-center">By <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a></h3>
