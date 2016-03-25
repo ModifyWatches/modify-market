@@ -3835,6 +3835,23 @@ a.whiteLink {
 	height: auto;
 	padding-top: 15px;
 } 
+#ProductPhoto {
+	position: relative;
+}
+.ImageOverlay {
+	position: absolute;
+	z-index: 100;
+	width:100%;
+	text-align: center;
+	left: -1%;
+	top:17%;
+	
+}
+.ImageOverlay img {
+	width:37%;
+	opacity: 0.9;
+	
+}
 
 /* 
    Swatches Styles
@@ -3935,7 +3952,7 @@ a.whiteLink {
   position:absolute;
   width:100px;
   left:{{ width | remove: 'px' | to_number | divided_by: 2 | minus: 50 | plus: 2 }}px;
-  margin-bottom:15px;
+  margin-bottom:18px;
   /* Make it invisible by default */
   filter:alpha(opacity=0);
   -khtml-opacity: 0;
