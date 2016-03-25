@@ -60,7 +60,9 @@
 			
 				<ul class="collection-matrix">
 				 {% for product in collections[collab].products %}
+				   
 				 	{% if product.tags contains artwork %}
+				 	
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
 				  {% include 'product-grid-item' %}
 				 </li> 
