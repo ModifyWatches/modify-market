@@ -131,11 +131,11 @@
           </li>
         {% else %}
           <li class="mobile-nav__item">
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
+            {{ 'Log In' | customer_login_link }}
           </li>
           {% if shop.customer_accounts_optional %}
           <li class="mobile-nav__item">
-            {{ 'layout.customer.create_account' | t | customer_register_link }}
+              <a href="//pages/storefronts">Sell</a>
           </li>
           {% endif %}
         {% endif %}
@@ -159,13 +159,13 @@
       <div class="wrapper">
 
         <div class="grid--full grid ">
-          <div class="grid__item large--two-thirds medium--three-quarters small--one-whole">
+          <div class="grid__item large--three-quarters medium--three-quarters small--one-whole">
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
               Site name gets precedence with H1 tag on homepage, div on other pages.
             {% endcomment %}
             
-              <h1 class="site-header__logo left large--one-sixth medium--one-fifth small--one-quarter" itemscope itemtype="http://schema.org/Organization">
+              <h1 class="site-header__logo left large--one-sixth medium--one-sixth small--one-quarter" itemscope itemtype="http://schema.org/Organization">
            
               {% if settings.logo_use_image %}
                 <a href="/" itemprop="url" class="site-header__logo-link">
@@ -177,49 +177,26 @@
             
               </h1>
            
-            <div id="browseBox" class="left large--one-sixth medium--one-fifth small--hide">
+            <div id="browseBox" class="left large--one-sixth medium--three-twelfths small--hide">
 		        <a href="/collections/all">
                     <b>Browse</b>
                     1,000+ Stores 
                 </a>
 		    </div>
-             <div class="site-header__search large--two-thirds medium--three-fifths small--one-half small--right">
+		    <div class="left  large--one-twelfth medium--one-sixth small--hide large--text-left medium--text-center sellStore">
+			     <h4><a href="/pages/storefronts">Sell</a></h4>
+		    </div>
+             <div class="site-header__search large--one-half medium--five-twelfths small--one-half small--right">
               {% include 'search-bar' %}
             </div>
 
           </div>
-          <div class="grid__item large--one-third text-right medium--one-quarter small--hide">
-            {% comment %}
-              Show number of items in the cart and total cost in the /cart link
-
-              Ajax Cart Notes:
-                - #cartCount updates the total number of items in the cart
-                - #cartCost updates the total cost of the cart
-                - Documentation:  http://shopify.com/timber#ajax-cart
-            {% endcomment %}
-            <div class="storeCart">
-	            <a href="/pages/storefronts">Open your Shop</a>
-
-	             <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-                <span class="icon icon-cart" aria-hidden="true"></span>
-                {% comment %}
-                	{{ 'layout.cart.title' | t }}  
-                (<span id="CartCount">{{ cart.item_count }}</span>
-                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-                <span id="CartCost">{{ cart.total_price | money }}</span>)
-                
-                {% endcomment %}
-              </a>
-
-	          
-	          
-	                       </div>
-
-            {% comment %}
-              If customer accounts are enabled, provide login and create account links
-            {% endcomment %}
-            {% if shop.customer_accounts_enabled %}
-              <div>
+          <div class="grid__item large--one-quarter text-right medium--one-quarter small--hide">
+               <div class="storeCart">
+	           
+	            
+				{% if shop.customer_accounts_enabled %}
+	            <div class="grid__item large--five-sixths text-right medium--five-sixths"> 
                 {% if customer %}
                   {% if customer.first_name != blank %}
                     {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
@@ -227,15 +204,23 @@
                   {% else %}
                     <a href="/account">{{ 'layout.customer.account' | t }}</a>
                   {% endif %}
-                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                   {{ 'layout.customer.log_out' | t | customer_logout_link }}
                 {% else %}
-                  {{ 'layout.customer.log_in' | t | customer_login_link }}
                   {% if shop.customer_accounts_optional %}
-                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
+                   {{ 'Log In'| customer_login_link }}
                   {% endif %}
-                {% endif %}
-              </div>
+                {% endif %}  
+	            </div>     
             {% endif %}
+            
+            
+			<a href="/cart" class="grid__item large--one-sixth text-right medium--one-sixth site-header__cart-toggle js-drawer-open-right right" aria-controls="CartDrawer" aria-expanded="false" id="cartIcon">
+				 <img src="{{ 'cart.png' | asset_url }}" aria-hidden="true" height="22"/>
+				 {% if cart.item_count > 0 %}
+				 <span id="CartCount">{{ cart.item_count }}</span>
+                {% endif %}
+               
+              </a>
 
             </div>
         </div>
@@ -317,12 +302,14 @@
             </div>
             <div class="grid__item one-third text-right">
               <div class="site-nav--mobile">
-                <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
-                  <span class="icon-fallback-text">
-                    <span class="icon icon-cart" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
-                  </span>
-                </a>
+                <a href="/cart" class="grid__item large--one-third text-right medium--one-quarter site-header__cart-toggle js-drawer-open-right right" aria-controls="CartDrawer" aria-expanded="false" id="cartIcon">
+				 <img src="{{ 'cart.png' | asset_url }}" aria-hidden="true" height="20"/>
+				 {% if cart.item_count > 0 %}
+				 <span id="CartCount">{{ cart.item_count }}</span>
+                {% endif %}
+               
+              </a>
+
               </div>
             </div>
           </div>
