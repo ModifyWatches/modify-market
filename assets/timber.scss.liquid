@@ -1833,7 +1833,7 @@ label.error {
   }
 }
 .storeCart a{
-	line-height: 20px;
+	line-height: 48px;
 }
 .site-header__cart-toggle {
   display: inline-block;
@@ -1869,10 +1869,16 @@ label.error {
 	font-size: 13px;
 	cursor: pointer;
 	padding-top: 7px;
-	padding-right: 2%;
-	padding-left: 2%;
+	padding-right: 0%;
+	padding-left: 0%;
 	line-height: 18px;
 	box-sizing: border-box;
+	text-align: center;
+	
+}
+.sellStore h4{
+	line-height: 37px;
+	margin-top: 5px;
 	
 }
 #browseBox b {
@@ -2379,10 +2385,12 @@ label.error {
 	position: relative;
 	margin-bottom: 20px;
 	
+	transition: transform .25s ease-in-out;
+	
 	.hoverText {
 		position: absolute;
 		left:0px;
-		bottom: 0px;
+		bottom: 5px;
 		height: auto;
 		width: -moz-calc(100%);
 	    width: -webkit-calc(100%);
@@ -2399,15 +2407,17 @@ label.error {
 		padding-bottom: 5px;
 		display: block;
 		opacity: 0;
-	   transition: opacity .15s ease-in-out;
-	   -moz-transition: opacity .15s ease-in-out;
-	   -webkit-transition: opacity .15s ease-in-out;
+	   transition: opacity .25s ease-in-out;
+	   -moz-transition: opacity .25s ease-in-out;
+	   -webkit-transition: opacity .25s ease-in-out;
+	    
 	}
 	 img {
 	    display: block;
-	    margin: 0 auto;transition: box-shadow .15s ease-in-out;
-	   -moz-transition: box-shadow .15s ease-in-out;
-	   -webkit-transition: box-shadow .15s ease-in-out;
+	    margin: 0 auto;
+	    transition: box-shadow .25s ease-in-out;
+		-moz-transition: box-shadow .25s ease-in-out;
+		-webkit-transition: box-shadow .25s ease-in-out;
 	    -webkit-box-shadow: 0px 3px 16px -2px rgba(0,0,0,0.2);
 		-moz-box-shadow: 0px 3px 16px -2px rgba(0,0,0,0.2);
 		box-shadow: 0px 2px 8px -2px rgba(0,0,0,0.2);
@@ -2417,8 +2427,10 @@ label.error {
 	
 }
 .artGrid:hover {
+	transform: translate3d(0, -5px, 0);
+
 	.hoverText {
-		opacity:1;
+		opacity:0.95;
 	}
 	img {
 	    -webkit-box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.7);
@@ -3711,12 +3723,13 @@ a.whiteLink {
 	
 }
 .collabType {
-	position: absolute;
-	right:0px;
-	top:0px;
-	width:100%;
-	height: 100%;
-	background-size: cover;
+	  position: absolute;
+   right: 0px;
+   width: 80%;
+   height: 80%;
+   background-size: cover;
+   top: 5px;
+   left: 5px;
 }
 .artistCollab {
 	background-image: url('{{ "artistTriangle.png" | asset_url }}');
@@ -3851,6 +3864,35 @@ a.whiteLink {
 	width:37%;
 	opacity: 0.9;
 	
+}
+#cartIcon {
+	position: relative;
+	@include at-query ($max, $small) {
+		line-height: 45px;	
+	}
+}
+#CartCount {
+	position:absolute;
+	-webkit-border-radius:50px;
+	-moz-border-radius:50px;
+	border-radius:50px;
+	background-color: #E4572E;
+	box-sizing: border-box;
+	padding-left: 4px;
+	padding-right: 4px;
+	top:3px;
+	right:-7px;
+	min-width: 15px;
+	min-height: 15px;
+	text-align: center;
+	line-height: 15px;
+	font-size: 12px;
+	color: #ffffff !important;
+	@include at-query ($max, $small) {
+		right:-3px;	
+		top:3px;
+	}
+
 }
 
 /* 
