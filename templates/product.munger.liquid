@@ -29,14 +29,36 @@
 
   <div class="grid product-single">
     <div class="grid__item large--one-half  medium--one-half large--one-whole text-center">
-      <div class="product-single__photos" id="ProductPhoto">
+      <div class="product-single__photos ProductPhoto" id="ProductPhoto">
+	    {% assign suffix = product.type | handleize %} 
+	    {% assign theCollor = product.variants.first.options.first | handleize %} 
         {% assign product_art = product.images[1] | default: product.images[1] %}
-        
-        {% assign template_art = productType | append: '_' | append: product.variants.first.options.first | append: '.jpg' | asset_url %}
-        <img src="{{ template_art }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-        <div class="ImageOverlay">
-	       <img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id=""> 
-        </div>
+        {% if product.type == 'Watch' or product.type == 'Sport Watch' %}
+	        {% assign template_art = suffix | append: '_' | append: theCollor | append: '.png' %}
+	        <img src="{{ 'Backplate.png' | asset_url }}" class="backplate" />
+	         <div class="watchArt">
+		          {% if product.type == 'Sport Watch' %}
+					  	<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="sportWatch"> 
+				  	{% else %}
+				  		<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class=""> 
+				  	{% endif %}
+	        </div>
+	        <img src="{{ template_art | asset_url }}" data-type="Watch" class="watchOverlay" id="ProductPhotoImg">
+	       
+        {% else %}
+        	 {% assign template_art = suffix | append: '_' | append: theCollor | append: '.jpg' | asset_url %}
+        	<img src="{{ template_art }}" alt="{{ featured_image.alt | escape }}" data-type="Clothes" id="ProductPhotoImg">
+	        <div class="ImageOverlay">
+		        {% if product.type == "Women's T-Shirt" %}
+		       <img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="ladyShirt"> 
+		       {% elsif product.type == "Women's Long Sleeve T-Shirt" %}
+		       	<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="longLadyShirt">
+		       {% else %}
+		       	<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="">
+		       {% endif %}
+	        </div>
+
+        {% endif %}
       </div>
 
       {% comment %}
@@ -60,7 +82,7 @@
       
       {% comment %}
         Product specific Alt images
-      {% endcomment %}
+     
       <!-- Metal Watch Alt Images -->        
         {% if product.type == "Watch" or product.type =="Alloy watch"%}
             <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
@@ -107,7 +129,7 @@
                 </li>
             </ul>
         {% endif %}
-        
+      {% endcomment %}   
     </div>
 
     <div class="grid__item large--five-twelfths push--large--one-twelfth medium--five-twelfths small--one-whole">
@@ -423,10 +445,18 @@
 		    }
 		  }
 		  theColor = $('input:radio:checked').val();
+		  theColor = theColor.toLowerCase();
+		  theColor = theColor.replace(' ','-');
+		  theColor = theColor.replace(' ','-');
 		  var path =  $('#ProductPhotoImg').attr('src');
+		  var type = $('#ProductPhotoImg').attr('data-type');
 		  var index = path.lastIndexOf('_');
 		  path = path.substring(0, index+1);
-		  path+=theColor+'.jpg';
+		  if(type == 'Watch' || type =='Sport Watch') {
+		  	path+=theColor+'.png';
+		  }else {
+			 path+=theColor+'.jpg'; 
+		  }
 		  $('#ProductPhotoImg').attr('src',path);	
 		   
 
