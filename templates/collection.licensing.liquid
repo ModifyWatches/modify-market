@@ -1,0 +1,125 @@
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900">
+{% assign prefix = collection.handle | prepend: '' %}
+
+{% assign collection_banner = prefix | append: '_banner.jpg' | asset_url %}
+{% assign collection_tile = prefix | append: '_tile.jpg' | asset_url %}
+{% assign collection_lifestyle_1 = prefix | append: '_lifestyle-1.jpg' | asset_url %}
+{% assign collection_lifestyle_2 = prefix | append: '_lifestyle-2.jpg' | asset_url %}
+
+{% assign collection_mod_asset = 'collection_small_mod_asset2.jpg' | asset_url %}
+
+{% assign pagination_limit = 150 %}
+{% paginate collection.products by pagination_limit %}
+{% assign tag_count = collection.all_tags | size %}
+{% assign tag_threshold = 8 %}
+
+
+<div id="collectionBookmark" class="collectionBookmark large--one-quarter medium--one-quarter small--one-whole">
+
+    <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
+	<h3 class="small--text-left">{{ collection.title }}</h3>
+	{% include 'follow' %}
+	
+	<hr>
+	<ul class="inline-list social-icons hide">
+                    <li>
+                      <a class="icon-fallback-text reverseLink" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                        <span class="fa fa-instagram" aria-hidden="true"></span>
+                        
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon-fallback-text reverseLink" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                        <span class="fa fa-pinterest" aria-hidden="true"></span>
+                        
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon-fallback-text reverseLink" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                        <span class="fa fa-twitter" aria-hidden="true"></span>
+                        
+                      </a>
+                    </li>
+                                     <li>
+                      <a class="icon-fallback-text reverseLink" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
+                        <span class="fa fa-facebook" aria-hidden="true"></span>
+                        
+                      </a>
+                    </li>
+                 
+                </ul>
+ <div style="clear:both"></div>
+</div>
+
+
+	 </main> 
+<div class="expandedWidth collectionBanner">
+	<img src="{{ collection_banner }}" />
+</div>
+ <main class="wrapper main-content big-margin" role="main">
+
+<div class="grid--rev">
+  <div class="grid__item large--three-quarters medium--three-quarters right">
+  
+  
+  
+  <div id="tabs">
+	 
+
+    <div id="product-tab">
+	       <div class="collection_product">
+    {% if collection.products.size == 0 %}
+      <div class="center">
+        <div class="section clearfix">
+          <p class="quote">No products found in this collection.</p>
+        </div>
+      </div>
+    {% else %}
+    	{% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
+			
+				<ul class="collection-matrix">
+					
+				 {% for product in collection.products %}
+				 	 {% if product.type !='Art' %}
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				  {% include 'product-grid-item' %}
+				 </li> 
+				 	
+				 	
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>      
+								 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			
+    {% endif %}
+    </div>
+    </div>
+    
+    
+	
+  </div>
+  </div>
+</div>
+<div style="clear:both"></div>
+{% include 'trending-stores' %}
+
+
+{% include 'collab-signup-link' %}
+
+
+
+{% endpaginate %}
+
+<!-- Scripts -->
+<script>
+  
+
+/* Mixpanel Scripts */
+  mixpanel.track("Page Views" , {"Page": "{{ collection.title }} Storefront Page"});  
+</script>
