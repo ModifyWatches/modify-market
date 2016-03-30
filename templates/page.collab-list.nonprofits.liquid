@@ -34,7 +34,7 @@
 	<div class="grid__item large--one-whole medium--one-whole small--one-whole" id="pageTop">
   {% for collection in collections %}
     {% if collection.tags contains 'nonprofit' %}
-       {% if collection.template_suffix == 'storefront' %}
+       {% if collection.template_suffix == 'storefront' or collection.template_suffic == 'storefront.new' %}
             <div class="grid__item large--one-quarter medium--one-third small--one-half collabTiles">
                 <a class="collections" href="{{ collection.url }}" title="Browse {{ collection_title }}">
                 {% if collection.image %}
