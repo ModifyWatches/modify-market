@@ -6,91 +6,108 @@
     - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
 
 {% endcomment %}
-
+{% assign isMunged = false %}
 {% if cart.item_count > 0 %}
 
   <h1>{{ 'cart.general.title' | t }}</h1>
   <form action="/cart" method="post" novalidate class="cart table-wrap">
-    <table class="cart-table full table--responsive">
-      <thead class="cart__row cart__header-labels">
-        <th colspan="2" class="text-center">{{ 'cart.label.product' | t }}</th>
-        <th class="text-center">{{ 'cart.label.price' | t }}</th>
-        <th class="text-center">{{ 'cart.label.quantity' | t }}</th>
-        <th class="text-right">{{ 'cart.label.total' | t }}</th>
-      </thead>
-      <tbody>
-        {% for item in cart.items %}
-          <tr class="cart__row table__section">
-            <td data-label="{{ 'customer.order.product' | t }}">
-              <a href="{{ item.url | within: collections.all }}" class="cart__image">
-                {% comment %}
-                  More image size options at:
-                    - http://docs.shopify.com/themes/filters/product-img-url
-                {% endcomment %}
-                <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-              </a>
-            </td>
-            <td>
-              <a href="{{ item.url }}" class="h4">
-                {{ item.product.title }}
-              </a>
-              {% unless item.variant.title contains 'Default' %}
-                <br>
-                <small>{{ item.variant.title }}</small>
-              {% endunless %}
+	  
+<div class="grid_uniform text-left borderBottom medium-margin small--hide">
+	<div class="grid__item large--one-half medium--one-half">
+		<h4>{{ 'cart.label.product' | t }}</h4>
+	</div>
+	<div class="grid__item large--one-sixth medium--one-sixth">
+		<h4>{{ 'cart.label.price' | t }}</h4>
+	</div>
+	<div class="grid__item large--one-sixth medium--one-sixth">
+		<h4>{{ 'cart.label.quantity' | t }}</h4>
+	</div>
+	<div class="grid__item large--one-sixth medium--one-sixth">
+		<h4>{{ 'cart.label.total' | t }}</h4>
+	</div>
+	<div style="clear:both"></div>
+</div>
+{% for item in cart.items %}
+	{% for tag in item.product.tags %}
+		{% if tag == 'munged' %}
+			 {% assign isMunged = true %}
+		{% endif %}
+	{% endfor %}
+<div class="grid_uniform text-left small-margin borderBottom small-padding">
+	<div class="grid__item large--one-eighth medium--one-eighth small--one-whole noPads" data-label="{{ 'customer.order.product' | t }}" style="position: relative;">
+		<a href="{{ item.url | within: collections.all }}" class="cart__image">
+		{% if isMunged %}
+			{% assign suffix = item.product.type | handleize %} 
+			{% assign theCollor = item.variant.option1 | handleize %} 
 
-              {% if settings.cart_vendor_enable %}
-                <p>{{ item.vendor }}</p>
-              {% endif %}
+			{% assign product_art = item.product.images[1] | default: item.product.images[1] %}
+			{% if item.product.type == 'Watch' or item.product.type == 'Sport Watch'%}
+			{% assign template_art = suffix | append: '_' | append: theCollor | append: '.png' %}
+			
+			<img src="{{ 'Backplate.png' | asset_url }}" />
+	         <div class="watchArt">
+		       <img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id=""> 
+	        </div>
+	        <img src="{{ template_art | asset_url }}" data-type="Watch" class="watchOverlay" id="ProductPhotoImg">
 
-              {% comment %}
-                Optional, loop through custom product line items if available
+	        {% else %}
+	        {% assign template_art = suffix | append: '_' | append: theCollor | append: '.jpg' | asset_url %}
+			
+			<img src="{{ template_art }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="munged-cart">
+		  	<div class="cartImageOverlay">
+			  	{% if suffix == 'womens-long-sleeve-t-shirt' %}
+			  		<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="ladyCart"> 
+			  		
+			  	{% elsif suffix =='womens-t-shirt' %}
+			  		<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="shortLadyCart">
+			  	{% else %}
+			  		<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id=""> 
+			  	{% endif %}	
+	        </div>
+	        
+	        {% endif %}
+	    {% else %}
+			<img src="{{ item | img_url: 'large' }}" alt="{{ item.title | escape }}">
+		{% endif %}	
+	</div>
+	<div class="grid__item large--three-eighths medium--three-eighths small--one-whole cartBox" data-label="{{ 'customer.order.product' | t }}">
+		 <a href="{{ item.url }}" class="h4">
+        {{ item.product.title }}
+      </a>
+      {% unless item.variant.title contains 'Default' %}
+        <small>{{ item.variant.title }}</small>
+      {% endunless %}
 
-                For more info on line item properties, visit:
-                  - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
-              {% endcomment %}
-              {% assign property_size = item.properties | size %}
-              {% if property_size > 0 %}
-                {% for p in item.properties %}
-                  {% unless p.last == blank %}
-                    {{ p.first }}:
+      {% if settings.cart_vendor_enable %}
+        <p>{{ item.vendor }}</p>
+      {% endif %}
+     
 
-                    {% comment %}
-                      Check if there was an uploaded file associated
-                    {% endcomment %}
-                    {% if p.last contains '/uploads/' %}
-                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                    {% else %}
-                      {{ p.last }}
-                    {% endif %}
-
-                    <br>
-                  {% endunless %}
-                {% endfor %}
-              {% endif %}
-
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-                <small>{{ 'cart.general.remove' | t }}</small>
-              </a>
-            </td>
-            <td data-label="{{ 'cart.label.price' | t }}">
-              <span class="h3">
-                {{ item.price | money }}
-              </span>
-            </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
-            </td>
-            <td data-label="{{ 'cart.label.total' | t }}" class="text-right">
-              <span class="h3">
-                {{ item.line_price | money }}
-              </span>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <div class="grid cart__row">
+	</div>
+	<div class="grid__item large--one-sixth medium--one-sixth cartBox small--one-half" data-label="{{ 'cart.label.price' | t }}">
+		 <span class="h6">
+            {{ item.price | money }}
+          </span>
+	</div>	
+	<div class="grid__item large--one-sixth medium--one-sixth cartBox small--one-half small--text-right" data-label="{{ 'cart.label.quantity' | t }}">
+	<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
+	 <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove hide small--show">
+        <small>{{ 'cart.general.remove' | t }}</small>
+      </a>
+	</div>	
+	<div class="grid__item large--one-sixth medium--one-sixth small--hide cartBox" data-label="{{ 'cart.label.total' | t }}">
+		<span class="h6">
+        {{ item.line_price | money }}
+      </span>
+       <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
+        <small>{{ 'cart.general.remove' | t }}</small>
+      </a>
+	</div>
+	<div style="clear:both"></div>
+</div>
+ {% assign isMunged = false %}
+{% endfor %}	  
+       <div class="grid cart__row">
       {% if settings.cart_notes_enable %}
         <div class="grid__item two-thirds small--one-whole">
           <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
