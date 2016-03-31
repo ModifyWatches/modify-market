@@ -26,6 +26,26 @@ $('#browseBox').mouseout(function() {
 })
 
 
+
+
+$('#closePopup').click(function() {
+	$('#bigPopup').fadeOut(100, function() {
+		$('#promoBar').delay(200).slideDown(300,function(){
+			$('.site-header').addClass('hasPromo');
+		})
+	})
+})	
+$('#bigPopup').click(function() {
+	$('#bigPopup').fadeOut(100, function() {
+		$('#promoBar').delay(200).slideDown(300,function(){
+			$('.site-header').addClass('hasPromo');
+		})
+	})
+})	
+
+
+
+///////////////////
 //////// read more code ///////////
 ///////// the code for the read more button ////////
 $('.readMore a').click(function(e) {
