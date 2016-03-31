@@ -119,7 +119,7 @@
 		<div class="grid-uniform">
 			{% paginate collections.trending-designs.products by 60 %}
             <ul class="collection-matrix">
-            {% for product in collections.trending-designs.products %}
+            {% for product in collections.trending-designs.products %} 
             <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
             {% include 'art-grid' %}
             </li> 
