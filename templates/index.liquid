@@ -117,9 +117,9 @@
     {% endcomment %}
 	 {% assign grid_item_width = 'large--one-fifth medium--one-quarter small--one-third' %}
 		<div class="grid-uniform">
-			{% paginate collections.home-page.products by 60 %}
+			{% paginate collections.trending-designs.products by 60 %}
             <ul class="collection-matrix">
-            {% for product in collections.home-page.products %}
+            {% for product in collections.trending-designs.products %}
             <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
             {% include 'art-grid' %}
             </li> 
