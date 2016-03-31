@@ -155,11 +155,25 @@
     </div>
     <div id="CartContainer"></div>
   </div>
+  <div id="bigPopup">
+	  <div class="popupPromo">
+		  	Pre-April Fools Sale!<span class="small">*</span><br>
+		  	<b><span class="mediumText">GET 15% OFF</span></b><br>
+		  	Use code <b>APRILSERIOUS</b> at Checkout.<br>
+		  	<span class="small">*We’re actually serious. Get 15% off your order now.</span>
+		  <div id="closePopup" class="icon icon-x"></div>
+	  </div>
+  </div>
+    <div id="promoBar" class="grid__item one-whole text-center">
+		      	For a limited time! Get 15% off your order with code <b>APRILSERIOUS</b>		      	
+	      </div> 
       <header class="site-header small--hide" role="banner">
-      <div class="wrapper">
+	     
+      <div class="wrapper whiteBG">
 
         <div class="grid--full grid ">
-          <div class="grid__item large--three-quarters medium--three-quarters small--one-whole">
+	     
+          <div class="grid__item large--six-eighths medium--six-eighths small--one-whole">
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
               Site name gets precedence with H1 tag on homepage, div on other pages.
@@ -227,7 +241,9 @@
 
       </div>
     </header>
+    
     <nav class="nav-bar" role="navigation">
+	     
       <div class="wrapper">
         <div class="small-down--hide">
           {% comment %}
@@ -483,6 +499,37 @@
   {% comment %}
     Template-specific js
   {% endcomment %}
+  <script>  
+
+$(function() {
+  ///////// pop up promo //////////
+ if ( (!$.cookie('email_upsell')) ) {
+	 	$('#bigPopup').delay(200).fadeIn(300);
+	}else {
+		$('#promoBar').slideDown(0,function(){
+				$('.site-header').addClass('hasPromo');
+			})
+	
+	}
+  
+  
+  
+  //$.cookie('email_upsell', '');
+  // only show if hasn't been shown previously and don't show on mobile
+  if ( (!$.cookie('email_upsell')) ) {
+    setTimeout(function() {
+      $.cookie('email_upsell', 'true');
+      $('.email-container').show('fade');
+    }, 3000);
+  };
+  
+  
+
+});
+</script> 
+  
+  
+  
   <script>
     {% if resetPassword %}
       $(function() {
@@ -542,7 +589,7 @@
 	 $(document).ready(function () {
 		attachClickEvent();
 	});
-</script>   
+</script> 
 {% include 'sca-quick-view-template' %} 
 
 
@@ -560,6 +607,15 @@ jQuery(function() {
   });
 });
 </script>
-
+<!-- AddShoppers Tracking Code Start -->
+<script type="text/javascript">
+AddShoppersTracking = {
+image: '' // add URL for custom product image (RECOMMENDED if not using Product Schema)
+}
+var js = document.createElement('script'); js.type = 'text/javascript'; js.async = true; js.id = 'AddShoppers';
+js.src = ('https:' == document.location.protocol ? 'https://shop.pe' : 'http://cdn.shop.pe') + '/widget/widget_async.js#56f1af4fbbddbd4e09729928';
+document.getElementsByTagName("head")[0].appendChild(js);
+</script>
+<!-- AddShoppers Tracking Code End -->
  </body>
 </html>

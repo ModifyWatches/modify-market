@@ -33,7 +33,7 @@
 
 	<div class="grid__item large--one-whole medium--one-whole small--one-whole" id="pageTop">
   {% for collection in collections %}
-   {% if collection.template_suffix == 'storefront' %}
+   {% if collection.template_suffix == 'storefront' or collection.template_suffix == 'storefront.new' %}
     {% if collection.tags contains 'artist' %}
       
             <div class="grid__item large--one-quarter medium--one-third small--one-half collabTiles">
