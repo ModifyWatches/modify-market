@@ -155,10 +155,22 @@
     </div>
     <div id="CartContainer"></div>
   </div>
+  <div id="bigPopup">
+	  <div class="popupPromo">
+		  Pre-April Fools Sale! (We're actually serious)<br><span class="mediumText">15% OFF with code:<b> APRILSERIOUS</b></span>
+		  <div id="closePopup" class="icon icon-x"></div>
+	  </div>
+  </div>
+    <div id="promoBar" class="grid__item one-whole text-center">
+		      	15% OFF with code:<b> APRILSERIOUS</b>
+		      	
+	      </div> 
       <header class="site-header small--hide" role="banner">
-      <div class="wrapper">
+	     
+      <div class="wrapper whiteBG">
 
         <div class="grid--full grid ">
+	     
           <div class="grid__item large--six-eighths medium--six-eighths small--one-whole">
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
@@ -227,7 +239,9 @@
 
       </div>
     </header>
+    
     <nav class="nav-bar" role="navigation">
+	     
       <div class="wrapper">
         <div class="small-down--hide">
           {% comment %}
@@ -483,6 +497,37 @@
   {% comment %}
     Template-specific js
   {% endcomment %}
+  <script>  
+
+$(function() {
+  ///////// pop up promo //////////
+ if ( (!$.cookie('email_upsell')) ) {
+	 	$('#bigPopup').delay(200).fadeIn(300);
+	}else {
+		$('#promoBar').slideDown(0,function(){
+				$('.site-header').addClass('hasPromo');
+			})
+	
+	}
+  
+  
+  
+  //$.cookie('email_upsell', '');
+  // only show if hasn't been shown previously and don't show on mobile
+  if ( (!$.cookie('email_upsell')) ) {
+    setTimeout(function() {
+      $.cookie('email_upsell', 'true');
+      $('.email-container').show('fade');
+    }, 3000);
+  };
+  
+  
+
+});
+</script> 
+  
+  
+  
   <script>
     {% if resetPassword %}
       $(function() {
@@ -542,7 +587,7 @@
 	 $(document).ready(function () {
 		attachClickEvent();
 	});
-</script>   
+</script> 
 {% include 'sca-quick-view-template' %} 
 
 
