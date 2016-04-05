@@ -88,7 +88,16 @@
 		 <span id="ProductPrice" class="h6">
             {{ item.price | money }}
           </span>
-          {% include 'product-partner-rev-msg' %}
+          {% for item in cart.items %}
+            {% for tag in item.product.tags %}
+                {% if tag == 'sports' %}
+                
+                {% else %}
+                    {% include 'product-partner-rev-msg' %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
 	</div>	
 	<div class="grid__item large--one-sixth medium--one-sixth cartBox small--one-half small--text-right" data-label="{{ 'cart.label.quantity' | t }}">
 	<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">

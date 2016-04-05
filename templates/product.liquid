@@ -121,7 +121,14 @@
           <span id="ProductPrice" class="h3" itemprop="price">
             {{ current_variant.price | money }}
           </span>
-          {% include 'product-partner-rev-msg' %}
+          {% for tag in product.tags %}
+                {% if tag == 'sports' %}
+                
+                {% else %}
+                    {% include 'product-partner-rev-msg' %}
+                {% endif %}
+            {% endfor %}
+                      
           {% comment %}
             Add product variants as a dropdown.
               - By default, each variant (or combination of variants) will display as its own <option>
