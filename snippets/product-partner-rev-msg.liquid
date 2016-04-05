@@ -1,3 +1,7 @@
-<div class="rte">
-    <p id="ppsm" style="color: #E4572E; font-style: italic; margin-top: -10px;"></p>
-</div>
+{% for tag in item.product.tags %}
+    {% if tag == 'sports' %}
+        <div class="rte">
+            <p id="ppsm" style="color: #E4572E; font-style: italic; margin-top: -10px;"></p>
+        </div>
+    {% endif %}
+{% endfor %}
