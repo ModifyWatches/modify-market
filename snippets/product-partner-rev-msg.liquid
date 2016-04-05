@@ -7,3 +7,13 @@
         </div>
     {% endif %}
 {% endfor %}
+
+{% for tag in product.tags %}
+    {% if tag == 'sports' %}
+    
+    {% else %}
+        <div class="rte">
+            <p id="ppsm" style="color: #E4572E; font-style: italic; margin-top: -10px;"></p>
+        </div>
+    {% endif %}
+{% endfor %}
