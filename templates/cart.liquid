@@ -88,7 +88,7 @@
 		 <span id="ProductPrice" class="h6">
             {{ item.price | money }}
           </span>
-          {% include 'product-partner-rev-msg ' %}
+          {% include 'product-partner-rev-msg' %}
 	</div>	
 	<div class="grid__item large--one-sixth medium--one-sixth cartBox small--one-half small--text-right" data-label="{{ 'cart.label.quantity' | t }}">
 	<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
