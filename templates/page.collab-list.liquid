@@ -65,9 +65,11 @@
     <ul class="slides">
       {% for link in category1.links limit:24 %}
        {% assign collection = link.object %}
+       {% assign prefix = collection.handle | prepend: '' %}
+        {% assign collection_banner = prefix | append: '_banner.jpg' | asset_url %}
         <li class="">
           <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
-            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+            <img class="" src="{{ collection_banner }}" alt="{{ collection.image.alt }}" />
             <div class="info collections">
               <p class="title">{{ collection.title }}</p>
             </div>
@@ -194,7 +196,7 @@
 			itemWidth : 300,
       itemMargin: 10,
       minItems: 2,
-      maxItems: 8
+      maxItems: 3
 		});
 	});
 
