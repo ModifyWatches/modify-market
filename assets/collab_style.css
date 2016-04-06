@@ -363,6 +363,9 @@ h2 {
     .flexslider li:first-child {
       margin-left: 20px;
     }
+    div.info {
+        position: relative;
+    }
   /* COLLECTIONS INFO */
   .collections p {
     font-size: 12px;
