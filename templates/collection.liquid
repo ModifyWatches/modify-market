@@ -56,7 +56,7 @@
         See the snippet 'product-grid-item' for the layout.
       {% endcomment %}
       {% assign grid_item_width = 'large--one-third medium--one-half small--one-half' %}
-			{% paginate collection.products by 32 %}
+			{% paginate collection.products by 24 %}
 				<ul class="collection-matrix">
 				 {% for product in collection.products %}
 				 	 {% if product.type !='Art' %}
