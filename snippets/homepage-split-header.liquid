@@ -47,6 +47,24 @@
         .splitCTA button:hover {
             background-color: #000;
         }
+    .productNav a {
+        color: #fff;
+        text-transform: uppercase;
+    }
+        .productNav a:hover {
+            color: rgba( 228, 87, 47, 1);
+        }
+    .featurette .btn--secondary {
+        position: relative;        
+        margin-top: -70%;
+        padding: 10px 30px;
+        background-color: rgba( 228, 87, 47, 1);
+        box-shadow: 0 4px 8px rgba( 228, 87, 47, 0.5 );
+        -webkit-box-shadow: 0 4px 8px rgba( 228, 87, 47, 0.5 );
+    }
+        .featurette button:hover {
+            background-color: #222;
+        }
 </style>    
 <!-- Main Featured Header -->
 </main>
@@ -56,18 +74,20 @@
         <div class="grid__item large--four-fifths push--large--one-tenth">
             <p class="h">Open your shop today</p>
             <p>We handle your design, ecommerce, marketing, logistics and A+ service from our team.<br />P.S. It's free!</p>
-            <a href="/pages/storefronts">
+            <a href="/pages/storefronts" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'Storefront Form CTA',1.00,true]);" > 
                 <button class="btn--secondary">Join Our Marketplace</button>
             </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Header', 'Impression', 'Storefront Form CTA',2.00,true]);"/>
         </div>        
     </div>
     <div class="splitCTA splitShop grid__item large--one-half text-center text-white genSection">
         <div class="grid__item large--four-fifths push--large--one-tenth">
             <p class="h" style="">Browse 1,000+ partners</p>
             <p>Discover unique designs from talented musicians, inspiring causes, world-class athletes, and the coolest artists around.</p>
-            <a href="/pages/shops">
+            <a href="/pages/shops" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'Partner Shops CTA',1.00,true]);" > 
                 <button class="btn--secondary">Shop Our Partners</button>
             </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Header', 'Impression', 'Partner Shops CTA',2.00,true]);"/>
         </div>
     </div>
     
@@ -77,4 +97,72 @@
     </div>
 </section>
 
+<section class="grid--full one-whole grey-bg text-center genSection productNav">
+    <div class="wrapper">
+        <div class="grid__item one-sixth">
+            <a href="/collections/watch" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Metal Watch',1.00,true]);" > 
+                Metal Watch
+            </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Metal Watch',2.00,true]);"/>
+        </div>
+        
+        <div class="grid__item one-sixth">
+            <a href="/collections/sport-watch" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Sport Watch',1.00,true]);" > 
+                Sport Watch
+            </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Sport Watch',2.00,true]);"/>
+        </div>
+        
+        <div class="grid__item one-sixth">
+            <a href="/collections/mens-t-shirt" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Men's T-Shirt,1.00,true]);" > 
+                Men's T-Shirt'
+            </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Men's T-Shirt,2.00,true]);"/>        
+        </div>
+        
+        <div class="grid__item one-sixth">
+            <a href="/collections/womens-t-shirt" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Women's T-Shirt,1.00,true]);" > 
+                Women's T-Shirt
+            </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Women's T-Shirt,2.00,true]);"/>
+        </div>
+        
+        <div class="grid__item one-sixth">
+            <a href="/collections/mug" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Mug',1.00,true]);" > 
+                Mug
+            </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Mug',2.00,true]);"/>
+        </div>
+        
+        <div class="grid__item one-sixth">
+            <a href="/collections/6-6s-case" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'iPhone 6 Case',1.00,true]);" > 
+                iPhone 6 Case
+            </a>
+            <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'iPhone 6 Case',2.00,true]);"/>
+        </div>        
+    </div>
+</section>
+
 <main class="wrapper main-content big-margin" role="main">
+    
+<section class="grid genSection text-center featurette">
+    <div class="grid__item large--one-half">       
+        <a href="/collections/all?sort_by=best-selling" onClick="_gaq.push(['_trackEvent', 'homepageFeatured', 'Click', 'Best Sellers CTA',1.00,true]);" > 
+            <img src="https://cdn.shopify.com/s/files/1/1159/6060/files/BestSellers.jpg?7042854219408998031" />
+            <button class="btn--secondary">
+                Shop Best Sellers
+            </button>  
+        </a>
+        <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'homepageFeatured', 'Impression', 'Best Sellers CTA',2.00,true]);"/>
+    </div>
+    
+    <div class="grid__item large--one-half">
+        <a href="/collections/art" onClick="_gaq.push(['_trackEvent', 'homepageFeatured', 'Click', 'New Designs CTA',1.00,true]);" > 
+            <img src="https://cdn.shopify.com/s/files/1/1159/6060/files/NewDesigns.jpg?7042854219408998031" />
+            <button class="btn--secondary">
+                Shop New Designs
+            </button> 
+        </a>
+        <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'homepageFeatured', 'Impression', 'New Designs CTA',2.00,true]);"/>
+    </div>
+</section>

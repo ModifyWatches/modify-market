@@ -76,6 +76,8 @@
 -->
 
 <section class="grid--full">
+    <!-- Side Nav -->
+    <!-- 
     <div class="grid__item large--one-fifth medium--one-quarter small--hide clear ">
         {% comment %}
             Make sure array here matches variables at the top of page.
@@ -95,8 +97,9 @@
             </div>
         {% endfor %}
     </div>
+    -->
 
-    <div class="grid__item large--four-fifths medium--three-quarters small--one-whole" id="pageTop">
+    <div class="grid__item one-whole" id="pageTop">
     {% comment %}
 
     This is the homepage of your site.
@@ -112,7 +115,7 @@
     each other properly at each breakpoint.
     {% endcomment %}
 	 {% assign grid_item_width = 'large--one-fifth medium--one-quarter small--one-third' %}
-		<div class="grid-uniform">
+		<div class="grid--uniform">
 			{% paginate collections.trending-designs.products by 60 %}
             <ul class="collection-matrix">
             {% for product in collections.trending-designs.products %}
