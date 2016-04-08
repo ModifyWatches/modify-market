@@ -25,32 +25,28 @@
 }
 </style>
 
-<!-- Main Featured Header -->
+{% include 'homepage-split-header' %}
+
+
+<!-- Main Featured Header 
 </main>
 <section class="grid--full feature-header">
     <div class="flexslider">
       <ul class="slides">
         <li>
+          <a href="/collections/mlb-licensed-watches"><img src="//cdn.shopify.com/s/files/1/1159/6060/files/mlbopeningday2016_banner.png?9448565311181063009" /></a>
+        </li>
+        <li>
           <a href="/pages/storefronts"><img src="{{ 'Homepage_Header2.jpg' | asset_url }}" /></a>
         </li>
         <li>
           <a href="/pages/march-modness-2016"><img src="{{ 'mm_mm2016banner.jpg' | asset_url }}" /></a>
-        </li>
-        <!--
-        <li>
-          <a href="/collections/all"><img src="{{ 'Homepage_Header1.jpg' | asset_url }}" /></a>
-        </li>
-        <li>
-          <a href="/pages/storefronts"><img src="{{ 'Homepage_Header2.jpg' | asset_url }}" /></a>
-        </li>
-        <li>
-          <a href="/pages/shops"><img src="{{ 'Homepage_Header3.jpg' | asset_url }}" /></a>
-        </li>    
-        -->
+        </li>          
       </ul>
     </div>
 </section>
 <main class="wrapper main-content big-margin" role="main">
+
     
 <!-- /templates/index.liquid 
 <section class="grid__item large--three-quarters  medium--three-quarters  small--one-whole pageBanner homeBanner genSection right">
@@ -80,6 +76,8 @@
 -->
 
 <section class="grid--full">
+    <!-- Side Nav -->
+    <!-- 
     <div class="grid__item large--one-fifth medium--one-quarter small--hide clear ">
         {% comment %}
             Make sure array here matches variables at the top of page.
@@ -99,8 +97,9 @@
             </div>
         {% endfor %}
     </div>
+    -->
 
-    <div class="grid__item large--four-fifths medium--three-quarters small--one-whole" id="pageTop">
+    <div class="grid__item one-whole" id="pageTop">
     {% comment %}
 
     This is the homepage of your site.
@@ -116,7 +115,7 @@
     each other properly at each breakpoint.
     {% endcomment %}
 	 {% assign grid_item_width = 'large--one-fifth medium--one-quarter small--one-third' %}
-		<div class="grid-uniform">
+		<div class="grid--uniform">
 			{% paginate collections.trending-designs.products by 60 %}
             <ul class="collection-matrix">
             {% for product in collections.trending-designs.products %}

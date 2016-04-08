@@ -85,9 +85,19 @@
 
 	</div>
 	<div class="grid__item large--one-sixth medium--one-sixth cartBox small--one-half" data-label="{{ 'cart.label.price' | t }}">
-		 <span class="h6">
+		 <span id="ProductPrice" class="h6">
             {{ item.price | money }}
           </span>
+          {% for item in cart.items %}
+            {% for tag in item.product.tags %}
+                {% if tag == 'sports' %}
+                
+                {% else %}
+                    {% include 'product-partner-rev-msg' %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
 	</div>	
 	<div class="grid__item large--one-sixth medium--one-sixth cartBox small--one-half small--text-right" data-label="{{ 'cart.label.quantity' | t }}">
 	<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
@@ -133,6 +143,14 @@
   <p>{{ 'cart.general.empty' | t }}</p>
   <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
 {% endif %}
+
+<!-- IS+ Product Recommendation Widget START -->
+<div title="You might also like..." sources="related_purchase,related_cart,related_views,related_keywords" layout="horizontal" max_suggest="4" id="isp-related-widget-1"></div>
+<div title="People Who Viewed This Also Viewed" sources="related_views" layout="vertical" max_suggest="5" id="isp-related-widget-2"></div>
+<div title="People Who Purchased This Also Purchased" sources="related_purchase,related_cart" layout="horizontal" max_suggest="5" id="isp-related-widget-3"></div>
+<div title="Recently Viewed Products" sources="related_recently_viewed,related_top_products" layout="horizontal" max_suggest="5" id="isp-related-widget-4"></div>
+<script src="https://acp-magento.appspot.com/js/isp_related_products.js?v=1.0.7&UUID=07233f61-ec24-4ef7-bd9d-80d9f82cd02a&store=11596060"></script>
+<!-- IS+ Product Recommendation Widget END -->
 
 <script>
 /* Mixpanel Scripts */

@@ -155,18 +155,22 @@
     </div>
     <div id="CartContainer"></div>
   </div>
+  
   <div id="bigPopup">
 	  <div class="popupPromo">
+
 		  	They're real and they're spectacular!<span class="small"></span><br>
 		  	<b><span class="mediumText">GET 25% OFF ALL CELL PHONE CASES</span></b><br>
 		  	Use code <b>SPECTACULAR</b> at Checkout.<br>
 		  	<span class="small"></span>
+
 		  <div id="closePopup" class="icon icon-x"></div>
 	  </div>
   </div>
     <div id="promoBar" class="grid__item one-whole text-center">
 		      	For a limited time! Get 25% off all phone cases with code <b>SPECTACULAR</b>		      	
 	      </div> 
+          -->
       <header class="site-header small--hide" role="banner">
 	     
       <div class="wrapper whiteBG">
@@ -318,7 +322,7 @@
             </div>
             <div class="grid__item one-third text-right">
               <div class="site-nav--mobile">
-                <a href="/cart" class="grid__item large--one-third text-right medium--one-quarter site-header__cart-toggle js-drawer-open-right right" aria-controls="CartDrawer" aria-expanded="false" id="cartIcon">
+                <a href="/cart" class="text-right medium--one-quarter site-header__cart-toggle js-drawer-open-right right" aria-controls="CartDrawer" aria-expanded="false" id="cartIcon">
 				 <img src="{{ 'cart.png' | asset_url }}" aria-hidden="true" height="20"/>
 				 {% if cart.item_count > 0 %}
 				 <span id="CartCount">{{ cart.item_count }}</span>

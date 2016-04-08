@@ -220,7 +220,7 @@ h2 {
   right: 0;
 }
 .flex-control-nav li a.flex-active {
-  background: rgba(244,118,33,1);
+  background: rgba(80,80,80,1);
 }
 
 /* COLLAB CATEGORY PAGES - COLLECTIONS LIST */
@@ -362,6 +362,9 @@ h2 {
   }
     .flexslider li:first-child {
       margin-left: 20px;
+    }
+    div.info {
+        position: relative;
     }
   /* COLLECTIONS INFO */
   .collections p {
