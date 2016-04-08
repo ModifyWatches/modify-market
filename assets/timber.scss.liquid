@@ -4065,6 +4065,21 @@ a.whiteLink {
 	top:5px;
 	right: 5px;
 }
+
+
+.productNav a {
+	@include at-query ($max, $small) {
+		font-size: 11px;
+		line-height: 12px;
+		display: inline-block;	
+	}
+}
+.productNav .grid__item {
+	@include at-query ($max, $small) {
+		padding-left: 0px;	
+		margin-bottom: 5px;
+	}
+}
 /* 
    Swatches Styles
 */
