@@ -155,18 +155,20 @@
     </div>
     <div id="CartContainer"></div>
   </div>
-  <!--
+  
   <div id="bigPopup">
 	  <div class="popupPromo">
-		  	April Fools Sale!<span class="small">*</span><br>
-		  	<b><span class="mediumText">GET 15% OFF</span></b><br>
-		  	Use code <b>APRILSERIOUS</b> at Checkout.<br>
-		  	<span class="small">*We’re actually serious. Get 15% off your order now.</span>
+
+		  	They're real and they're spectacular!<span class="small"></span><br>
+		  	<b><span class="mediumText">GET 25% OFF ALL CELL PHONE CASES</span></b><br>
+		  	Use code <b>SPECTACULAR</b> at Checkout.<br>
+		  	<span class="small"></span>
+
 		  <div id="closePopup" class="icon icon-x"></div>
 	  </div>
   </div>
     <div id="promoBar" class="grid__item one-whole text-center">
-		      	For a limited time! Get 15% off your order with code <b>APRILSERIOUS</b>		      	
+		      	For a limited time! Get 25% off all phone cases with code <b>SPECTACULAR</b>		      	
 	      </div> 
           -->
       <header class="site-header small--hide" role="banner">
@@ -505,7 +507,7 @@
 
 $(function() {
   ///////// pop up promo //////////
- if ( (!$.cookie('email_upsell')) ) {
+ if ( (!$.cookie('case_upsell')) ) {
 	 	$('#bigPopup').delay(200).fadeIn(300);
 	}else {
 		$('#promoBar').slideDown(0,function(){
@@ -518,9 +520,9 @@ $(function() {
   
   //$.cookie('email_upsell', '');
   // only show if hasn't been shown previously and don't show on mobile
-  if ( (!$.cookie('email_upsell')) ) {
+  if ( (!$.cookie('case_upsell')) ) {
     setTimeout(function() {
-      $.cookie('email_upsell', 'true');
+      $.cookie('case_upsell', 'true');
       $('.email-container').show('fade');
     }, 3000);
   };
