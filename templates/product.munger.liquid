@@ -38,9 +38,9 @@
 	        <img src="{{ 'Backplate.png' | asset_url }}" class="backplate" />
 	         <div class="watchArt">
 		          {% if product.type == 'Sport Watch' %}
-					  	<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="sportWatch"> 
+					  	<img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class="sportWatch"> 
 				  	{% else %}
-				  		<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class=""> 
+				  		<img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class=""> 
 				  	{% endif %}
 	        </div>
 	        <img src="{{ template_art | asset_url }}" data-type="Watch" class="watchOverlay" id="ProductPhotoImg">
@@ -50,11 +50,11 @@
         	<img src="{{ template_art }}" alt="{{ featured_image.alt | escape }}" data-type="Clothes" id="ProductPhotoImg">
 	        <div class="ImageOverlay">
 		        {% if product.type == "Women's T-Shirt" %}
-		       <img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="ladyShirt"> 
+		       <img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class="ladyShirt"> 
 		       {% elsif product.type == "Women's Long Sleeve T-Shirt" %}
-		       	<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="longLadyShirt">
+		       	<img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class="longLadyShirt">
 		       {% else %}
-		       	<img src="{{ product_art | img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" id="" class="">
+		       	<img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class="">
 		       {% endif %}
 	        </div>
 
