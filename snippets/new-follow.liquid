@@ -22,12 +22,13 @@
 			<input type="hidden" value="{{ colID }}" name="id" class="required" id="id">
 			<input type="hidden" value="{{ followed }}" name="numFollowers" class="required" id="numFollowers">
 			<button class="btn--secondary" id="follower-new" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
+            {% if followed > 0 %}
+                <b id="followText">{{ followed }} Fans</b>
+            {% endif %}
 			 <div style="clear:both"></div>
 		</form>
-		<p class="super-small italics tiny-margin">Be the first in line for new products<br>and limited editions!</p>
-		{% if followed > 0 %}
-		<p><b id="followText">{{ followed }} Fans</b></p>
-		{% endif %}
+		<p class="super-small italics tiny-margin">Be first in line for new products<br>and limited editions!</p>
+
 	</div>
 	<div style="clear: both"></div>
 </div>
