@@ -21,7 +21,7 @@
 			<input type="hidden" value="{{ collaboration }}" name="collection" class="required" id="collection">
 			<input type="hidden" value="{{ colID }}" name="id" class="required" id="id">
 			<input type="hidden" value="{{ followed }}" name="numFollowers" class="required" id="numFollowers">
-			<button class="btn--secondary" id="follower-new" class="{% if customer %}customer-logged-in {% endif %}">follow</button>
+			<button class="btn--secondary" id="follower-new" class="{% if customer %}customer-logged-in {% endif %}">Follow</button>
             {% if followed > 0 %}
                 <b id="followText">{{ followed }} Fans</b>
             {% endif %}
