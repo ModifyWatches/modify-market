@@ -422,8 +422,7 @@
                   
                 </ul>
                  {% if settings.footer_newsletter_enable %}
-            <div class="large--one-whole medium--one-whole">
-              <p class="small">Sign up for early access to new collections and exclusive deals.</p>
+            <div class="large--one-whole medium--one-whole">              
               {% if settings.newsletter_form_action != blank %}
                 {% assign form_action = settings.newsletter_form_action %}
               {% else %}
@@ -434,8 +433,8 @@
                 <span class="input-group-btn">
                   <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
                 </span>
-              </form>
-              <p class="small">We'll hook you up with sweet offers and entertain you with awesome jokes. Get. Excited.</p>
+              </form>              
+              <p class="small"><br />You'll get sweet offers and awesome jokes</p>
             </div>
           {% endif %}
 
