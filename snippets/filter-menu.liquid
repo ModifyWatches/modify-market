@@ -145,7 +145,7 @@ $(function() {
       }
     });
   });
-  var mq = window.matchMedia('@media all and (min-width: 768px)');
+  var mq = window.matchMedia('@media all and (max-width: 768px)');
   if (mq.matches) {
   /* the viewport is at least 768 pixels wide */
     $('#Filter').accordion({
