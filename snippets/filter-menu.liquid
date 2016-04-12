@@ -145,16 +145,21 @@ $(function() {
       }
     });
   });
-  
+  if (window.matchMedia("(min-width: 768px)").matches) {
+  /* the viewport is at least 768 pixels wide */
     $('#Filter').accordion({
-        heightStyle: "content",
-        collapsible: true,
-        animate: 200,
-        active: false,
-        header: "h4",
-        icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
-    });
+            heightStyle: "content",
+            collapsible: true,
+            animate: 200,
+            active: false,
+            header: "h4",
+            icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+        });
     // Get Icons
     var icons = $('#FAQ').accordion( "option", "icons" );
+    } else {
+    /* the viewport is less than 768 pixels wide */
+        return false;
+    }
 
 </script>
