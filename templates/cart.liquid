@@ -137,9 +137,15 @@
 
     <input type="hidden" id="identify_user_id" name="attributes[identify_user_id]" value="" />
     <script>
+
       $(document).ready(function(){
-        document.getElementById("identify_user_id").value = {{customer.id}};
+        {% if customer.id %}
+          $("#identify_user_id").val() = {{ customer.id }};
+        {% else %}
+          $("#identify_user_id").val() = analytics.user().anonymousId();
+        {% endif %}
       });
+
     </script>
 
   </form>
