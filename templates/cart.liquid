@@ -154,6 +154,7 @@
 
 <!-- Segment Cart Code -->
 <script type="text/javascript">
+  
   analytics.track('Viewed Cart', {
     itemCount: {{ cart.item_count }},
     totalPrice: {{ cart.total_price }},
@@ -161,9 +162,7 @@
   });
 
   $(".cart__remove").click(function(){
-    console.log("{% for item in cart.items %}{{item.product.title}}, {% endfor %}")
-    mixpanel.track("Removed item from Cart")
+    analytics.track('Removed item from Cart')
   });
-    // , {"name": "{% for item in cart.items %}{{item.product.title}}, {% endfor %}"});
 
 </script>
