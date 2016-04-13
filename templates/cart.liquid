@@ -161,7 +161,7 @@
   });
 
   $(".cart__remove").click(function(){
-    console.log({% for item in cart.items %}{{item.product.title}}, {% endfor %})
+    console.log("{% for item in cart.items %}{{item.product.title}}, {% endfor %}")
     mixpanel.track("Removed item from Cart")
   });
     // , {"name": "{% for item in cart.items %}{{item.product.title}}, {% endfor %}"});
