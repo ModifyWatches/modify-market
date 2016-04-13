@@ -14,6 +14,7 @@
 
 {% assign found_option = false %}
 {% assign is_color = false %}
+{% assign is_leather = false %}
 {% assign option_index = 0 %}
 
 {% for option in product.options %}
@@ -50,6 +51,15 @@
       {% assign values = values | join: ',' %}
       {% assign values = values | append: ',' | append: value %} 
       {% assign values = values | split: ',' %}
+      {% if value contains 'Leather' %}
+      	{% if is_leather %}
+      		
+      	{% else %}
+      	<div style="clear:both"></div>
+      	<div class="header">Leather:</div>
+      	{% assign is_leather = true %}
+      	{% endif %}
+      {% endif %}
       <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
         {% if is_color %}
         <div class="tooltip">{{ value }}</div>
