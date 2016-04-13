@@ -502,11 +502,11 @@
   // or your form's ID
 
   analytics.trackForm(form, 'Added Product', {
-    id: {{ line_item.id }},
-    name: "{{ line_item.title }}",
-    price: {{ line_item.price }},
-    quantity: {{ line_item.quantity }},
-    value: {{ line_item.quantity }}*{{ line_item.price }}
+    id: {{ item.id }},
+    name: "{{ item.title }}",
+    price: {{ item.price }},
+    quantity: {{ item.quantity }},
+    value: {{ item.quantity }}*{{ item.price }}
   });
   
 </script>
