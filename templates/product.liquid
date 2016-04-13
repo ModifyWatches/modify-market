@@ -500,16 +500,15 @@
 */
   // track Product Added event
 
-  var form = document.getElementById('AddToCartForm');
-  // or your form's ID
-
-  analytics.trackForm(form, 'Added Product', {
-    id: "{{ product.id }}",
-    name: "{{ product.title }}",
-    type: "{{ product.type }}",
-    vendor: "{{ product.vendor }}",
-    price: {{ product.price }}
-  });
+  $('#AddToCartForm').submit(function({
+    analytics.track('Added Product', {
+      id: "{{ product.id }}",
+      name: "{{ product.title }}",
+      type: "{{ product.type }}",
+      vendor: "{{ product.vendor }}",
+      price: {{ product.price }},
+      quantity: $("#Quantity").val()
+    });
+  })
   
-  // quantity: document.getElementById("Quantity").value
 </script>
