@@ -451,8 +451,8 @@
     {% endif %}
   });
   
-  /* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  
+  /* Mixpanel Scripts 
+  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  */
   
 </script>
 
@@ -498,7 +498,7 @@
 
   // track Product Added event
 
-  var form = document.getElementById('add-to-cart');
+  var form = document.getElementById('AddToCartForm');
   // or your form's ID
 
   analytics.trackForm(form, 'Added Product', {
