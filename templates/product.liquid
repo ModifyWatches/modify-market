@@ -500,7 +500,7 @@
 */
   // track Product Added event
 
-  $('#AddToCartForm').submit(function({
+  $('#AddToCartForm').submit(function(){
     analytics.track('Added Product', {
       id: "{{ product.id }}",
       name: "{{ product.title }}",
