@@ -467,11 +467,13 @@
     
     <!-- Segmeent Product Event -->
     <script type="text/javascript">
-  analytics.track('Viewed Product')
-  /*
+  analytics.track('Viewed Product', {
     id: "{{ product.id }}",
     name: "{{ product.title }}",
     type: "{{ product.type }}",
+    vendor: "{{ product.vendor }}",
+    });
+    /*
     url: "{{ product.url }}",
     price: {{ product.price }},
     priceMin: {{ product.price_min }},
@@ -485,12 +487,13 @@
     variantTitle: "{{ variant.title }}",
     variantUrl: "{{ variant.url }}",
     variantWeight: "{{ variant.weight }}",
-    vendor: "{{ product.vendor }}",
+    
     collections: [{% for collection in product.collections %}"{{ collection.title }}",{% endfor %}],
     available: {{ product.available }},
     options: ["{{ product.options | join: '", "' }}"],
     optionsCount: {{ product.options.size }},
     tag: ["{{ product.tags | join: '", "' }}"]
+    
   });
 /*
   // track Product Added event
