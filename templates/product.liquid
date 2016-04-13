@@ -467,7 +467,8 @@
     
     <!-- Segmeent Product Event -->
     <script type="text/javascript">
-  analytics.track('Viewed Product', {
+  analytics.track('Viewed Product')
+  /*
     id: "{{ product.id }}",
     name: "{{ product.title }}",
     type: "{{ product.type }}",
@@ -504,4 +505,5 @@
     quantity: {{ line_item.quantity }},
     value: {{ line_item.quantity }}*{{ line_item.price }}
   });
+  */
 </script>
