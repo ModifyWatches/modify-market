@@ -160,8 +160,8 @@
     totalWeight: {{ cart.total_weight }}
   });
 
-  $(".cart-item-remove").click(function(){
-    debugger
+  $(".cart__remove").click(function(){
+    console.log({% for item in cart.items %}{{item.product.title}}, {% endfor %})
     mixpanel.track("Removed item from Cart")
   });
     // , {"name": "{% for item in cart.items %}{{item.product.title}}, {% endfor %}"});
