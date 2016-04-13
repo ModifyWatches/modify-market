@@ -156,3 +156,13 @@
 /* Mixpanel Scripts */
   mixpanel.track("Page Views" , {"Page": "Cart Page"});  
 </script>
+
+<!-- Segment Cart Code -->
+<script type="text/javascript">
+  analytics.track('Viewed Cart', {
+    itemCount: {{ cart.item_count }},
+    totalPrice: {{ cart.total_price }},
+    totalWeight: {{ cart.total_weight }}
+  });
+
+</script>
