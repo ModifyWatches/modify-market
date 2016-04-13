@@ -152,7 +152,17 @@
 <script src="https://acp-magento.appspot.com/js/isp_related_products.js?v=1.0.7&UUID=07233f61-ec24-4ef7-bd9d-80d9f82cd02a&store=11596060"></script>
 <!-- IS+ Product Recommendation Widget END -->
 
-<script>
-/* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "Cart Page"});  
+<!-- Segment Cart Code -->
+<script type="text/javascript">
+  
+  analytics.track('Viewed Cart', {
+    itemCount: {{ cart.item_count }},
+    totalPrice: {{ cart.total_price }},
+    totalWeight: {{ cart.total_weight }}
+  });
+
+  $(".cart__remove").click(function(){
+    analytics.track('Removed item from Cart')
+  });
+
 </script>

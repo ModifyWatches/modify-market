@@ -50,8 +50,57 @@
     <meta name="google-site-verification" content="EwIwa-8YQrdrdsQ9UnBWyfQfadFcpoHEceGhQyVmS9k" />
     <meta name="google-site-verification" content="5MGhNKO8NRhrY0T5ZD5gJDSpCpqKXZJkFKGcsgEroHA" />
     <meta name="google-site-verification" content="mRisER79hSvY9f5i1IFqSPoQ8NX0eCFvUw6nW7-bDLU" />
-    {% include 'mixpanel' %}
+    
     <script src="//cdn.optimizely.com/js/5182341474.js"></script>
+    
+    <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '626325590828751');
+        fbq('track', "PageView");</script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=626325590828751&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+    <!-- Segment Code -->
+    <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+
+
+    window.analytics.load("icEIlukUoiyYmMXt40Dp4U20WZ91oKzS");
+
+    // identify the customer if they have an account
+    {% if customer.id %}
+    window.analytics.identify({{customer.id}}, {
+        name: "{{ customer.name }}",
+        firstName: "{{ customer.first_name }}",
+        lastName: "{{ customer.last_name }}",
+        email: "{{ customer.email }}",
+        phone: "{{ customer.default_address.phone }}",
+        address: {  // uses the default address
+        street: "{{ customer.default_address.street }}",
+        city: "{{ customer.default_address.city }}",
+        state: "{{ customer.default_address.province }}",
+        stateCode: "{{ billing_address.province_code }}",
+        postalCode: "{{ customer.default_address.zip }}",
+        country: "{{ customer.default_address.country }}",
+        countryCode: "{{ customer.default_address.country_code }}"
+        },
+        totalSpent: "{{ customer.total_spent }}",
+        allOrdersCount: {{ customer.orders_count }},
+        allOrderIds: [{% for order in customer.orders %}{{ order.id }},{% endfor %}],
+        tags: ["{{ customer.tags | join: '", "' }}"]
+    });
+    {% endif %}
+    window.analytics.page();
+    }}();
+    </script>
 
 </head>
 
@@ -155,7 +204,7 @@
     </div>
     <div id="CartContainer"></div>
   </div>
-  
+  <!--
   <div id="bigPopup">
 	  <div class="popupPromo">
 
@@ -170,7 +219,7 @@
     <div id="promoBar" class="grid__item one-whole text-center">
 		      	For a limited time! Get 25% off all <a href="/collections/cell-phone-cases">phone cases</a> with code <b>SPECTACULAR</b>		      	
 	      </div> 
-          
+      -->    
       <header class="site-header small--hide" role="banner">
 	     
       <div class="wrapper whiteBG">
@@ -195,16 +244,16 @@
             
               </h1>
            
-            <div id="browseBox" class="left large--one-sixth medium--three-twelfths small--hide">
+            <div id="browseBox" class="left large--one-sixth medium--one-eighth small--hide text-center">
 		        <a href="/collections/all">
-                    <b>Browse</b>
-                    1,000+ Stores 
+                    <b>Shop</b>
+                   
                 </a>
 		    </div>
-		    <div class="left  large--one-twelfth medium--one-sixth small--hide large--text-left medium--text-center sellStore">
-			     <h4><a href="/pages/storefronts">Sell</a></h4>
+		    <div class="left  large--one-fifth medium--one-quarter small--hide large--text-left medium--text-center sellStore">
+			     <a href="/pages/storefronts"><h4>Partner with us</h4></a>
 		    </div>
-             <div class="site-header__search large--one-half medium--five-twelfths small--one-half small--right">
+             <div class="site-header__search large--one-third medium--five-twelfths small--one-half small--right">
               {% include 'search-bar' %}
             </div>
 
@@ -422,8 +471,7 @@
                   
                 </ul>
                  {% if settings.footer_newsletter_enable %}
-            <div class="large--one-whole medium--one-whole">
-              <p class="small">Sign up for early access to new collections and exclusive deals.</p>
+            <div class="large--one-whole medium--one-whole">              
               {% if settings.newsletter_form_action != blank %}
                 {% assign form_action = settings.newsletter_form_action %}
               {% else %}
@@ -434,8 +482,8 @@
                 <span class="input-group-btn">
                   <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
                 </span>
-              </form>
-              <p class="small">We'll hook you up with sweet offers and entertain you with awesome jokes. Get. Excited.</p>
+              </form>              
+              <p class="small"><br />You'll get sweet offers and awesome jokes</p>
             </div>
           {% endif %}
 

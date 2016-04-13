@@ -55,7 +55,7 @@
         Product specific Alt images
       {% endcomment %}
       <!-- Metal Watch Alt Images -->        
-        {% if product.type == "Watch" or product.type =="Alloy watch"%}
+        {% if product.type == "Watch" or product.type == "Alloy watch"%}
             <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
                 <li class="grid__item one-sixth">
                     <a href="{{ featured_image | img_url: 'grande' }}" class="product-single__thumbnail">
@@ -286,7 +286,7 @@
             </ul>
             <img src="{{ 'sizing_ZipHoodie.png' | asset_url }}" alt="Zip Hoodie Sizes" />
                     
-          {% elsif product.type == "6/6s Case" or product.type == "5/5s Case" %}
+          {% elsif product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" %}
           <!-- Mug Product Info -->
             <ul>
                 <li>Super bright colors embedded Directly into the case</li>
@@ -314,7 +314,7 @@
       </div>
 
       <div class="product-description rte" itemprop="description">
-        <h5>Share</h5>
+        <h5>Help share {{ collection.title }}'s story</h5>
       
      <div class="share-buttons share-buttons-panel" data-style="big" data-counter="false" data-oauth="true" data-hover="true" data-promo-callout="none" data-buttons="twitter,facebook,pinterest"></div>
 
@@ -451,8 +451,8 @@
     {% endif %}
   });
   
-  /* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  
+  /* Mixpanel Scripts 
+  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  */
   
 </script>
 
@@ -464,3 +464,51 @@
 <script src="https://acp-magento.appspot.com/js/isp_related_products.js?v=1.0.7&UUID=07233f61-ec24-4ef7-bd9d-80d9f82cd02a&store=11596060"></script>
 <!-- IS+ Product Recommendation Widget END -->
     </div>
+    
+    <!-- Segmeent Product Event -->
+    <script type="text/javascript">
+      
+      analytics.track('Viewed Product', {
+        id: "{{ product.id }}",
+        name: "{{ product.title }}",
+        type: "{{ product.type }}",
+        vendor: "{{ product.vendor }}",
+        price: {{ product.price }},
+      });
+    
+    /*
+    url: "{{ product.url }}",
+    priceMin: {{ product.price_min }},
+    priceMax: {{ product.price_max }},
+    priceVaries: {{ product.price_varies }},
+    variantsCount: {{ product.variants.size }},
+    firstAvailVariant: "{{ product.first_available_variant.title }}",
+
+
+    sku: "{{ variant.sku }}",
+    variantTitle: "{{ variant.title }}",
+    variantUrl: "{{ variant.url }}",
+    variantWeight: "{{ variant.weight }}",
+    collections: [{% for collection in product.collections %}"{{ collection.title }}",{% endfor %}],
+    
+    available: {{ product.available }},
+    options: ["{{ product.options | join: '", "' }}"],
+    optionsCount: {{ product.options.size }},
+    tag: ["{{ product.tags | join: '", "' }}"]
+    
+  });
+*/
+  // track Product Added event
+
+  $('#AddToCartForm').submit(function(){
+    analytics.track('Added Product', {
+      id: "{{ product.id }}",
+      name: "{{ product.title }}",
+      type: "{{ product.type }}",
+      vendor: "{{ product.vendor }}",
+      price: {{ product.price }},
+      quantity: $("#Quantity").val()
+    });
+  })
+  
+</script>

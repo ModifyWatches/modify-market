@@ -37,7 +37,7 @@
 			 	<div class="readMore"><a href="#">Read More</a></div>
 			 </div>
 			 <div id="shareHolder">
-				 Share this store:<br>
+				 Help share {{ collection.title }}'s story<br>
 			 <div class="share-buttons share-buttons-panel" data-style="big" data-counter="false" data-oauth="true" data-hover="true" data-promo-callout="none" data-buttons="twitter,facebook,pinterest"></div>
 			 </div>
 		</div>
@@ -138,10 +138,16 @@
 
 <!-- Scripts -->
 <script>
+
   $(function() {
     $( "#tabs" ).tabs();
   });
 
-/* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ collection.title }} Storefront Page"});  
+  analytics.page('Partner Page', {
+    title: "{{ collection.title }}",
+    url: window.location.href,
+    path: '{{ collection.url }}',
+    referrer: document.referrer
+  });
+
 </script>

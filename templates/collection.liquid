@@ -83,7 +83,14 @@
 
 {% endpaginate %}
 
-<script>
-/* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ collection.title }} Collection Page"});  
+<!-- Segment Collection Event -->
+<script type="text/javascript">
+  analytics.page('Category Page', {
+    title: "{{ collection.title }}",
+    url: "{{ collection.url }}",
+    referrer: document.referrer,
+    path: window.location.pathname,
+    productCount: {{ collection.all_products_count }},
+    sortBy: "{{ collection.default_sort_by }}"
+  });
 </script>

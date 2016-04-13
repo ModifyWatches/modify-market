@@ -51,6 +51,10 @@
         .productNav a:hover {
             color: rgba( 228, 87, 47, 1);
         }
+    .productNav img {
+        display: block;
+        margin: 0 auto;   
+    }
     .featurette .btn--secondary {
         position: relative;        
         margin-top: -70%;
@@ -94,13 +98,15 @@
     <div class="valueprop grid__item one-whole text-center genSection">
         <p class="h">Your Brand + Our Designers</p>
         <p>Beautiful custom products for your fans</p>
+        <a name="content"></a>
     </div>
 </section>
 
 <section class="grid--full one-whole grey-bg text-center genSection productNav">
     <div class="wrapper">
-        <div class="grid__item one-sixth small--one-third">
+        <div class="grid__item one-sixth small--one-third">           
             <a href="/collections/watch" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Metal Watch',1.00,true]);" > 
+                <img style="display: block; margin: 0 auto;" src="{{ 'MetalWatchIcon.png' | asset_img_url: 'small' }}" alt="Metal Watch" />
                 Metal Watch
             </a>
             <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Metal Watch',2.00,true]);"/>
@@ -108,6 +114,7 @@
         
         <div class="grid__item one-sixth small--one-third">
             <a href="/collections/sport-watch" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Sport Watch',1.00,true]);" > 
+                <img style="display: block; margin: 0 auto;" src="{{ 'SportWatchIcon.png' | asset_img_url: 'small' }}" alt="Sport Watch" />
                 Sport Watch
             </a>
             <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Sport Watch',2.00,true]);"/>
@@ -115,6 +122,7 @@
         
         <div class="grid__item one-sixth small--one-third">
             <a href="/collections/mens-t-shirt" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Men's T-Shirt,1.00,true]);" > 
+                <img style="display: block; margin: 0 auto;" src="{{ 'MenTShirtIcon.png' | asset_img_url: 'small' }}" alt="Men's T-Shirts'" />
                 Men's T-Shirt
             </a>
             <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Men's T-Shirt,2.00,true]);"/>        
@@ -122,6 +130,7 @@
         
         <div class="grid__item one-sixth small--one-third">
             <a href="/collections/womens-t-shirt" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Women's T-Shirt,1.00,true]);" > 
+                <img style="display: block; margin: 0 auto;" src="{{ 'WomenTShirtIcon.png' | asset_img_url: 'small' }}" alt="Women's T-Shirts'" />
                 Women's T-Shirt
             </a>
             <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Women's T-Shirt,2.00,true]);"/>
@@ -129,13 +138,15 @@
         
         <div class="grid__item one-sixth small--one-third">
             <a href="/collections/mug" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'Mug',1.00,true]);" > 
-                Mug
+                <img style="display: block; margin: 0 auto;" src="{{ 'MugIcon.png' | asset_img_url: 'small' }}" alt="Mugs (not pugs!)" />
+                <strike>Pugs</strike> Mugs
             </a>
             <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'Mug',2.00,true]);"/>
         </div>
         
         <div class="grid__item one-sixth small--one-third">
             <a href="/collections/cell-phone-cases" onClick="_gaq.push(['_trackEvent', 'Product NAV', 'Click', 'iPhone 6 Case',1.00,true]);" > 
+                <img style="display: block; margin: 0 auto;" src="{{ 'iPhoneIcon.png' | asset_img_url: 'small' }}" alt="iPhone Cases" />
                 iPhone Cases
             </a>
             <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'Product NAV', 'Impression', 'iPhone 6 Case',2.00,true]);"/>
@@ -166,3 +177,8 @@
         <img width=0 height=0 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="_gaq.push(['_trackEvent', 'homepageFeatured', 'Impression', 'New Designs CTA',2.00,true]);"/>
     </div>
 </section>
+
+{% include 'bounce-arrow' %}
+
+<!-- Scripts -->
+{{ 'smooth-scroll.js' | asset_url | script_tag }}
