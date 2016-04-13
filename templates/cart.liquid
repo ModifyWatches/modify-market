@@ -134,6 +134,14 @@
         <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
       </div>
     </div>
+
+    <input type="hidden" id="identify_user_id" name="attributes[identify_user_id]" value="" />
+    <script>
+      $(document).ready(function(){
+        document.getElementById("identify_user_id").value = {{customer.id}};
+      });
+    </script>
+
   </form>
 {% else %}
   {% comment %}
