@@ -92,6 +92,7 @@
     path: window.location.pathname,
     productCount: {{ collection.all_products_count }},
     {% if collection.current_type %} filteredType: "{{ collection.current_type }}"{% endif %},
-    {% if collection.current_vendor %} filteredVendor: "{{ collection.current_vendor }}"{% endif %}
+    {% if collection.current_vendor %} filteredVendor: "{{ collection.current_vendor }}"{% endif %},
+    sortBy: "{{ collection.default_sort_by }}"
   });
 </script>
