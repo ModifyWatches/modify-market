@@ -451,8 +451,8 @@
     {% endif %}
   });
   
-  /* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  
+  /* Mixpanel Scripts 
+  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  */
   
 </script>
 
@@ -471,6 +471,9 @@
     id: "{{ product.id }}",
     name: "{{ product.title }}",
     type: "{{ product.type }}",
+    vendor: "{{ product.vendor }}",
+    });
+    /*
     url: "{{ product.url }}",
     price: {{ product.price }},
     priceMin: {{ product.price_min }},
@@ -478,34 +481,33 @@
     priceVaries: {{ product.price_varies }},
     variantsCount: {{ product.variants.size }},
     firstAvailVariant: "{{ product.first_available_variant.title }}",
-    variantId: {{ product.selected_variant.id }},
-    variantAvailable: {{ variant.available }},
-    variantCompareAtPrice: {{ variant.compare_at_price }},,
-    variantQuantity: {{ variant.inventory_quantity }},
-    variantPrice: {{ variant.price }},
-    variantSelected: {{ variant.selected }},
+
+
     sku: "{{ variant.sku }}",
     variantTitle: "{{ variant.title }}",
     variantUrl: "{{ variant.url }}",
     variantWeight: "{{ variant.weight }}",
-    vendor: "{{ product.vendor }}",
+    
     collections: [{% for collection in product.collections %}"{{ collection.title }}",{% endfor %}],
     available: {{ product.available }},
     options: ["{{ product.options | join: '", "' }}"],
     optionsCount: {{ product.options.size }},
     tag: ["{{ product.tags | join: '", "' }}"]
+    
   });
-
+*/
   // track Product Added event
 
-  var form = document.getElementById('add-to-cart');
+  var form = document.getElementById('AddToCartForm');
   // or your form's ID
 
   analytics.trackForm(form, 'Added Product', {
-    id: {{ item.id }},
-    name: "{{ item.title }}",
-    price: {{ item.price }},
-    quantity: {{ item.quantity }},
-    value: {{ item.quantity }}*{{ item.price }}
+    id: "{{ product.id }}",
+    name: "{{ product.title }}",
+    type: "{{ product.type }}",
+    vendor: "{{ product.vendor }}",
+    price: "{{ product.price }}",
+    quantity: "{{ line_item.quantity }}"
   });
+  
 </script>
