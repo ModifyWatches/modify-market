@@ -140,9 +140,9 @@
 
       $(document).ready(function(){
         {% if customer.id %}
-          $("#identify_user_id").val() = {{ customer.id }};
+          $("#identify_user_id").val = {{ customer.id }};
         {% else %}
-          $("#identify_user_id").val() = analytics.user().anonymousId();
+          $("#identify_user_id").val = analytics.user().anonymousId();
         {% endif %}
       });
 
