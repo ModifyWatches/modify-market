@@ -486,10 +486,7 @@
     {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
       $('.selector-wrapper').hide();
     {% endif %}
-  });
-  
-  /* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  
+  }); 
   
 </script>
 
@@ -502,47 +499,26 @@
 <!-- IS+ Product Recommendation Widget END -->
     </div>
     
-        <!-- Segmeent Product Event -->
+<!-- Segmeent Product Event -->
     <script type="text/javascript">
-  analytics.track('Viewed Product', {
-    id: "{{ product.id }}",
-    name: "{{ product.title }}",
-    type: "{{ product.type }}",
-    url: "{{ product.url }}",
-    price: {{ product.price }},
-    priceMin: {{ product.price_min }},
-    priceMax: {{ product.price_max }},
-    priceVaries: {{ product.price_varies }},
-    variantsCount: {{ product.variants.size }},
-    firstAvailVariant: "{{ product.first_available_variant.title }}",
-    variantId: {{ product.selected_variant.id }},
-    variantAvailable: {{ variant.available }},
-    variantCompareAtPrice: {{ variant.compare_at_price }},,
-    variantQuantity: {{ variant.inventory_quantity }},
-    variantPrice: {{ variant.price }},
-    variantSelected: {{ variant.selected }},
-    sku: "{{ variant.sku }}",
-    variantTitle: "{{ variant.title }}",
-    variantUrl: "{{ variant.url }}",
-    variantWeight: "{{ variant.weight }}",
-    vendor: "{{ product.vendor }}",
-    collections: [{% for collection in product.collections %}"{{ collection.title }}",{% endfor %}],
-    available: {{ product.available }},
-    options: ["{{ product.options | join: '", "' }}"],
-    optionsCount: {{ product.options.size }},
-    tag: ["{{ product.tags | join: '", "' }}"]
-  });
+      
+      analytics.track('Viewed Product', {
+        id: "{{ product.id }}",
+        name: "{{ product.title }}",
+        type: "{{ product.type }}",
+        vendor: "{{ product.vendor }}",
+        price: {{ product.price }},
+      });
 
-  // track Product Added event
-
-  var form = document.getElementById('AddToCartForm');
-  // or your form's ID
-
-  analytics.trackForm(form, 'Added Product', {
-    id: {{ item.id }},
-    name: "{{ item.title }}",
-    price: {{ item.price }},
-    quantity: {{ item.quantity }},
-    value: {{ item.quantity }}*{{ item.price }}
-  });
-</script>
+      $('#AddToCartForm').submit(function(){
+        analytics.track('Added Product', {
+          id: "{{ product.id }}",
+          name: "{{ product.title }}",
+          type: "{{ product.type }}",
+          vendor: "{{ product.vendor }}",
+          price: {{ product.price }},
+          quantity: $("#Quantity").val()
+        });
+      })
+      
+    </script>
