@@ -82,7 +82,7 @@
       // identify the customer if they have an account
       {% if customer.id %}
 
-        analytics.alias({{ customer.id }}, analytics.user().anonymousId());
+        analytics.alias({{ customer.id }});
 
         analytics.identify({{customer.id}}, {
           name: "{{ customer.name }}",
