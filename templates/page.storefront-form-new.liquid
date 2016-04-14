@@ -43,8 +43,23 @@
 		<h2 class="orange-text">Open your shop today, its free!</h2>
 		
 		 <div class="grid__item large--one-half push--large--one-quarter medium--three-quarters push--medium--one-eighth">
+        
+
+        <script>
+
+            $(document).ready(function(){
+                {% if customer.id %}
+                    val segment_user_id = {{ customer.id }};
+                {% else %}
+                    val segment_user_id = analytics.user().anonymousId();
+                {% endif %}
+                val form_url = "https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t?field1657=elantest" + segment_user_id
+            });
+
+        </script>
+
         <div id="wufoo-qzcxtkn1ajf44t">
-            Fill out my <a href="https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t">online form</a>.
+            Fill out my <a href="https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t?field1657=elantest">online form</a>.
         </div>
         <script type="text/javascript">var qzcxtkn1ajf44t;(function(d, t) {
         var s = d.createElement(t), options = {
