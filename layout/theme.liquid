@@ -274,11 +274,12 @@
 	            <div class="grid__item large--five-sixths text-right medium--five-sixths"> 
                 {% if customer %}
                   {% if customer.first_name != blank %}
-                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                   <a href="/account">{{ customer.first_name | truncate: 12}}</a>
+                   
                   {% else %}
                     <a href="/account">{{ 'layout.customer.account' | t }}</a>
                   {% endif %}
+                   | 
                    {{ 'layout.customer.log_out' | t | customer_logout_link }}
                 {% else %}
                   {% if shop.customer_accounts_optional %}
