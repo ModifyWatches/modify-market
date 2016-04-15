@@ -207,10 +207,12 @@
       maxItems: 3.5
 		});
 	});
-
-/* Mixpanel Events */
-  mixpanel.track("Page Views", {"Page": "Collaboration List Page"});
   
+</script>
+
+<!-- Segment Viewed Homepage -->
+<script type="text/javascript">
+  analytics.page('All Partners List');
 </script>
 
 {{ 'smooth-scroll.js' | asset_url | script_tag }}

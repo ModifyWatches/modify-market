@@ -131,9 +131,24 @@
         </p>
         <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
         <input type="submit" name="update" class="btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
-        <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
+        <input id="checkout" type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
       </div>
     </div>
+
+    <input type="hidden" id="identify_user_id" name="attributes[identify_user_id]" value="" />
+    <script>
+
+
+      $(document).ready(function(){
+        {% if customer.id %}
+          $("#identify_user_id").val({{ customer.id }});
+        {% else %}
+          $("#identify_user_id").val(window.analytics.user().anonymousId());
+        {% endif %}
+      });
+
+    </script>
+
   </form>
 {% else %}
   {% comment %}
@@ -163,6 +178,10 @@
 
   $(".cart__remove").click(function(){
     analytics.track('Removed item from Cart')
+  });
+  
+  $("#checkout").click(function(){
+    analytics.track('Checkout Cart')
   });
 
 </script>

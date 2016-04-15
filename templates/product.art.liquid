@@ -122,55 +122,15 @@
       * E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
 {% endcomment %}
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-<script>
-    
-
-/* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Art Page"});  
-
-</script>
 
  <!-- Segmeent Product Event -->
     <script type="text/javascript">
-  analytics.track('Viewed Product', {
-    id: "{{ product.id }}",
-    name: "{{ product.title }}",
-    type: "{{ product.type }}",
-    url: "{{ product.url }}",
-    price: {{ product.price }},
-    priceMin: {{ product.price_min }},
-    priceMax: {{ product.price_max }},
-    priceVaries: {{ product.price_varies }},
-    variantsCount: {{ product.variants.size }},
-    firstAvailVariant: "{{ product.first_available_variant.title }}",
-    variantId: {{ product.selected_variant.id }},
-    variantAvailable: {{ variant.available }},
-    variantCompareAtPrice: {{ variant.compare_at_price }},,
-    variantQuantity: {{ variant.inventory_quantity }},
-    variantPrice: {{ variant.price }},
-    variantSelected: {{ variant.selected }},
-    sku: "{{ variant.sku }}",
-    variantTitle: "{{ variant.title }}",
-    variantUrl: "{{ variant.url }}",
-    variantWeight: "{{ variant.weight }}",
-    vendor: "{{ product.vendor }}",
-    collections: [{% for collection in product.collections %}"{{ collection.title }}",{% endfor %}],
-    available: {{ product.available }},
-    options: ["{{ product.options | join: '", "' }}"],
-    optionsCount: {{ product.options.size }},
-    tag: ["{{ product.tags | join: '", "' }}"]
-  });
-
-  // track Product Added event
-
-  var form = document.getElementById('add-to-cart');
-  // or your form's ID
-
-  analytics.trackForm(form, 'Added Product', {
-    id: {{ item.id }},
-    name: "{{ item.title }}",
-    price: {{ item.price }},
-    quantity: {{ item.quantity }},
-    value: {{ item.quantity }}*{{ item.price }}
-  });
-</script>
+      
+      analytics.track('Viewed Art Page', {
+        id: "{{ product.id }}",
+        name: "{{ product.title }}",
+        type: "{{ product.type }}",
+        vendor: "{{ product.vendor }}",
+        price: {{ product.price }},
+      });
+    </script>

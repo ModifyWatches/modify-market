@@ -146,12 +146,9 @@ $(window).ready(function() {
         animation : "fade"
     });
 });
-
-/* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "Homepage"});  
 </script>
 
 <!-- Segment Viewed Homepage -->
 <script type="text/javascript">
-  analytics.track('Viewed Homepage');
+  analytics.page('Homepage');
 </script>
