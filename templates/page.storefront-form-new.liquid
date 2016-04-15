@@ -43,21 +43,27 @@
 		<h2 class="orange-text">Open your shop today, its free!</h2>
 		
 		 <div class="grid__item large--one-half push--large--one-quarter medium--three-quarters push--medium--one-eighth">
-        
-
+               
+        <iframe id="signup" height="629" allowTransparency="true" frameborder="0" scrolling="no" style="width:100%;border:none"  src="https://modifywatches.wufoo.com/embed/rnitg3b1jqx68d/def/field1657={{ page.title }}"><a href="https://modifywatches.wufoo.com/forms/rnitg3b1jqx68d/">Fill out my Wufoo form!</a></iframe>
+       <input type="hidden" id="identify_user_id" name="attributes[identify_user_id]" value="" />
+       
         <script>
-
-            $(document).ready(function(){
-                {% if customer.id %}
-                    val segment_user_id = {{ customer.id }};
-                {% else %}
-                    val segment_user_id = analytics.user().anonymousId();
-                {% endif %}
-                val form_url = "https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t/def/field1657=elantest" + segment_user_id
-            });
-
-        </script>
-
+        
+          $(document).ready(function(){
+            {% if customer.id %}
+              $("#identify_user_id").val({{ customer.id }});
+            {% else %}
+              $("#identify_user_id").val(window.analytics.user().anonymousId());
+            {% endif %}                        
+            var userID = $("#identify_user_id").val();
+            console.log(userID);  
+            $('#signup').html( ".attr('src'): https://modifywatches.wufoo.com/embed/rnitg3b1jqx68d/def/field1657=" + userID);
+          });
+        
+        </script>  
+        
+        <h2>{{ segment_user }}</h2>
+        
         <div id="wufoo-qzcxtkn1ajf44t">
             Fill out my <a href="https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t/def/field1657=elantest">online form</a>.
         </div>
