@@ -55,6 +55,8 @@
             {% else %}
               $("#identify_user_id").val(window.analytics.user().anonymousId());
             {% endif %}
+            var segment_user_id = $("#identify_user_id").val();
+            console.log(segment_user_id);
           });
 
         </script>       
