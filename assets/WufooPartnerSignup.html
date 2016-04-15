@@ -1,0 +1,91 @@
+Thank you for signing up! We'll be in touch soon with next steps.
+
+<!-- Segment Checkout Event -->
+
+<script type="text/javascript">
+  !function(){
+    var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+    
+    analytics.load("icEIlukUoiyYmMXt40Dp4U20WZ91oKzS");
+
+    analytics.identify("{entry:Field1657}", {
+      name: "{{ customer.name }}",
+      firstName: "{{ customer.first_name }}",
+      lastName: "{{ customer.last_name }}",
+      email: "{{ customer.email }}",
+      phone: "{{ customer.default_address.phone }}",
+      address: {
+        street: "{{ customer.default_address.street }}",
+        city: "{{ customer.default_address.city }}",
+        state: "{{ customer.default_address.province }}",
+        postalCode: "{{ customer.default_address.zip }}",
+        country: "{{ customer.default_address.country }}",
+        countryCode: "{{ customer.default_address.country_code }}"
+      },
+      totalSpent: {{ customer.total_spent }},
+      allOrdersCount: {{ customer.orders_count }}
+    });
+    
+    analytics.track('Partner Signup', {
+        id: "{entry:Field1657}",
+        firstName: "{entry:Field1411}",
+        lastName: "{entry:Field1412}",
+        email: "{entry:Field1381}",
+        designHelp: "{{entry:Field1650}}"
+    })
+
+  }}();
+</script>
+
+------ Artist Self-serve form
+
+We're super excited that you want to design your own products.
+
+You can download all the photoshop templates here:
+https://www.dropbox.com/sh/l5ityq55cz7s5pv/AABde4mz8W7ruYx7hkd2y8IAa?dl=1
+
+Inside you'll find everything you need, including a short README with instructions on how to use our templates and how to submit your artwork to get products on our site for REAL.
+
+When you're ready to submit, please upload your designs here: https://modify.com/createyourstorefront
+
+Can't wait to see what you come up with. Feel free to reach out if you have any questions.
+
+Sincerely,
+The Modify Team
+
+<!-- Segment Checkout Event -->
+
+<script type="text/javascript">
+  !function(){
+    var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+    
+    analytics.load("icEIlukUoiyYmMXt40Dp4U20WZ91oKzS");
+
+    analytics.identify("{entry:Field1657}", {
+      name: "{{ customer.name }}",
+      firstName: "{{ customer.first_name }}",
+      lastName: "{{ customer.last_name }}",
+      email: "{{ customer.email }}",
+      phone: "{{ customer.default_address.phone }}",
+      address: {
+        street: "{{ customer.default_address.street }}",
+        city: "{{ customer.default_address.city }}",
+        state: "{{ customer.default_address.province }}",
+        postalCode: "{{ customer.default_address.zip }}",
+        country: "{{ customer.default_address.country }}",
+        countryCode: "{{ customer.default_address.country_code }}"
+      },
+      totalSpent: {{ customer.total_spent }},
+      allOrdersCount: {{ customer.orders_count }}
+    });
+    
+    analytics.track('Partner Signup', {
+        id: "{entry:Field1657}",
+        firstName: "{entry:Field1411}",
+        lastName: "{entry:Field1412}",
+        email: "{entry:Field1381}",
+        designHelp: "{{entry:Field1650}}"
+    })
+
+  }}();
+</script>
