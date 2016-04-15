@@ -139,7 +139,7 @@
     <script>
 
 
-      $(document).ready(function(){
+      $(window).load(function(){
         {% if customer.id %}
           $("#identify_user_id").val({{ customer.id }});
         {% else %}
