@@ -169,19 +169,20 @@
 
 <!-- Segment Cart Code -->
 <script type="text/javascript">
-  
-  analytics.track('Viewed Cart', {
-    itemCount: {{ cart.item_count }},
-    totalPrice: {{ cart.total_price }},
-    totalWeight: {{ cart.total_weight }}
-  });
-
-  $(".cart__remove").click(function(){
-    analytics.track('Removed item from Cart')
-  });
-  
-  $("#checkout").click(function(){
-    analytics.track('Checkout Cart')
+  $(window).load(function() {
+	  analytics.track('Viewed Cart', {
+	    itemCount: {{ cart.item_count }},
+	    totalPrice: {{ cart.total_price }},
+	    totalWeight: {{ cart.total_weight }}
+	  });
+	
+	  $(".cart__remove").click(function(){
+	    analytics.track('Removed item from Cart')
+	  });
+	  
+	  $("#checkout").click(function(){
+	    analytics.track('Checkout Cart')
+	  });
   });
 
 </script>
