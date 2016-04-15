@@ -49,10 +49,11 @@
             Fill out my <a href="https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t/def/field1657=elantest">online form</a>.
         </div>
         <script type="text/javascript">
+	     $(window).load(function() {   
 	     {% if customer.id %}
                    var segment_user_id = {{ customer.id }};
                 {% else %}
-                  var  segment_user_id = analytics.user().anonymousId();
+                   var  segment_user_id = analytics.user().anonymousId();
                 {% endif %}    
 	        
 	    var qzcxtkn1ajf44t;(function(d, t) {
@@ -71,7 +72,9 @@
         var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
         try { qzcxtkn1ajf44t = new WufooForm();qzcxtkn1ajf44t.initialize(options);qzcxtkn1ajf44t.display(); } catch (e) {}};
         var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-        })(document, 'script');</script>
+        })(document, 'script');
+        
+        })</script>
     </div>
 
 	</div>
