@@ -83,7 +83,7 @@
 		        {% assign price = product.price | money %}
 		        {{ 'products.general.from_text_html' | t: price: price }}
 		      {% else %}
-		        {{ product.price | money }}
+		        {{ product.price_max | money }}
 		      {% endif %}
 		    {% endif %}
 		    {% if sold_out %}
