@@ -162,6 +162,8 @@
 
 {% endpaginate %}
 
+{% include 'vertical-tracking' %}
+
 <!-- Scripts -->
 
 <script>
@@ -170,10 +172,11 @@
     $( "#tabs" ).tabs();
   });
 
-  analytics.page('Partner Page', {
+  analytics.page('Partner Storefront', {
     title: "{{ collection.title }}",
     url: window.location.href,
     path: '{{ collection.url }}',
+		vertical: '{{ vertical }}',
     referrer: document.referrer
   });
 
