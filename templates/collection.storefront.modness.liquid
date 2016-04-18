@@ -63,17 +63,6 @@
 				 {% for product in collection.products %}
 				 	 {% if product.type !='Art' %}
 				 	 
-				 	 {% if var == 2 %}
-				 	 <li class="grid__item large--one-half medium--one-half small--one-whole">
-				 	 	<img src="{{ collection_lifestyle_1 }}"/>
-				 	 </li>
-				 	 {% elsif var == 6 %}
-				 	 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole">
-				 	 	<img src="{{ collection_lifestyle_2 }}"/>
-				 	 </li> 
-				 	  {% elsif var == 8 %}
-				 	  <div style="clear:both"></div>
-				 	 {% endif %}
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
 				  {% include 'product-grid-modness' %}
 				  
