@@ -75,7 +75,7 @@
 				 	  <div style="clear:both"></div>
 				 	 {% endif %}
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
-				  {% include 'product-grid-item' %}
+				  {% include 'product-grid-modness' %}
 				  
 				   {% assign var = var | plus: 1 %}
 				 </li> 
