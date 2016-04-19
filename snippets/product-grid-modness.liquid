@@ -64,9 +64,9 @@
 		 By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a>
 	  </p>
 	  <p class="text-left orange-text">
-		  {% if product.type = 'Sport Watch' %}
+		  {% if product.type == 'Sport Watch' %}
 		  	$50.00
-		  {% elsif product.type = 'Watch' %}
+		  {% elsif product.type == 'Watch' %}
 		  	$75.00
 		  {% else %}	
 		   {{ product.price | money }}
