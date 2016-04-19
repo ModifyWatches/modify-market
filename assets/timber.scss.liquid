@@ -4103,8 +4103,8 @@ a.whiteLink {
    Swatches Styles
 */
 
-{% assign width = '22px' %}
-{% assign height = '22px' %}
+{% assign width = '26px' %}
+{% assign height = '26px' %}
 .swatch { 
   
 }
@@ -4133,7 +4133,7 @@ a.whiteLink {
   /* No extra spacing between them */
   margin:0;
   /* The border when the button is not selected */
-  border:#ccc 1px solid;
+  
   /* Background color */
   background-color:#ddd;
   /* Styling text */
@@ -4153,10 +4153,13 @@ a.whiteLink {
 /* Styling selected swatch */
 /* Slightly raised */
 .swatch input:checked + label {
+	border:#ffffff 3px solid;	
+  
   -webkit-box-shadow:0px 1px 2px rgba(0,0,0,0.8);
   -moz-box-shadow:0px 1px 2px rgba(0,0,0,0.8);
   box-shadow:0px 1px 2px rgba(0,0,0,0.8);
-  border-color:transparent;
+
+  
 } 
 .swatch .swatch-element {
   float:left;

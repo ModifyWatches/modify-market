@@ -34,7 +34,7 @@
   {{ content_for_header }}
   {% include 'oldIE-js' %}
 
-  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
   {{ 'jquery-ui.min.js' | asset_url | script_tag }}
   {% include 'sca-quick-view-init' %} 
@@ -224,10 +224,11 @@
 		  <div id="closePopup" class="icon icon-x"></div>
 	  </div>
   </div>
+  -->
     <div id="promoBar" class="grid__item one-whole text-center">
-		      	For a limited time! Get 25% off all <a href="/collections/cell-phone-cases">phone cases</a> with code <b>SPECTACULAR</b>		      	
-	      </div> 
-      -->    
+        Free shipping on orders over $60		      	
+    </div>
+      
       <header class="site-header small--hide" role="banner">
 	     
       <div class="wrapper whiteBG">
@@ -274,11 +275,12 @@
 	            <div class="grid__item large--five-sixths text-right medium--five-sixths"> 
                 {% if customer %}
                   {% if customer.first_name != blank %}
-                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                   <a href="/account">{{ customer.first_name | truncate: 12}}</a>
+                   
                   {% else %}
                     <a href="/account">{{ 'layout.customer.account' | t }}</a>
                   {% endif %}
+                   | 
                    {{ 'layout.customer.log_out' | t | customer_logout_link }}
                 {% else %}
                   {% if shop.customer_accounts_optional %}
@@ -486,7 +488,7 @@
                 {% assign form_action = '#' %}
               {% endif %}
               <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
-                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="email" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
                 <span class="input-group-btn">
                   <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
                 </span>

@@ -146,9 +146,16 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
-  
-
-/* Mixpanel Scripts */
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Art Page"});  
-
 </script>
+
+ <!-- Segmeent Product Event -->
+    <script type="text/javascript">
+      
+      analytics.track('Viewed Art Page', {
+        id: "{{ product.id }}",
+        name: "{{ product.title }}",
+        type: "{{ product.type }}",
+        vendor: "{{ product.vendor }}",
+        price: {{ product.price }},
+      });
+    </script>

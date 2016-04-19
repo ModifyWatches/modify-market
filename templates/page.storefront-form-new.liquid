@@ -43,25 +43,26 @@
 		<h2 class="orange-text">Open your shop today, its free!</h2>
 		
 		 <div class="grid__item large--one-half push--large--one-quarter medium--three-quarters push--medium--one-eighth">
+
+
         
-
-        <script>
-
-            $(document).ready(function(){
-                {% if customer.id %}
-                    val segment_user_id = {{ customer.id }};
-                {% else %}
-                    val segment_user_id = analytics.user().anonymousId();
-                {% endif %}
-                val form_url = "https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t/def/field1657=elantest" + segment_user_id
-            });
-
-        </script>
-
+        <h2>{{ segment_user }}</h2>
+        
         <div id="wufoo-qzcxtkn1ajf44t">
+
             Fill out my <a href="https://modifywatches.wufoo.com/forms/qzcxtkn1ajf44t/def/field1657=elantest">online form</a>.
         </div>
-        <script type="text/javascript">var qzcxtkn1ajf44t;(function(d, t) {
+        <script type="text/javascript">
+	     $(window).load(function() {   
+		  var formPage =0;   
+	     {% if customer.id %}
+                   var segment_user_id = {{ customer.id }};
+                {% else %}
+                   var  segment_user_id = analytics.user().anonymousId();
+                {% endif %}    
+	        
+	        
+	    var qzcxtkn1ajf44t;(function(d, t) {
         var s = d.createElement(t), options = {
         'userName':'modifywatches',
         'formHash':'qzcxtkn1ajf44t',
@@ -70,17 +71,56 @@
         'async':true,
         'host':'wufoo.com',
         'header':'hide',
+        'defaultValues':'field1657='+segment_user_id,
         'ssl':true};
         s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
         s.onload = s.onreadystatechange = function() {
         var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
-        try { qzcxtkn1ajf44t = new WufooForm();qzcxtkn1ajf44t.initialize(options);qzcxtkn1ajf44t.display(); } catch (e) {}};
+       
+        try { qzcxtkn1ajf44t = new WufooForm();qzcxtkn1ajf44t.initialize(options);qzcxtkn1ajf44t.display(); } catch (e) {}
+         //console.log('segment user id = '+segment_user_id);
+         
+         
+         $("#wufooFormqzcxtkn1ajf44t").on("load", function () {
+		  //  $("#wufooFormqzcxtkn1ajf44t").contents().find("form").on('submit',function() {
+		       formPage++;
+		       
+		       
+		       if(formPage > 3 ) {
+			        analytics.track('Completed Storefront Signup', {
+				        id: "{{ segment_user_id }}"
+				        
+				      });
+
+		       }else {
+			       analytics.track('Completed Signup step '+ formPage, {
+				        id: "{{ segment_user_id }}"
+				        
+				      });
+
+		       }
+	      // })
+	        
+		   // clearInterval();
+			})
+        };
         var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-        })(document, 'script');</script>
+        })(document, 'script');
+        
+        function checkVal() {
+	       
+	      
+        }       
+       
+        
+        })</script>
     </div>
 
 	</div>
 </section>
+
+
+
 <!-- Open your shop CTA -->
 
 <!-- Press Bubbles Section -->
@@ -263,7 +303,7 @@
 <!-- Scripts -->
 {{ 'smooth-scroll.js' | asset_url | script_tag }}
 
-<script>
-/* Mixpanel Events */
-  mixpanel.track("Page Views", {"Page": "Storefront Form Page"});
+<!-- Segment Viewed Homepage -->
+<script type="text/javascript">
+  analytics.page('Partner Form');
 </script>
