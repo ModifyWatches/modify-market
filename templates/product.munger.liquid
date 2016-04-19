@@ -312,7 +312,7 @@
 		   
 
 		  
-		  }
+	}
 	// END SWATCHES 
     timber.productPage({
       money_format: "{{ shop.money_format }}",
@@ -320,7 +320,42 @@
       selector: selector
     });
   };
+  $('.swatch-element').mouseover(function() {
+	   theColor = $(this).attr('data-value');
+		  theColor = theColor.toLowerCase();
+		  theColor = theColor.replace(' ','-');
+		  theColor = theColor.replace(' ','-');
+		  var path =  $('#ProductPhotoImg').attr('src');
+		  var type = $('#ProductPhotoImg').attr('data-type');
+		  var index = path.lastIndexOf('_');
+		  path = path.substring(0, index+1);
+		  if(type == 'Watch' || type =='Sport Watch') {
+		  	path+=theColor+'.png';
+		  }else {
+			 path+=theColor+'.jpg'; 
+		  }
+		  $('#ProductPhotoImg').attr('src',path);	
 
+	  
+	  
+  })
+  $('.swatch-element').mouseout(function() {
+	    theColor = $('input:radio:checked').val();
+		  theColor = theColor.toLowerCase();
+		  theColor = theColor.replace(' ','-');
+		  theColor = theColor.replace(' ','-');
+		  var path =  $('#ProductPhotoImg').attr('src');
+		  var type = $('#ProductPhotoImg').attr('data-type');
+		  var index = path.lastIndexOf('_');
+		  path = path.substring(0, index+1);
+		  if(type == 'Watch' || type =='Sport Watch') {
+		  	path+=theColor+'.png';
+		  }else {
+			 path+=theColor+'.jpg'; 
+		  }
+		  $('#ProductPhotoImg').attr('src',path);		  
+	  
+  })
   jQuery(function($) {
     new Shopify.OptionSelectors('productSelect', {
       product: {{ product | json }},
