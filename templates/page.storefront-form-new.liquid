@@ -54,7 +54,7 @@
         </div>
         <script type="text/javascript">
 	     $(window).load(function() {   
-		  var formPage =0;   
+		  var formPage =-1;   
 	     {% if customer.id %}
                    var segment_user_id = {{ customer.id }};
                 {% else %}
@@ -85,26 +85,12 @@
             formPage++
             console.log(formPage)
 
-		  //  $("#wufooFormqzcxtkn1ajf44t").contents().find("form").on('submit',function() {
-		       // formPage++;
-		       
-		       
-		       // if(formPage > 3 ) {
-			      //   analytics.track('Completed Storefront Signup', {
-				     //    id: "{{ segment_user_id }}"
-				        
-				     //  });
 
-		       // } else {
-			      //  analytics.track('Completed Signup step '+ formPage, {
-				     //    id: "{{ segment_user_id }}"
-				        
-				     //  });
+		       formPage++;
+		   
+			       analytics.track('Completed Signup step '+ formPage);
+		      
 
-		       // }
-	      // })
-	        
-		   // clearInterval();
 			})
         };
         var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
