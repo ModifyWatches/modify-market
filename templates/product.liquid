@@ -308,42 +308,17 @@
 <!-- IS+ Product Recommendation Widget END -->
     </div>
     
-    <!-- Segmeent Product Event -->
-    <script type="text/javascript">
-      
-      analytics.page('Product', {
-        id: "{{ product.id }}",
-        name: "{{ product.title }}",
-        type: "{{ product.type }}",
-        vendor: "{{ product.vendor }}",
-        price: {{ product.price }}
-      });
-    
-    /*
-    url: "{{ product.url }}",
-    priceMin: {{ product.price_min }},
-    priceMax: {{ product.price_max }},
-    priceVaries: {{ product.price_varies }},
-    variantsCount: {{ product.variants.size }},
-    firstAvailVariant: "{{ product.first_available_variant.title }}",
-
-
-    sku: "{{ variant.sku }}",
-    variantTitle: "{{ variant.title }}",
-    variantUrl: "{{ variant.url }}",
-    variantWeight: "{{ variant.weight }}",
-    collections: [{% for collection in product.collections %}"{{ collection.title }}",{% endfor %}],
-    
-    available: {{ product.available }},
-    options: ["{{ product.options | join: '", "' }}"],
-    optionsCount: {{ product.options.size }},
-    tag: ["{{ product.tags | join: '", "' }}"]
-    
+<script type="text/javascript">
+  
+  analytics.page('Product', {
+    id: "{{ product.id }}",
+    name: "{{ product.title }}",
+    type: "{{ product.type }}",
+    vendor: "{{ product.vendor }}",
+    price: {{ product.price }}
   });
-*/
-  // track Product Added event
 
-  $('#AddToCartForm').submit(function(){
+  $('#addToCartForm').submit(function(){
     analytics.track('Added Product', {
       id: "{{ product.id }}",
       name: "{{ product.title }}",

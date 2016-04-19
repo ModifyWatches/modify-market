@@ -170,7 +170,7 @@
 <!-- Segment Cart Code -->
 <script type="text/javascript">
   $(window).load(function() {
-	  analytics.track('Viewed Cart', {
+	  analytics.page('Cart', {
 	    itemCount: {{ cart.item_count }},
 	    totalPrice: {{ cart.total_price }},
 	    totalWeight: {{ cart.total_weight }}
@@ -181,7 +181,7 @@
 	  });
 	  
 	  $("#checkout").click(function(){
-	    analytics.track('Checkout Cart')
+	    analytics.track('Click Check Out Button')
 	  });
   });
 
