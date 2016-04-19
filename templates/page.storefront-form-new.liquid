@@ -82,23 +82,26 @@
          
          
          $("#wufooFormqzcxtkn1ajf44t").on("load", function () {
+            formPage++
+            console.log(formPage)
+
 		  //  $("#wufooFormqzcxtkn1ajf44t").contents().find("form").on('submit',function() {
-		       formPage++;
+		       // formPage++;
 		       
 		       
-		       if(formPage > 3 ) {
-			        analytics.track('Completed Storefront Signup', {
-				        id: "{{ segment_user_id }}"
+		       // if(formPage > 3 ) {
+			      //   analytics.track('Completed Storefront Signup', {
+				     //    id: "{{ segment_user_id }}"
 				        
-				      });
+				     //  });
 
-		       }else {
-			       analytics.track('Completed Signup step '+ formPage, {
-				        id: "{{ segment_user_id }}"
+		       // } else {
+			      //  analytics.track('Completed Signup step '+ formPage, {
+				     //    id: "{{ segment_user_id }}"
 				        
-				      });
+				     //  });
 
-		       }
+		       // }
 	      // })
 	        
 		   // clearInterval();
