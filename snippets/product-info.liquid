@@ -1,0 +1,107 @@
+{% comment %}
+    Product Info goes here, such as size and material.
+{% endcomment %}
+<div class="rte">
+    <h5>Product Info</h5>          
+    {% if product.type == "Watch" or product.type == "Alloy watch" %}
+    <!-- Alloy Watch Product Info -->
+    <ul>
+        <li>38mm case size</li>
+        <li>Stainless steel back, gun metal case</li>
+        <li>Durable and comfortable, dense woven nylon strap</li>
+        <li>5ATM Water Resistant (Go swimming!)</li>
+        <li>Japanese Quartz Movement</li>
+    </ul>
+            
+    {% elsif product.type == "Sport Watch" %}
+    <!-- Watch Product Info -->
+    <ul>
+        <li>38mm case size</li>
+        <li>Stainless steel back, scratch-resistant PC</li>
+        <li>Super-soft, lightweight, modular, and durable UV-coated silicone straps</li>
+        <li>5ATM Water Resistant</li>
+        <li>Japanese Quartz Movement</li>
+    </ul>
+            
+    {% elsif product.type == "Men's T-Shirt" %}
+    <!-- Men's T-Shirt Product Info -->
+    <ul>
+        <li>Relaxed Men's Canvas 3001 T-shirt</li>
+        <li>100% combed and ringspun cotton, 4.2 oz.</li>
+        <li>Athletic Heather is 90/10 cotton/polyester</li>
+    </ul>
+    <img src="{{ 'sizing_MensT.png' | asset_url }}" alt="Men's T-Shirt Sizes" />
+            
+    {% elsif product.type == "Women's T-Shirt" %}
+    <!-- Women's T-Shirt Product Info -->
+    <ul>
+        <li>Relaxed Women's Bella 6004 T-shirt</li>
+        <li>100% combed and ringspun cotton, 4.2 oz.</li>
+        <li>Athletic Heather is 90/10 cotton/polyester</li>
+    </ul>
+    <img src="{{ 'sizing_WomensT.png' | asset_url }}" alt="Women's T-Shirt Sizes" />
+            
+    {% elsif product.type == "Men's Long Sleeve T-Shirt" %}
+    <!-- Men's L/S T-Shirt Product Info -->
+    <ul>
+        <li>Relaxed fit Men's long sleeve T-shirt</li>
+        <li>100% pre-shrunk cotton 5.2 oz</li>
+        <li>Long set-in sleeves with rib knit cuffs for stretch and recovery</li>
+    </ul>
+    <img src="{{ 'sizing_MensLS.png' | asset_url }}" alt="Men's L/S T-Shirt Sizes" />
+    {% endif %}
+    
+    {% if product.type == "Women's Long Sleeve T-Shirt" %}
+    <!-- Women's L/S T-Shirt Product Info -->
+    <ul>
+        <li>Relaxed fit Women's scoop neck T-shirt</li>
+        <li>Pre-shrunk 50/50 cotton/polyester, 4.9 oz</li>
+        <li>Lightweight french terry</li>
+    </ul>
+    <img src="{{ 'sizing_WomensLS.png' | asset_url }}" alt="Women's L/S T-Shirt Sizes" />
+    {% endif %}
+    
+    {% if product.type == "Hoodie" or product.type == "Pullover Hoodie" %}
+    <!-- Pullover Hoodie Product Info -->
+    <ul>
+        <li>Comfort fit ringspun pre-shrunk fleece</li>
+        <li>80% cotton/20% polyester, 9 oz</li>
+        <li>Allover coverseamed construction</li>
+    </ul>
+    <img src="{{ 'sizing_PullOverHoodie.png' | asset_url }}" alt="Pullover Hoodie Sizes" />
+    
+    {% elsif product.type == "Zip Hoodie" %}
+    <!-- Zip Hoodie Hoodie Product Info -->
+    <ul>
+        <li>Comfort fit ringspun pre-shrunk french terry</li>
+        <li>55% cotton/45% polyester, 7.5 oz</li>
+        <li>Allover coverseamed construction</li>
+    </ul>
+    <img src="{{ 'sizing_ZipHoodie.png' | asset_url }}" alt="Zip Hoodie Sizes" />
+            
+    {% elsif product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" %}
+    <!-- Mug Product Info -->
+    <ul>
+        <li>Super bright colors embedded Directly into the case</li>
+        <li>.08" thick ultra slim clip style case</li>
+        <li>Extremely durable, shatterproof poly-carbonate plastic</li>
+    </ul> 
+    
+    {% elsif product.type == "Mug" %}
+    <!-- Mug Product Info -->
+    <ul>
+        <li>Super Bright Colors Embedded Directly into the Mug</li>
+        <li>11 oz, dishwasher and microwave safe</li>
+    </ul>
+    
+    {% elsif product.type == "Poptart" %}
+    <!-- Poptart Product Info -->
+    <p>
+        If you haven't gotten your hands on one yet, we probably ate it...
+    </p>
+    
+    {% else %}
+    <!-- General Product Description for non-specific products -->
+    {{ product.description }}
+    {% endif %}
+</div>
