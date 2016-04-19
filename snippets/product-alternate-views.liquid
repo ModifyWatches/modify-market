@@ -1,0 +1,49 @@
+{% comment %}
+    Product specific Alt images
+{% endcomment %}
+<!-- Metal Watch Alt Images -->        
+{% if product.type == "Watch" or product.type == "Alloy watch"%}
+    <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+        <li class="grid__item one-sixth">
+            <a href="{{ featured_image | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ featured_image | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        <li class="grid__item one-sixth">
+            <a href="{{ 'MetalAltAngle_Side.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'MetalAltAngle_SideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        <li class="grid__item one-sixth">
+            <a href="{{ 'MetalAltAngle_Angle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'MetalAltAngle_AngleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+    </ul>
+{% endif %}
+
+<!-- Sport Watch Alt Images -->        
+{% if product.type == "Sport Watch" %}
+    <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+        <li class="grid__item one-sixth">
+            <a href="{{ featured_image | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ featured_image | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        <li class="grid__item one-sixth">
+            <a href="{{ 'SiliconeWatch_Side.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'SiliconeWatch_SideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        <li class="grid__item one-sixth">
+            <a href="{{ 'SiliconeWatch_Angle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'SiliconeWatch_AngleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        <li class="grid__item one-sixth">
+            <a href="{{ 'SportWatch_Modular.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'SportWatch_ModularThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+    </ul>
+{% endif %}
