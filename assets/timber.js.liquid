@@ -86,8 +86,10 @@ function pInfScrExecute() {
 	}
 }
 
+
 function attachClickEvent(){
 	$('li.more a').click(function(event){
+		
 		pInfScrExecute();
 		event.stopPropagation();
 		return false;
