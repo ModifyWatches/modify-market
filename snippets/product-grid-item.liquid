@@ -64,7 +64,7 @@
 		 By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a>
 	  </p>
 	  <p class="text-left orange-text">
-		   {{ product.price_max | money }}
+		   {{ product.price | money }}
 	  </p>
 		    {% comment %}
 		      You can show a leading 'from' or 'up to' by checking 'product.price_varies'
@@ -83,7 +83,7 @@
 		        {% assign price = product.price | money %}
 		        {{ 'products.general.from_text_html' | t: price: price }}
 		      {% else %}
-		        {{ product.price_max | money }}
+		        {{ product.price | money }}
 		      {% endif %}
 		    {% endif %}
 		    {% if sold_out %}
