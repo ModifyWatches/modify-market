@@ -1,4 +1,20 @@
 <!-- /snippets/blog-sidebar.liquid -->
+<div class="large--one-whole medium--one- genSection">              
+  {% if settings.newsletter_form_action != blank %}
+    {% assign form_action = settings.newsletter_form_action %}
+  {% else %}
+    {% assign form_action = '#' %}
+  {% endif %}
+  <h4>Newsletter</h4>
+  <p>Signup for our newsletter for the latest news, sweet offers and awesome jokes!</p>
+  <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+    <span class="input-group-btn">
+      <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+    </span>
+  </form>              
+</div>
+
 {% comment %}
   Recent blog posts
 {% endcomment %}
