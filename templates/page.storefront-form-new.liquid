@@ -79,11 +79,21 @@
        
         try { qzcxtkn1ajf44t = new WufooForm();qzcxtkn1ajf44t.initialize(options);qzcxtkn1ajf44t.display(); } catch (e) {}
          //console.log('segment user id = '+segment_user_id);
+         
+         
          $("#wufooFormqzcxtkn1ajf44t").on("load", function () {
 		  //  $("#wufooFormqzcxtkn1ajf44t").contents().find("form").on('submit',function() {
 		       formPage++;
+		       
+		       
 		       if(formPage > 3 ) {
 			        analytics.track('Completed Storefront Signup', {
+				        id: "{{ segment_user_id }}"
+				        
+				      });
+
+		       }else {
+			       analytics.track('Completed Signup step '+ formPage, {
 				        id: "{{ segment_user_id }}"
 				        
 				      });
