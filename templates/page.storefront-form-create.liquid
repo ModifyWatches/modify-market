@@ -7,7 +7,7 @@
 
 <script type="text/javascript">// <![CDATA[
 $(window).load(function() {
-	var formPage = 0;   
+	var formPage = -1;   
 	{% if customer.id %}
        var segment_user_id = {{ customer.id }};
     {% else %}
@@ -36,19 +36,7 @@ try { q13rczh0102fnbc = new WufooForm();q13rczh0102fnbc.initialize(options);q13r
 $("#wufooFormq13rczh0102fnbc").on("load", function () {
 	
 	formPage++;
-	if(formPage > 4 ) {
-	    analytics.track('Completed Create Storefront Signup', {
-	        id: "{{ segment_user_id }}"
-	        
-	      });
-	
-	}else {
-	   analytics.track('Completed Storefront Create Step '+ formPage, {
-	        id: "{{ segment_user_id }}"
-	        
-	      });
-	
-	}
+		   analytics.track('Completed Storefront Create Step '+ formPage);
 	})
 
 };
