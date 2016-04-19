@@ -297,9 +297,6 @@
     {% endif %}
   });
   
-  /* Mixpanel Scripts 
-  mixpanel.track("Page Views" , {"Page": "{{ product.title }} Product Page"});  */
-  
 </script>
 
 <!-- IS+ Product Recommendation Widget START -->
@@ -314,12 +311,12 @@
     <!-- Segmeent Product Event -->
     <script type="text/javascript">
       
-      analytics.track('Viewed Product', {
+      analytics.page('Product', {
         id: "{{ product.id }}",
         name: "{{ product.title }}",
         type: "{{ product.type }}",
         vendor: "{{ product.vendor }}",
-        price: {{ product.price }},
+        price: {{ product.price }}
       });
     
     /*
