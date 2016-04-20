@@ -1,3 +1,5 @@
+{% include 'vertical-tracking' %}
+
 <script type="text/javascript">
   
   console.log("product details:" + {{product}});
@@ -7,7 +9,8 @@
     name: "{{ product.title }}",
     type: "{{ product.type }}",
     vendor: "{{ product.vendor }}",
-    price: {{ product.price }},
+    vertical: "{{ vertical }}",
+    price: {{ product.price | money_without_currency }}
   });
 
   $('#AddToCartForm').submit(function(){
@@ -16,7 +19,8 @@
       name: "{{ product.title }}",
       type: "{{ product.type }}",
       vendor: "{{ product.vendor }}",
-      price: {{ product.price }},
+      vertical: "{{ vertical }}",
+      price: {{ product.price | money_without_currency }},
       quantity: $("#Quantity").val()
     });
   })
