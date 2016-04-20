@@ -1,0 +1,24 @@
+<script type="text/javascript">
+  
+  console.log("product details:" {{product}});
+  
+  analytics.page('Product', {
+    id: "{{ product.id }}",
+    name: "{{ product.title }}",
+    type: "{{ product.type }}",
+    vendor: "{{ product.vendor }}",
+    price: {{ product.price }},
+  });
+
+  $('#AddToCartForm').submit(function(){
+    analytics.track('Added Product', {
+      id: "{{ product.id }}",
+      name: "{{ product.title }}",
+      type: "{{ product.type }}",
+      vendor: "{{ product.vendor }}",
+      price: {{ product.price }},
+      quantity: $("#Quantity").val()
+    });
+  })
+  
+</script>

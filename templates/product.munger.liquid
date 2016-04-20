@@ -384,29 +384,6 @@
 <script src="https://acp-magento.appspot.com/js/isp_related_products.js?v=1.0.7&UUID=07233f61-ec24-4ef7-bd9d-80d9f82cd02a&store=11596060"></script>
 <!-- IS+ Product Recommendation Widget END -->
     </div>
-    
-<!-- Segmeent Product Event -->
-    <script type="text/javascript">
-      
-      console.log("product details:" {{product}})
-      
-      analytics.page('Viewed Product', {
-        id: "{{ product.id }}",
-        name: "{{ product.title }}",
-        type: "{{ product.type }}",
-        vendor: "{{ product.vendor }}",
-        price: {{ product.price }},
-      });
 
-      $('#AddToCartForm').submit(function(){
-        analytics.track('Added Product', {
-          id: "{{ product.id }}",
-          name: "{{ product.title }}",
-          type: "{{ product.type }}",
-          vendor: "{{ product.vendor }}",
-          price: {{ product.price }},
-          quantity: $("#Quantity").val()
-        });
-      })
-      
-    </script>
+
+{% include 'product-events' %}
