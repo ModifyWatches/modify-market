@@ -388,7 +388,9 @@
 <!-- Segmeent Product Event -->
     <script type="text/javascript">
       
-      analytics.track('Viewed Product', {
+      console.log("product details:" {{product}})
+      
+      analytics.page('Viewed Product', {
         id: "{{ product.id }}",
         name: "{{ product.title }}",
         type: "{{ product.type }}",
