@@ -350,8 +350,6 @@
 <!-- IS+ Product Recommendation Widget END -->
     </div>
     
-{% include 'vertical-tracking' %}
-    
 <!-- Segmeent Product Event -->
     <script type="text/javascript">
       
@@ -360,8 +358,7 @@
         name: "{{ product.title }}",
         type: "{{ product.type }}",
         vendor: "{{ product.vendor }}",
-        vertical: "{{ vertical }}",
-        price: {{ product.price | money_without_currency }}
+        price: {{ product.price }},
       });
 
       $('#AddToCartForm').submit(function(){
@@ -370,8 +367,7 @@
           name: "{{ product.title }}",
           type: "{{ product.type }}",
           vendor: "{{ product.vendor }}",
-          vertical: "{{ vertical }}",
-          price: {{ product.price | money_without_currency }},
+          price: {{ product.price }},
           quantity: $("#Quantity").val()
         });
       })
