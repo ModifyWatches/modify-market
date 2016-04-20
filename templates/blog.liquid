@@ -19,7 +19,7 @@
 <div class="grid ">
 
   <div class="grid__item large--three-quarters big-margin">
-
+  
     {% if current_tags %}
       <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
     {% else %}
@@ -34,7 +34,8 @@
     {% endcomment %}
 
     {% for article in blog.articles %}
-      <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+    <div class="grid__item one-quarter"><img src="{{ article.image.src | img_url: 'medium' }}"></div>
+    <div class="grid__item three-quarters">  <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
       {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
       <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
      
@@ -68,7 +69,7 @@
       <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
 
       {% unless forloop.last %}<hr>{% endunless %}
-
+    </div>
     {% endfor %}
 
     {% if paginate.pages > 1 %}
