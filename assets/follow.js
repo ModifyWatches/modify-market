@@ -2,10 +2,10 @@
 		var theCollection = $('#collection').val();
 		if (document.cookie.indexOf(theCollection) >= 0) {
 			$('#EMAIL').hide();
-			$('#follower').text('following').prop( "disabled", true );
+			$('#follower-new').text('following').prop( "disabled", true );
 			
 		}
-	$('#follower').click(function(e) {
+	$('#follower-new').click(function(e) {
 		e.preventDefault();
 		var totalFollowers = parseInt($('#numFollowers').val());
 		var CookieDate = new Date;
