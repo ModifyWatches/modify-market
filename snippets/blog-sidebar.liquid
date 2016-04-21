@@ -20,7 +20,7 @@
     {% assign form_action = '#' %}
   {% endif %}
   <h4>Newsletter</h4>
-  <p>Signup for our newsletter for the latest news, sweet offers and awesome jokes!</p>
+  <p>Sign up for our newsletter for the latest news, sweet offers and awesome jokes!</p>
   <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
     <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
     <span class="input-group-btn">
@@ -44,7 +44,7 @@
 <h4>{{ 'blogs.sidebar.recent_articles' | t }}</h4>
 {% endcomment %}
 <h4>Recent Features</h4>
-<ul class="no-bullets">
+<ul class="no-bullets blogRight">
   {% for article in blogs[blog.handle].articles limit:6 %}
     <li>
       <a href="{{ article.url }}">{{ article.title }}</a>
