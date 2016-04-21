@@ -33,21 +33,22 @@
 	    {% assign suffix = product.type | handleize %} 
 	    {% assign theCollor = product.variants.first.options.first | handleize %} 
         {% assign product_art = product.images[1] | default: product.images[1] %}
-        {% if product.type == 'Watch' or product.type == 'Sport Watch' %}
+        {% assign product_preview = product.images[0] | default: product.images[0] %}
+        {% if suffix == 'watch' or suffix == 'sport-watch' %}
 	        {% assign template_art = suffix | append: '_' | append: theCollor | append: '.png' %}
 	        <img src="{{ 'Backplate.png' | asset_url }}" class="backplate" />
 	         <div class="watchArt">
-		          {% if product.type == 'Sport Watch' %}
+		          {% if suffix == 'sport-watch' %}
 					  	<img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class="sportWatch"> 
 				  	{% else %}
 				  		<img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class=""> 
 				  	{% endif %}
 	        </div>
-	        <img src="{{ template_art | asset_url }}" data-type="Watch" class="watchOverlay" id="ProductPhotoImg">
+	        <img src="{{ template_art | asset_url }}" data-type="{{suffix}}" data-color="{{theCollor}}" data-src="{{ template_art | asset_url }}" class="watchOverlay" id="ProductPhotoImg">
 	       
         {% else %}
         	 {% assign template_art = suffix | append: '_' | append: theCollor | append: '.jpg' | asset_url %}
-        	<img src="{{ template_art }}" alt="{{ featured_image.alt | escape }}" data-type="Clothes" id="ProductPhotoImg">
+        	<img src="{{ template_art }}" alt="{{ featured_image.alt | escape }}" data-type="{{suffix}}" data-src="{{ template_art }}" id="ProductPhotoImg">
 	        <div class="ImageOverlay">
 		        {% if product.type == "Women's T-Shirt" %}
 		       <img src="{{ product_art | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="" class="ladyShirt"> 
@@ -80,10 +81,9 @@
       {% endif %}
 	  {% endcomment %}
       
-      {% comment %}
-        Product specific Alt images
-        {% include 'product-alternate-views' %}
-      {% endcomment %}   
+      
+        {% include 'product-alternate-views-munger' %}
+      
     </div>
 
     <div class="grid__item large--five-twelfths push--large--one-twelfth medium--five-twelfths small--one-whole">
@@ -285,6 +285,7 @@
 {% endcomment %}
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 <script>
+	var currentImage ='';
   var selectCallback = function(variant, selector) {
 	 // BEGIN SWATCHES
 		if (variant) {
@@ -299,17 +300,18 @@
 		  theColor = theColor.toLowerCase();
 		  theColor = theColor.replace(' ','-');
 		  theColor = theColor.replace(' ','-');
-		  var path =  $('#ProductPhotoImg').attr('src');
+		  var path =  $('#ProductPhotoImg').attr('data-src');
 		  var type = $('#ProductPhotoImg').attr('data-type');
 		  var index = path.lastIndexOf('_');
 		  path = path.substring(0, index+1);
-		  if(type == 'Watch' || type =='Sport Watch') {
+		  
+		  if(type == 'watch' || type =='sport-watch') {
 		  	path+=theColor+'.png';
 		  }else {
 			 path+=theColor+'.jpg'; 
 		  }
-		  $('#ProductPhotoImg').attr('src',path);	
-		   
+		  $('#ProductPhotoImg').attr('src',path );	
+		  currentImage =  $('#ProductPhotoImg').attr('src');
 
 		  
 	}
@@ -320,40 +322,31 @@
       selector: selector
     });
   };
+  
   $('.swatch-element').mouseover(function() {
 	   theColor = $(this).attr('data-value');
 		  theColor = theColor.toLowerCase();
 		  theColor = theColor.replace(' ','-');
 		  theColor = theColor.replace(' ','-');
-		  var path =  $('#ProductPhotoImg').attr('src');
+		  currentImage =  $('#ProductPhotoImg').attr('src');
+		  var path =  $('#ProductPhotoImg').attr('data-src');
 		  var type = $('#ProductPhotoImg').attr('data-type');
 		  var index = path.lastIndexOf('_');
 		  path = path.substring(0, index+1);
-		  if(type == 'Watch' || type =='Sport Watch') {
+		  
+		   if(type == 'watch' || type =='sport-watch') {	
 		  	path+=theColor+'.png';
 		  }else {
 			 path+=theColor+'.jpg'; 
 		  }
-		  $('#ProductPhotoImg').attr('src',path);	
+		  $('#ProductPhotoImg').attr('src',path );	
 
 	  
 	  
   })
   $('.swatch-element').mouseout(function() {
-	    theColor = $('input:radio:checked').val();
-		  theColor = theColor.toLowerCase();
-		  theColor = theColor.replace(' ','-');
-		  theColor = theColor.replace(' ','-');
-		  var path =  $('#ProductPhotoImg').attr('src');
-		  var type = $('#ProductPhotoImg').attr('data-type');
-		  var index = path.lastIndexOf('_');
-		  path = path.substring(0, index+1);
-		  if(type == 'Watch' || type =='Sport Watch') {
-		  	path+=theColor+'.png';
-		  }else {
-			 path+=theColor+'.jpg'; 
-		  }
-		  $('#ProductPhotoImg').attr('src',path);		  
+	  
+		  $('#ProductPhotoImg').attr('src',currentImage );	  
 	  
   })
   jQuery(function($) {
