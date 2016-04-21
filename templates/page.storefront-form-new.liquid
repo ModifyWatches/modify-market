@@ -1,7 +1,3 @@
-<script>
-  analytics.page('Partner With Us');
-</script>
-
 <style>
   .storefrontHeader {
     background-image: url({{ 'storefront_Header.jpg' | asset_url }});
@@ -48,7 +44,9 @@
       </div>
 
       <script type="text/javascript">
-        $(window).load(function() {   
+        $(window).load(function() {
+
+          analytics.page('Partner Registration');
 
           var formPage =-1;   
 
@@ -76,7 +74,10 @@
                 try { qzcxtkn1ajf44t = new WufooForm();qzcxtkn1ajf44t.initialize(options);qzcxtkn1ajf44t.display(); } catch (e) {}
 
                 $("#wufooFormqzcxtkn1ajf44t").on("load", function () {
-                  formPage++; analytics.track('Completed Partner Registration Step '+ formPage);
+                  formPage++; 
+                  if (formPage != 0) {
+                    analytics.track('Completed Partner Registration Step '+ formPage);
+                  };
                 });
 
               };
@@ -273,8 +274,3 @@
 
     <!-- Scripts -->
     {{ 'smooth-scroll.js' | asset_url | script_tag }}
-
-    <!-- Segment Viewed Homepage -->
-    <script type="text/javascript">
-      analytics.page('Partner Form');
-    </script>
