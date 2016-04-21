@@ -526,15 +526,19 @@
   
       $('#mc-embedded-subscribe-form').submit(function(){
   
+        console.log("running nl")
         var email = $("#mail").val();
+        console.log("email: " + email)
 
         if (!customer_id) {
+          console.log("running NL identify")
           analytics.identify(email, { 
             anonymousId: window.analytics.user().anonymousId(), 
             email: email 
           });
         };
 
+        console.log("running NL track")
         analytics.track('Subscribed to Newsletter', { email: email });
       })
 
