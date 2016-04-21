@@ -522,6 +522,8 @@
    
       {% if customer %}
         var customer_id = customer.id;
+      {% else %}
+        var customer_id = false;
       {% endif %}
   
       $('#mc-embedded-subscribe-form').submit(function(){
@@ -530,6 +532,8 @@
         var email = $("#mail").val();
         console.log("email: " + email)
 
+
+        console.log("customer_id: " + customer_id)        
         if (!customer_id) {
           console.log("running NL identify")
           analytics.identify(email, { 
