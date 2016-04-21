@@ -522,8 +522,9 @@
   
       $('#mc-embedded-subscribe-form').submit(function(){
   
-        {% if !customer %}
-          var = email: $("#mail").val();
+        var = email: $("#mail").val();
+        {% if customer %}
+        {% else %}
           analytics.identify(email , { anonymousId: window.analytics.user().anonymousId(), email: email });
         {% endif %}
 
