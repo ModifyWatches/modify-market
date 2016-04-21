@@ -527,9 +527,7 @@
           analytics.identify(email , { anonymousId: window.analytics.user().anonymousId(), email: email });
         {% endif %}
 
-        analytics.track('Subscribed to Newsletter', {
-          email: "{{ product.id }}"
-        });
+        analytics.track('Subscribed to Newsletter', { email: email });
       })
 
       ///////// pop up promo //////////
