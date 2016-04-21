@@ -501,56 +501,8 @@
        </div>
     </footer>
     
-    {% comment %}
-    Old Footer
-    <footer class="site-footer small--text-center" role="contentinfo">
-      <div class="wrapper">
-        <div class="grid">
-          <div class="grid__item large--one-third medium--one-half">
-	          <a href="#"><b>Open your Shop</b></a>
-          </div>
-          <div class="grid__item large--one-third medium--one-half">
-	          <ul class="inline-list wideList">
-		          <li><a href="#">About Us</a></li>
-		          <li><a href="#">Contact</a></li>
-		          <li><a href="#">FAQ</a></li>
-		          <li><a href="#">Privacy</a></li>
-	          </ul>
-	          
-          </div>
-            <div class="grid__item large--one-third medium--one-half text-right">
-             
-                <ul class="inline-list social-icons">
-                    <li>
-                      <a class="icon-fallback-text" href="https://www.instagram.com/modifywatches/" title="{{ shop.name }} on Twitter" target="_blank">
-                        <span class="icon icon-instagram" aria-hidden="true"></span>
-                        <span class="fallback-text">Instagram</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="icon-fallback-text" href="https://www.pinterest.com/modifywatches/" title="{{ shop.name }} on Twitter" target="_blank">
-                        <span class="icon icon-pinterest" aria-hidden="true"></span>
-                        <span class="fallback-text">Pinterest</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="icon-fallback-text" href="https://twitter.com/modifywatches" title="{{ shop.name }} on Twitter" target="_blank">
-                        <span class="icon icon-twitter" aria-hidden="true"></span>
-                        <span class="fallback-text">Twitter</span>
-                      </a>
-                    </li>
-                                     <li>
-                      <a class="icon-fallback-text" href="https://www.facebook.com/ModifyWatches/" title="{{ shop.name }} on Facebook" target="_blank">
-                        <span class="icon icon-facebook" aria-hidden="true"></span>
-                        <span class="fallback-text">Facebook</span>
-                      </a>
-                    </li>
-                  
-                </ul>
-                      </div>
-       </div>
-    </footer>
-    {% endcomment %}
+    <!-- /snippets/old/old-footer.liquid -->
+
     <!-- //site-footer -->
   </div>
 
@@ -561,43 +513,36 @@
   {% comment %}
     Template-specific js
   {% endcomment %}
+  
+
+
   <script>  
 
-$(function() {
-  ///////// pop up promo //////////
- if ( (!$.cookie('case_upsell')) ) {
-	 	$('#bigPopup').delay(200).fadeIn(300);
-	}else {
-		$('#promoBar').slideDown(0,function(){
-				$('.site-header').addClass('hasPromo');
-			})
-	
-	}
-  
-  
-  
-  //$.cookie('email_upsell', '');
-  // only show if hasn't been shown previously and don't show on mobile
-  if ( (!$.cookie('case_upsell')) ) {
-    setTimeout(function() {
-      $.cookie('case_upsell', 'true');
-      $('.email-container').show('fade');
-    }, 3000);
-  };
-  
-  
+    $(function() {
+      ///////// pop up promo //////////
+      if ( (!$.cookie('case_upsell')) ) {
+        $('#bigPopup').delay(200).fadeIn(300);
+      } else {
+        $('#promoBar').slideDown(0,function(){
+          $('.site-header').addClass('hasPromo');
+        });
+      };
 
-});
-</script> 
-  
-  
-  
-  <script>
+      // only show if hasn't been shown previously and don't show on mobile
+      if ( (!$.cookie('case_upsell')) ) {
+        setTimeout(function() {
+          $.cookie('case_upsell', 'true');
+          $('.email-container').show('fade');
+        }, 3000);
+      };
+    });
+
     {% if resetPassword %}
       $(function() {
         timber.resetPasswordSuccess();
       });
     {% endif %}
+
   </script>
 
   {% comment %}
@@ -652,32 +597,34 @@ $(function() {
 		attachClickEvent();
 	});
 </script> 
+
 {% include 'sca-quick-view-template' %} 
 
-
 <script>
-jQuery(function() {
-  jQuery('.swatch :radio').change(function() {
-    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
-    var optionValue = jQuery(this).val();
-    jQuery(this)
-      .closest('form')
-      .find('.single-option-selector')
-      .eq(optionIndex)
-      .val(optionValue)
-      .trigger('change');
+  jQuery(function() {
+    jQuery('.swatch :radio').change(function() {
+      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+      var optionValue = jQuery(this).val();
+      jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+    });
   });
-});
 </script>
+
 <!-- AddShoppers Tracking Code Start -->
 <script type="text/javascript">
-AddShoppersTracking = {
-image: '' // add URL for custom product image (RECOMMENDED if not using Product Schema)
-}
-var js = document.createElement('script'); js.type = 'text/javascript'; js.async = true; js.id = 'AddShoppers';
-js.src = ('https:' == document.location.protocol ? 'https://shop.pe' : 'http://cdn.shop.pe') + '/widget/widget_async.js#56f1af4fbbddbd4e09729928';
-document.getElementsByTagName("head")[0].appendChild(js);
+  AddShoppersTracking = {
+  image: '' // add URL for custom product image (RECOMMENDED if not using Product Schema)
+  }
+  var js = document.createElement('script'); js.type = 'text/javascript'; js.async = true; js.id = 'AddShoppers';
+  js.src = ('https:' == document.location.protocol ? 'https://shop.pe' : 'http://cdn.shop.pe') + '/widget/widget_async.js#56f1af4fbbddbd4e09729928';
+  document.getElementsByTagName("head")[0].appendChild(js);
 </script>
 <!-- AddShoppers Tracking Code End -->
+
  </body>
 </html>
