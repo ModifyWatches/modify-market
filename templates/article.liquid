@@ -36,13 +36,15 @@
 <div class="grid">
 
   <article class="grid__item large--three-quarters" itemscope itemtype="http://schema.org/Article">
-    <header class="genSection large--three-quarters">
+    <header class="large--three-quarters">
       <div class="section-header__left">
-	      <img src="{{ article.image.src | img_url: 'grande' }}">
-        <h1>{{ article.title }}</h1>
+	      <img class="genSection" src="{{ article.image.src | img_url: 'grande' }}">
+        <h1 style="margin-bottom: 10px;">{{ article.title }}</h1>
         {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
         {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
         <p>Posted, {{ date }}</p>
+        <div class="share-buttons share-buttons-panel" data-style="big" data-counter="false" data-oauth="true" data-hover="true" data-promo-callout="none" data-buttons="twitter,facebook,pinterest"></div>
+        <hr>
       </div>
     </header>
 
