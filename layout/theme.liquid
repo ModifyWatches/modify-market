@@ -526,10 +526,13 @@
   
       $('#mc-embedded-subscribe-form').submit(function(){
   
-        var = email: $("#mail").val();
+        var email = $("#mail").val();
 
         if (!customer_id) {
-          analytics.identify(email , { anonymousId: window.analytics.user().anonymousId(), email: email });
+          analytics.identify(email, { 
+            anonymousId: window.analytics.user().anonymousId(), 
+            email: email 
+          });
         };
 
         analytics.track('Subscribed to Newsletter', { email: email });
