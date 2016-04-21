@@ -492,7 +492,7 @@
                 <span class="input-group-btn">
                   <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
                 </span>
-              </form>              
+              </form>
               <p class="small"><br />You'll get sweet offers and awesome jokes</p>
             </div>
           {% endif %}
@@ -516,9 +516,22 @@
   
 
 
-  <script>  
+  <script>
 
     $(function() {
+  
+      $('#mc-embedded-subscribe-form').submit(function(){
+  
+        {% if !customer %}
+          var = email: $("#mail").val();
+          analytics.identify(email , { anonymousId: window.analytics.user().anonymousId(), email: email });
+        {% endif %}
+
+        analytics.track('Subscribed to Newsletter', {
+          email: "{{ product.id }}"
+        });
+      })
+
       ///////// pop up promo //////////
       if ( (!$.cookie('case_upsell')) ) {
         $('#bigPopup').delay(200).fadeIn(300);
