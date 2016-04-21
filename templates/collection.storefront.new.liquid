@@ -60,23 +60,32 @@
         <div id="product-tab">
 	       <div class="collection_product">
 		
+		{% assign counter = 0 %}
+		{% for product in collection.products %}
+	 	 	{% if product.type !='Art' %}
+	 	 		{% assign counter = counter | plus: 1 %}
+	 	 	{% endif %}
+	 	{% endfor %}	 	
+				 	 
     	{% assign grid_item_width = 'large--one-quarter medium--one-quarter small--one-half' %}
 		{% assign var = 0 %}	
 				<ul class="collection-matrix">
 					
-				 {% for product in collection.products %}
+				 {% for product in collection.products  %}
 				 	 {% if product.type !='Art' %}
 				 	 
-				 	 {% if var == 2 %}
+				 	 {% if var == 4  and counter > 7%}
 				 	 <li class="grid__item large--one-half medium--one-half small--one-whole">
 				 	 	<img src="{{ collection_lifestyle_1 }}"/>
 				 	 </li>
-				 	 {% elsif var == 6 %}
+				 	  {% elsif var == 6 and counter > 7 %}
+				 	  <div style="clear:both"></div>
+				 	 {% elsif var == 8 %}
 				 	 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole">
 				 	 	<img src="{{ collection_lifestyle_2 }}"/>
 				 	 </li> 
-				 	  {% elsif var == 8 %}
-				 	  <div style="clear:both"></div>
+				 	  {% elsif var == 10 %}
+				 	  
 				 	 {% endif %}
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
 				  {% include 'product-grid-item' %}
@@ -87,6 +96,21 @@
 				 	
 				 	{% endif %}
 				 {% endfor %}
+				 
+				 {% if var == 8 and counter == 8 %}
+				 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole">
+				 	 	<img src="{{ collection_lifestyle_2 }}"/>
+				 	 </li> 
+				 {% endif %}
+				 {% if var <= 7 %}
+				  <div style="clear: both"></div>  
+				  <li class="grid__item large--one-half medium--one-half small--one-whole">
+				 	 	<img src="{{ collection_lifestyle_1 }}"/>
+				 	 </li>
+				 	  <li class="grid__item large--one-half medium--one-half small--one-whole">
+				 	 	<img src="{{ collection_lifestyle_2 }}"/>
+				 	 </li>
+				 {% endif %}
 				  <div style="clear: both"></div>      
 				<div style="clear: both"></div>
 				</ul>
