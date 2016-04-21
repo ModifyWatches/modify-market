@@ -23,7 +23,7 @@
     {% if current_tags %}
       <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
     {% else %}
-      <h1>{{ blog.title }}</h1>
+      <div class="grid__item three-quarters text-left"><h1>Blog</h1></div>
     {% endif %}
 
     {% comment %}
@@ -34,7 +34,7 @@
     {% endcomment %}
 
     {% for article in blog.articles %}
-    <div class="grid__item one-quarter"><img src="{{ article.image.src | img_url: 'medium' }}"></div>
+    <div class="grid__item three-quarters text-left topMargin"><a href="{{ article.url }}"><img src="{{ article.image.src | img_url: 'grande' }}"></a></div>
     <div class="grid__item three-quarters">  <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
       {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
       <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
@@ -47,7 +47,7 @@
         {% if article.excerpt.size > 0 %}
           {{ article.excerpt }}
         {% else %}
-          <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+          <p>{{ article.content | strip_html | truncatewords: 90 }}</p>
         {% endif %}
       </div>
 
@@ -68,7 +68,7 @@
 
       <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
 
-      {% unless forloop.last %}<hr>{% endunless %}
+      {% unless forloop.last %}<hr class="blogHR">{% endunless %}
     </div>
     {% endfor %}
 
