@@ -12,10 +12,12 @@
 {% endcomment %}
 
 <style>
+  /*
   .article p, .article li {
     font-size: 18px;
     font-weight: 100;
   }
+  */
 </style>
 
 {% assign number_of_comments = article.comments_count %}
@@ -34,17 +36,19 @@
 <div class="grid">
 
   <article class="grid__item large--three-quarters" itemscope itemtype="http://schema.org/Article">
-    <header class="section-header genSection">
+    <header class="large--three-quarters">
       <div class="section-header__left">
-	      <img src="{{ article.image.src | img_url: 'grande' }}">
-        <h1>{{ article.title }}</h1>
+	      <img class="genSection" src="{{ article.image.src | img_url: 'grande' }}">
+        <h1 style="margin-bottom: 10px;">{{ article.title }}</h1>
         {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
         {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
         <p>Posted, {{ date }}</p>
+        <div class="share-buttons share-buttons-panel" data-style="big" data-counter="false" data-oauth="true" data-hover="true" data-promo-callout="none" data-buttons="twitter,facebook,pinterest"></div>
+        <hr>
       </div>
     </header>
 
-    <div class="rte article" itemprop="articleBody">
+    <div class="rte article large--three-quarters" itemprop="articleBody">
       {{ article.content }}
     </div>
 
@@ -59,8 +63,8 @@
       Create links to the next and previous articles, if available.
     {% endcomment %}
     {% if blog.next_article or blog.previous_article %}
-      <hr>
-      <p class="clearfix">
+      <hr class="large--three-quarters">
+      <p class="clearfix large--three-quarters">
         {% if blog.previous_article %}
           <span class="left">
             &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}

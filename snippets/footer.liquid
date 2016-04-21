@@ -1,0 +1,107 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="wrapper">
+    <div class="grid">
+      <!-- Press bubbles in footer -->
+      <div class="grid__item large--one-third medium--one-half">
+        <h6>Press</h6>
+        <hr class="orangeDash" />
+        <div class="footerPress">
+          <a class="grid__item large--one-third medium--one-third small--one-third" href="https://www.youtube.com/watch?v=4ugFPIfG5b0#t=2m21s" target="_blank"><img class="five-sixths" src="{{ 'footerPress_Ellen.png' | asset_url }}" alt="Ellen" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" href="http://news.yahoo.com/deals-and-steals-beach-party-edition-173339934.html" target="_blank"><img class="five-sixths" src="{{ 'footerPress_GMA.png' | asset_url }}" alt="CBS Good Morning America" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.menshealth.com/style/watches-brights" target="_blank"><img class="five-sixths" src="{{ 'footerPress_MensHealth.png' | asset_url }}" alt="Men's Health" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" href="http://old.modifywatches.com/templates/Modify/images/default/press/WomensHealthJune2013.pdf" target="_blank"><img class="five-sixths" src="{{ 'footerPress_WomensHealth.png' | asset_url }}" alt="Women's Health" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" href="http://www.today.com/id/49063771/ns/today-video/#51036431" target="_blank"><img class="five-sixths" src="{{ 'footerPress_Today.png' | asset_url }}" alt="Today Show" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" href="https://instagram.com/p/OooPktED28/" target="_blank"><img class="five-sixths" src="{{ 'footerPress_VanityFair.png' | asset_url }}" alt="Vanity Fair" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third"  target="_blank" href="http://www.self.com/fitness/runners/2013/09/nighttime-running-gear-slideshow/"><img class="five-sixths" src="{{ 'footerPress_Self.png' | asset_url }}" alt="Self Magazine" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" target="_blank" href="http://boss.blogs.nytimes.com/2012/01/05/turning-facebook-followers-into-online-focus-groups/"><img class="five-sixths" src="{{ 'footerPress_NYT.png' | asset_url }}" alt="The New York Times" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" target="_blank" href="http://www.inc.com/young-entrepreneur-council/3-customer-service-rules-to-work-by.html"><img class="five-sixths" src="{{ 'footerPress_INC.png' | asset_url }}" alt="Inc" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third" target="_blank" href="http://www.vogue.com/13295927/best-back-to-school-denim-kids-kidswear/"><img class="five-sixths" src="{{ 'footerPress_Vogue.png' | asset_url }}" alt="Vogue" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third"  target="_blank"href="http://techcrunch.com/2014/07/17/facebook-buy-button/"><img class="five-sixths" src="{{ 'footerPress_TechCrunch.png' | asset_url }}" alt="Tech Crunch" /></a>
+          <a class="grid__item large--one-third medium--one-third small--one-third"  target="_blank"href="http://www.si.com/extra-mustard/2015/11/20/st-louis-cardinals-watch-dirt-busch-stadium"><img class="five-sixths" src="{{ 'footerPress_SportsIllustrated.png' | asset_url }}" alt="Sports Illustrated" /></a>
+        </div>
+      </div>
+      <!-- Shop Linklist -->
+      <div class="grid__item large--one-sixth push--large--one-sixth medium--one-quarter small--one-half">
+        <h6>{{ linklists.shop.title }}</h6>
+        <hr class="orangeDash" />
+        <ul class="homeList">
+          {% for link in linklists.shop.links %}
+          <li>
+            <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- About Modify Linklist -->
+      <div class="grid__item large--one-sixth push--large--one-sixth medium--one-quarter small--one-half">
+        <h6>{{ linklists.footer.title }}</h6>
+        <hr class="orangeDash" />
+        <ul class="homeList">
+          {% for link in linklists.footer.links %}
+          <li>
+            <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="grid__item large--one-sixth push--large--one-sixth medium--one-half small--one-whole">
+        <h6>Talk to us</h6>
+        <hr class="orangeDash" />
+        <ul class="inline-list social-icons">
+          <li>
+            <a class="icon-fallback-text social-link" id="instagram" href="https://www.instagram.com/modifywatches/" title="{{ shop.name }} on Twitter" target="_blank">
+              <span class="icon icon-instagram" aria-hidden="true"></span>
+              <span class="fallback-text">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text social-link" id="pinterest" href="https://www.pinterest.com/modifywatches/" title="{{ shop.name }} on Twitter" target="_blank">
+              <span class="icon icon-pinterest" aria-hidden="true"></span>
+              <span class="fallback-text">Pinterest</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text social-link" id="twitter" href="https://twitter.com/modifywatches" title="{{ shop.name }} on Twitter" target="_blank">
+              <span class="icon icon-twitter" aria-hidden="true"></span>
+              <span class="fallback-text">Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text social-link" id="facebook" href="https://www.facebook.com/ModifyWatches/" title="{{ shop.name }} on Facebook" target="_blank">
+              <span class="icon icon-facebook" aria-hidden="true"></span>
+              <span class="fallback-text">Facebook</span>
+            </a>
+          </li>
+
+        </ul>
+        {% if settings.footer_newsletter_enable %}
+          <div class="large--one-whole medium--one-whole">              
+            {% if settings.newsletter_form_action != blank %}
+              {% assign form_action = settings.newsletter_form_action %}
+            {% else %}
+              {% assign form_action = '#' %}
+            {% endif %}
+            <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+              <span class="input-group-btn">
+                <input type="submit" class="btn--secondary" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+              </span>
+            </form>
+            <p class="small"><br />You'll get sweet offers and awesome jokes</p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+  
+  $(".social-link").click(function() {
+    analytics.track("Clicked " + $(this).attr('id') + " Link")
+  });
+
+</script>
