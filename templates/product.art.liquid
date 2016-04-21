@@ -126,11 +126,11 @@
  <!-- Segmeent Product Event -->
     <script type="text/javascript">
       
-      analytics.track('Viewed Art Page', {
+      analytics.page('Art', {
         id: "{{ product.id }}",
         name: "{{ product.title }}",
         type: "{{ product.type }}",
-        vendor: "{{ product.vendor }}",
-        price: {{ product.price }},
+        vendor: "{{ product.vendor }}"
+        vertical: "{{ vertical }}"
       });
     </script>

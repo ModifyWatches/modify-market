@@ -11,6 +11,13 @@
 
 {% endcomment %}
 
+<style>
+  .article p, .article li {
+    font-size: 18px;
+    font-weight: 100;
+  }
+</style>
+
 {% assign number_of_comments = article.comments_count %}
 
 {% comment %}
@@ -20,22 +27,24 @@
   {% assign number_of_comments = article.comments_count | plus: 1 %}
 {% endif %}
 
+
 {% include 'breadcrumb' %}
+
 
 <div class="grid">
 
   <article class="grid__item large--three-quarters" itemscope itemtype="http://schema.org/Article">
-
-    <header class="section-header">
+    <header class="section-header genSection">
       <div class="section-header__left">
+	      <img src="{{ article.image.src | img_url: 'grande' }}">
         <h1>{{ article.title }}</h1>
         {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
         {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
-        <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>
+        <p>Posted, {{ date }}</p>
       </div>
     </header>
 
-    <div class="rte" itemprop="articleBody">
+    <div class="rte article" itemprop="articleBody">
       {{ article.content }}
     </div>
 

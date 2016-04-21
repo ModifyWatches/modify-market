@@ -1,0 +1,29 @@
+{% for product in collection.products %}
+    {% for tag in product.tags %}
+        {% if tag == 'artist' %}
+            {% assign vertical = 'artist' %}
+        {% elsif tag == 'nonprofit' %}
+            {% assign vertical = 'nonprofit' %}
+        {% elsif tag == 'brand' %}
+            {% assign vertical = 'brand' %}
+        {% elsif tag == 'sports' %}
+            {% assign vertical = 'sports' %}
+        {% elsif tag == 'influencer' %}
+            {% assign vertical = 'influencer' %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% for tag in product.tags %}
+    {% if tag == 'artist' %}
+        {% assign vertical = 'artist' %}
+    {% elsif tag == 'nonprofit' %}
+        {% assign vertical = 'nonprofit' %}
+    {% elsif tag == 'brand' %}
+        {% assign vertical = 'brand' %}
+    {% elsif tag == 'sports' %}
+        {% assign vertical = 'sports' %}
+    {% elsif tag == 'influencer' %}
+        {% assign vertical = 'influencer' %}
+    {% endif %}
+{% endfor %}

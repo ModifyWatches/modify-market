@@ -1,0 +1,26 @@
+{% include 'vertical-tracking' %}
+
+<script type="text/javascript">
+  
+  analytics.page('Product', {
+    id: "{{ product.id }}",
+    name: "{{ product.title }}",
+    type: "{{ product.type }}",
+    vendor: "{{ product.vendor }}",
+    vertical: "{{ vertical }}",
+    price: {{ product.price | money_without_currency }}
+  });
+
+  $('#AddToCartForm').submit(function(){
+    analytics.track('Added Product', {
+      id: "{{ product.id }}",
+      name: "{{ product.title }}",
+      type: "{{ product.type }}",
+      vendor: "{{ product.vendor }}",
+      vertical: "{{ vertical }}",
+      price: {{ product.price | money_without_currency }},
+      quantity: $("#Quantity").val()
+    });
+  })
+  
+</script>

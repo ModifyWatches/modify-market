@@ -1,0 +1,47 @@
+<section class="grid--full large--one-whole">
+  <div class="grid__item large--two-thirds medium--one-whole  text-left huge-margin">
+    <h1>Add products to your store!</h1>
+
+
+    <div id="wufoo-q1ykhu5205r6cif">Fill out my <a href="https://modifywatches.wufoo.com/forms/q1ykhu5205r6cif">online form</a>.</div>
+
+    <script type="text/javascript">
+      $(window).load(function() {
+
+        var formPage = -1;   
+        {% if customer.id %}
+          var segment_user_id = {{ customer.id }};
+        {% else %}
+          var  segment_user_id = analytics.user().anonymousId();
+        {% endif %}    
+
+        var q1ykhu5205r6cif;(function(d, t) {
+          var s = d.createElement(t), options = {
+            'userName':'modifywatches',
+            'formHash':'q1ykhu5205r6cif',
+            'autoResize':true,
+            'height':'1190',
+            'async':true,
+            'host':'wufoo.com',
+            'header':'hide',
+            'defaultValues':'Field222='+segment_user_id,
+            'ssl':true};
+            s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+            s.onload = s.onreadystatechange = function() {
+              var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+              try { q1ykhu5205r6cif = new WufooForm();q1ykhu5205r6cif.initialize(options);q1ykhu5205r6cif.display(); } catch (e) {}
+
+            };
+            var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+          })(document, 'script');
+
+        })
+
+    </script>
+
+  </div>
+</section>
+
+<script type="text/javascript">
+  analytics.page('Add Products Form');
+</script>

@@ -1,0 +1,63 @@
+<section class="grid--full large--one-whole">
+  <div class="grid__item large--two-thirds medium--one-whole  text-left huge-margin">
+    <h1>Create Your Storefront</h1>
+
+
+    <div id="wufoo-r4w0a2311icjh6">Fill out my <a href="https://modifywatches.wufoo.com/forms/r4w0a2311icjh6">online form</a>.</div>
+
+    <script type="text/javascript">
+      $(window).load(function() {
+	  	function getParameterByName(name, url) {
+		    if (!url) url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+	  	var streak_box_name = getParameterByName('streak_box_name');
+	  	console.log(streak_box_name);
+	  	
+        var formPage = -1;   
+        {% if customer.id %}
+          var segment_user_id = {{ customer.id }};
+        {% else %}
+          var  segment_user_id = analytics.user().anonymousId();
+        {% endif %}    
+
+        var r4w0a2311icjh6;(function(d, t) {
+          var s = d.createElement(t), options = {
+            'userName':'modifywatches',
+            'formHash':'r4w0a2311icjh6',
+            'autoResize':true,
+            'height':'1190',
+            'async':true,
+            'host':'wufoo.com',
+            'header':'hide',
+            'defaultValues':'Field2192='+segment_user_id+'&Field2194='+streak_box_name,
+            'ssl':true};
+            s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+            s.onload = s.onreadystatechange = function() {
+              var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+              try { r4w0a2311icjh6 = new WufooForm();r4w0a2311icjh6.initialize(options);r4w0a2311icjh6.display(); } catch (e) {}
+
+              $("#wufooFormr4w0a2311icjh6").on("load", function () {
+
+                formPage++; analytics.track('Completed Storefront Creation Step '+ formPage);
+              })
+
+            };
+            var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+          })(document, 'script');
+
+        })
+
+    </script>
+
+  </div>
+</section>
+
+<script type="text/javascript">
+  analytics.page('Create Storefront Form');
+</script>

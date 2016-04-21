@@ -52,11 +52,7 @@
   
   
   <div id="tabs">
-	  <ul class="collab-tiles2 small--text-center  large--one-half medium--one-half">
-		  <li><a href="#product-tab" class="reverseLink"><h5>Products</h5></a></li>
-		   <li><a href="#artwork-tab" class="reverseLink"><h5>Artwork</h5></a></li>
-	  </ul>
-  
+	   
         <div id="product-tab">
 	       <div class="collection_product">
 		
@@ -67,19 +63,8 @@
 				 {% for product in collection.products %}
 				 	 {% if product.type !='Art' %}
 				 	 
-				 	 {% if var == 2 %}
-				 	 <li class="grid__item large--one-half medium--one-half small--one-whole">
-				 	 	<img src="{{ collection_lifestyle_1 }}"/>
-				 	 </li>
-				 	 {% elsif var == 6 %}
-				 	 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole">
-				 	 	<img src="{{ collection_lifestyle_2 }}"/>
-				 	 </li> 
-				 	  {% elsif var == 8 %}
-				 	  <div style="clear:both"></div>
-				 	 {% endif %}
 				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
-				  {% include 'product-grid-item' %}
+				  {% include 'product-grid-modness' %}
 				  
 				   {% assign var = var | plus: 1 %}
 				 </li> 
@@ -96,31 +81,7 @@
 
     </div>
     </div>
-     <div id="artwork-tab">
-	 
-	       <div class="collection_product">
-       	
-    	
-			
-				<ul class="collection-matrix">
-				 {% for product in collection.products %}
-				 	 {% if product.type =='Art' %}
-					 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
-					  {% include 'art-grid' %}
-					 </li> 
-				 	{% endif %}
-				 {% endfor %}
-				  <div style="clear: both"></div>
-				      
-								 <div style="clear: both"></div>
-				</ul>
-				
-				<div id="product-list-foot"></div>
-			
-
-   
-    </div>
-
+     
     
 	
   </div>
@@ -140,17 +101,11 @@
 
 <!-- Scripts -->
 <script>
-
-  $(function() {
-    $( "#tabs" ).tabs();
-  });
-
   analytics.page('Partner Storefront', {
-    title: "{{ collection.title }}",
-    url: window.location.href,
-    path: '{{ collection.url }}',
-	vertical: '{{ vertical }}',
+    title:    "{{ collection.title }}",
+    url:      window.location.href,
+    path:     '{{ collection.url }}',
+    vertical: '{{ vertical }}',
     referrer: document.referrer
   });
-
 </script>
