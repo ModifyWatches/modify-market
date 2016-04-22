@@ -100,6 +100,21 @@
 
       <script type="text/javascript">
         $(window).load(function() {   
+		function getParameterByName(name, url) {
+		    if (!url) url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+	  	var email = getParameterByName('email');
+	  	var website = getParameterByName('website');
+	  	var organization_name = getParameterByName('organization_name');
+		
+
+
 
           var formPage =-1;   
 
@@ -118,7 +133,7 @@
               'async':true,
               'host':'wufoo.com',
               'header':'hide',
-              'defaultValues':'field1657='+segment_user_id,
+              'defaultValues':'field1657='+segment_user_id+'&Field1371='+organization_name+'&Field1381='+email+'&Field1661='+website,
               'ssl':true};
               s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
               s.onload = s.onreadystatechange = function() {
