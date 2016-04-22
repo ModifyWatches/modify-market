@@ -357,6 +357,9 @@
   $('.product-single__thumbnail').mouseout(function() { 
   		$('#ProductPhotoImg').attr('src',currentImage );
   })
+   $('.product-single__thumbnail').click(function () {
+	    currentImage =  $('#ProductPhotoImg').attr('src');
+   })
   jQuery(function($) {
     new Shopify.OptionSelectors('productSelect', {
       product: {{ product | json }},
