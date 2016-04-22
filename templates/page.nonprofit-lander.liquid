@@ -32,16 +32,29 @@
         background-color: #405862;
         color: #fff;
         padding: 15px 50px;
-        background-color: rgba( 228, 38, 102, 1);
-        box-shadow: 0 4px 8px rgba( 228, 38, 102, 0.5 );
-        -webkit-box-shadow: 0 4px 8px rgba( 228, 38, 102, 0.5 );
+        background-color: rgba( 231, 86, 37, 1);
+        box-shadow: 0 4px 8px rgba( 231, 86, 37, 0.5 );
+        -webkit-box-shadow: 0 4px 8px rgba( 231, 86, 37, 0.5 );
   }
   .btn-launch:hover {
-        background-color: #222;        
-      }
+    background-color: #1EB31E;
+    box-shadow: 0 4px 8px rgba( 30, 179, 30, 0.5 );
+        -webkit-box-shadow: 0 4px 8px rgba( 30, 179, 30, 0.5 );    
+  }
       
-  .storefrontUL {
-      font-size: 16px;
+  ul.storefrontUL.nonprofit {
+    font-size: 17px;
+    margin: 0 0 5px 0px;
+  }
+
+  ul.storefrontUL.nonprofit li {}
+
+  ul.nonprofit li i.fa-check-circle {
+    font-size: 2rem;
+    color: #1EB31E;
+    margin-right: 6px;
+    bottom: -5px;
+    position: relative;
   }
 </style>
 
@@ -72,9 +85,9 @@
         </li>
       </ul>
     </div>
-    <div class="grid__item large--one-quarter push--large--one-quarter text-center">
+    <div class="grid__item large--one-quarter push--large--two-sixths text-center">
       <a href="#form">
-          <button class="btn-launch small--text-center">Get Started</button>
+        <button class="btn-launch small--text-center">Get Started</button>
       </a>
     </div>
   </div>
