@@ -36,7 +36,17 @@
         box-shadow: 0 4px 8px rgba( 231, 86, 37, 0.5 );
         -webkit-box-shadow: 0 4px 8px rgba( 231, 86, 37, 0.5 );
   }
-  .btn-launch:hover {
+
+  .wufoo #saveForm, .btn-launch {
+    background-color: #405862;
+    color: #fff;
+    background-color: rgba( 231, 86, 37, 1);
+    box-shadow: 0 4px 8px rgba( 231, 86, 37, 0.5 );
+    -webkit-box-shadow: 0 4px 8px rgba( 231, 86, 37, 0.5 );    
+  }
+
+  .wufoo #saveForm, .btn-launch:hover {
+    border: none;
     background-color: #1EB31E;
     box-shadow: 0 4px 8px rgba( 30, 179, 30, 0.5 );
     -webkit-box-shadow: 0 4px 8px rgba( 30, 179, 30, 0.5 );    
@@ -105,12 +115,12 @@
   <main class="wrapper" role="main">
     <h4 class="text-center big-margin">Some of the amazing organizations that already have custom merchandise</h4>
     <div class="grid--uniform large--one-whole">
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/bellarmine"><img src="{{ 'np_bellarmine.jpg' | file_url }}" alt="Bellarmine" /></a>
+      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/girls-on-the-run"><img src="{{ 'np_gotr.jpg' | file_url }}" alt="Girls on the Run" /></a>
       <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/cystic-fibrosis-foundation"><img src="{{ 'np_cff.jpg' | file_url }}" alt="Cystic Fibrosis Foundation" /></a>
       <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/center-for-great-apes"><img src="{{ 'np_cfga.jpg' | file_url }}" alt="Center for Great Apes" /></a>
-      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/girls-on-the-run"><img src="{{ 'np_gotr.jpg' | file_url }}" alt="Girls on the Run" /></a>
       <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/water-org"><img src="{{ 'water-org.png' | file_url }}" alt="Water.org" /></a>
-      <a name="form" class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/ucsf-childrens-hospital"><img class="trailing" src="{{ 'np_ucsf.jpg' | file_url }}" alt="UCSF Benioff Children's Hospital" /></a>     
+      <a name="form" class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/ucsf-childrens-hospital"><img class="trailing" src="{{ 'np_ucsf.jpg' | file_url }}" alt="UCSF Benioff Children's Hospital" /></a> 
+      <a class="grid__item large--one-sixth medium--one-quarter small--one-third" href="/collections/bellarmine"><img src="{{ 'np_bellarmine.jpg' | file_url }}" alt="Bellarmine" /></a>
     </div>
   </main>
 </section>
