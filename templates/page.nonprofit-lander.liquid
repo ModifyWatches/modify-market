@@ -183,10 +183,6 @@
             var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
             try { r10wdx041t52tqt = new WufooForm();r10wdx041t52tqt.initialize(options);r10wdx041t52tqt.display(); } catch (e) {}
 
-            $("#wufooFormr10wdx041t52tqt").on("load", function () {
-              formPage++; analytics.track('Completed Nonprofit Registration Step '+ formPage);
-            });
-
           };
 
           var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
