@@ -8,7 +8,7 @@
         {% assign grid_item_width = 'large--one-quarter medium--one-quarter small--one-half' %}
 		<div class="grid-uniform big-padding">
 					<ul class="trending">
-		 {% for product in collections.home-page.products limit:4 %}
+		 {% for product in collections.trending-designs.products limit:4 %}
 		 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
 		  {% include 'art-grid' %}
 		 </li> 
