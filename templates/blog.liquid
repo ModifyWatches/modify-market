@@ -5,6 +5,11 @@
   Don't forget to close the tag after your loop.
 
 {% endcomment %}
+<style> 
+  .article {
+    line-height: 2;
+  }
+</style>
 
 {% paginate blog.articles by 5 %}
 
@@ -18,7 +23,7 @@
 {% endcomment %}
 <div class="grid ">
 
-  <div class="grid__item large--three-quarters big-margin">
+  <div class="grid__item large--three-quarters big-margin article">
   
     {% if current_tags %}
       <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
