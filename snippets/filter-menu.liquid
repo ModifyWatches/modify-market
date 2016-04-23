@@ -7,7 +7,7 @@
 {{ shop.metafields.pt_filter_css['system'] }}
 {{ shop.metafields.pt_filter_css['user'] }}
 </style>
-<div id="Filter" class="filter-menu filter-selected-{{ collection.handle }}{% for tag in current_tags %} filter-selected-{{ tag | handleize }}{% endfor %}">
+<div id="Filter" class="filter-menu filter-selected-{{ collection.handle }}{% for tag in current_tags %} filter-selected-{{ tag | handleize }}{% endfor %} ">
     <div class="filter-group refine-header">
         <h3 style="margin: 0.5em 0 0 0;">{{ pt_refine_text }}</h3>
         {% unless collection.handle == 'all' or collection.handle == nil and current_tags == nil %}
@@ -159,8 +159,14 @@ $(function() {
     // Get Icons
     var icons = $('#FAQ').accordion( "option", "icons" );
     } else {
-    /* the viewport is less than 768 pixels wide */
-       // return false;
+     $('#Filter').accordion({
+            heightStyle: "content",
+            collapsible: true,
+            animate: 200,
+            active: true,
+            header: "h4",
+            icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+        });
     }
     /* Event Listener */
     mq.addListener(function(changed) {
