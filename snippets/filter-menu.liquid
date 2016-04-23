@@ -145,8 +145,9 @@ $(function() {
       }
     });
   });
-  var mq = window.matchMedia('@media all and (max-width: 768px)');
+  var mq = window.matchMedia('(min-width: 768px)');
   if (mq.matches) {
+	  console.log('big window');
   /* the viewport is at least 768 pixels wide */
     $('#Filter').accordion({
             heightStyle: "content",
@@ -159,11 +160,12 @@ $(function() {
     // Get Icons
     var icons = $('#FAQ').accordion( "option", "icons" );
     } else {
+	     console.log('small window');
      $('#Filter').accordion({
             heightStyle: "content",
-            collapsible: false,
+            collapsible: true,
             animate: 200,
-            active: false,
+            active: true,
             header: "h4",
             icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
         });
@@ -171,6 +173,7 @@ $(function() {
     /* Event Listener */
     mq.addListener(function(changed) {
         if (changed.matches) {
+	         console.log('big window');
     /* the viewport is at least 768 pixels wide */
         $('#Filter').accordion({
                 heightStyle: "content",
