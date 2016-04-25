@@ -20,7 +20,7 @@
 			
 			$('#followText').html(totalFollowers+' Fans');
 			document.cookie = theCookie+'=yes; expires=' + CookieDate.toGMTString( ) + '; path=/';
-		//	$('#followers').submit();
+			$('#followers').submit();
 			
 		}else {
 			e.preventDefault();
@@ -44,7 +44,7 @@
 			
 			$('#followText').html(totalFollowers+' Fans');
 			document.cookie = theCookie+'=yes; expires=' + CookieDate.toGMTString( ) + '; path=/';
-		//	$('#followers').submit();
+			$('#followers').submit();
 			
 		}else {
 			e.preventDefault();
