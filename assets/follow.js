@@ -6,7 +6,7 @@
 			
 		}
 	$('#follower-new').click(function(e) {
-		e.preventDefault();
+		 
 		var totalFollowers = parseInt($('#numFollowers').val());
 		var CookieDate = new Date;
 		CookieDate.setFullYear(CookieDate.getFullYear( ) +10);
@@ -17,11 +17,13 @@
 			$('#EMAIL').hide();
 			$('#follower').text('following').prop( "disabled", true );
 			$('#followText').html("You’re now first in line to see all of "+$('#collection').val()+"'s new products!");
-			$('#followers').submit();
+			
 			$('#followText').html(totalFollowers+' Fans');
 			document.cookie = theCookie+'=yes; expires=' + CookieDate.toGMTString( ) + '; path=/';
+			$('#followers').submit();
 			
 		}else {
+			e.preventDefault();
 			$('#EMAIL').addClass('required');
 		}
 	
