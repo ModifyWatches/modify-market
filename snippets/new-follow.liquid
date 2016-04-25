@@ -34,18 +34,21 @@
 </div>
 
   <script type="text/javascript">
-	 $('#newfollowForm').submit(function(){
-  
-        var email = $("#EMAIL").val();
-		var collection = $('#collection').val();
-		
-        if (!customer_id) {
-          analytics.identify(email, { 
-            anonymousId: window.analytics.user().anonymousId(), 
-            email: email 
-          });
-        };
-
-        analytics.track('Followed Collection', { email: email, collection:collection });
-      })
+	  $(document).ready(function() {
+		 $('#newfollowForm').submit(function(){
+	  
+	        var email = $("#EMAIL").val();
+			var collection = $('#collection').val();
+			
+	        if (!customer_id) {
+	          analytics.identify(email, { 
+	            anonymousId: window.analytics.user().anonymousId(), 
+	            email: email 
+	          });
+	        };
+	
+	        analytics.track('Followed Collection', { email: email, collection:collection });
+	      })
+      
+      });
   </script>
