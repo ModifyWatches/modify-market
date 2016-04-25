@@ -32,3 +32,25 @@
 	</div>
 	<div style="clear: both"></div>
 </div>
+<script type="text/javascript">
+	  $(window).load(function() {
+		 $('#followers').submit(function(e){
+	        var email = $("#EMAIL").val();
+			var collection = $('#collection').val();
+			      {% if customer %}
+			        var customer_id = customer.id;
+			      {% else %}
+			        var customer_id = false;
+			      {% endif %}
+	        if (!customer_id) {
+	          analytics.identify(email, { 
+	            anonymousId: window.analytics.user().anonymousId(), 
+	            email: email 
+	          });
+	        };
+	
+	        analytics.track('Followed Collection', { email: email, collection:collection });
+	      })
+      
+      });
+  </script>
