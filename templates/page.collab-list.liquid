@@ -69,11 +69,9 @@
     <ul class="slides">
       {% for link in category1.links limit:24 %}
        {% assign collection = link.object %}
-       {% assign prefix = collection.handle | prepend: '' %}
-        {% assign collection_banner = prefix | append: '_banner_large.jpg' | asset_url %}
         <li class="">
           <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
-            <img class="" src="{{ collection_banner }}" alt="{{ collection.image.alt }}" />
+            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
             <div class="info collections">
               <p class="title">{{ collection.title }}</p>
             </div>
@@ -96,11 +94,9 @@
     <ul class="slides">
       {% for link in category2.links limit:24 %}
        {% assign collection = link.object %}
-       {% assign prefix = collection.handle | prepend: '' %}
-        {% assign collection_banner = prefix | append: '_banner_large.jpg' | asset_url %}
         <li class="">
           <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
-            <img class="" src="{{ collection_banner }}" alt="{{ collection.image.alt }}" />
+            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
             <div class="info collections">
               <p class="title">{{ collection.title }}</p>
             </div>
@@ -117,11 +113,9 @@
     <ul class="slides">
       {% for link in category3.links limit:24 %}
        {% assign collection = link.object %}
-       {% assign prefix = collection.handle | prepend: '' %}
-        {% assign collection_banner = prefix | append: '_banner_large.jpg' | asset_url %}
         <li class="">
           <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
-            <img class="" src="{{ collection_banner }}" alt="{{ collection.image.alt }}" />
+            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
             <div class="info collections">
               <p class="title">{{ collection.title }}</p>
             </div>
@@ -138,11 +132,9 @@
     <ul class="slides">
       {% for link in category4.links limit:24 %}
        {% assign collection = link.object %}
-       {% assign prefix = collection.handle | prepend: '' %}
-        {% assign collection_banner = prefix | append: '_banner_large.jpg' | asset_url %}
         <li class="">
           <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
-            <img class="" src="{{ collection_banner }}" alt="{{ collection.image.alt }}" />
+            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
             <div class="info collections">
               <p class="title">{{ collection.title }}</p>
             </div>
@@ -159,11 +151,9 @@
     <ul class="slides">
       {% for link in category5.links limit:24 %}
        {% assign collection = link.object %}
-       {% assign prefix = collection.handle | prepend: '' %}
-        {% assign collection_banner = prefix | append: '_banner_large.jpg' | asset_url %}
         <li class="">
           <a class="collections" href="{{ collection.url }}" title="{{ collection.title }}">
-            <img class="" src="{{ collection_banner }}" alt="{{ collection.image.alt }}" />
+            <img class="" src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt }}" />
             <div class="info collections">
               <p class="title">{{ collection.title }}</p>
             </div>
@@ -195,7 +185,7 @@
 			animation : "slide",
       itemWidth : 400,
       minItems: 1,
-      maxItems: 1.25
+      maxItems: 2
 		});
 	});
 
@@ -208,7 +198,7 @@
 			itemWidth : 300,
       itemMargin: 10,
       minItems: 2,
-      maxItems: 3.5
+      maxItems: 8
 		});
 	});
   
