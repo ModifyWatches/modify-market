@@ -34,7 +34,7 @@
   <div class="grid product-single">
     <div class="grid__item large--seven-twelfths  medium--seven-twelfths large--one-whole text-center">
 
-	{% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type == "Watch" or product.type == "Sport Watch" %}
+	{% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type == "Watch" or product.type == "Sport Watch" or product.type == "Men's T-Shirt" or product.type == "Women's T-Shirt" %}
            <div class="product-single__photos ProductPhoto  ten-twelfths push--large--one-twelfth large--right medium--right small--one-whole" id="ProductPhoto">
 	{% else %}
 	<div class="product-single__photos ProductPhoto  one-whole" id="ProductPhoto">
@@ -85,7 +85,7 @@
         </ul>
       {% endif %}
 	  {% endcomment %}
-	  {% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type =='Watch' or product.type == 'Sport Watch' %}
+	  {% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type =='Watch' or product.type == 'Sport Watch' or product.type == "Men's T-Shirt" or product.type == "Women's T-Shirt" %}
        <div class="grid__item one-eighth left small--one-whole">
 		 {% include 'product-alternative-views-new' %}
 	 </div>
@@ -300,6 +300,7 @@
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 <script>
 	var currentImage ='';
+	var mainType = 'munged';
   var selectCallback = function(variant, selector) {
 	 // BEGIN SWATCHES
 		if (variant) {
@@ -326,6 +327,9 @@
 		  }
 		  $('#ProductPhotoImg').attr('src',path );	
 		  currentImage =  $('#ProductPhotoImg').attr('src');
+		  $('.ImageOverlay').show();
+		  mainType = 'munged';
+  		
 
 		  
 	}
@@ -354,25 +358,38 @@
 			 path+=theColor+'.jpg'; 
 		  }
 		  $('#ProductPhotoImg').attr('src',path );	
+		
+	  		 $('.ImageOverlay').show();
+  		
 
 	  
 	  
   })
   $('.swatch-element').mouseout(function() {
 	  
-		  $('#ProductPhotoImg').attr('src',currentImage );	  
+		  $('#ProductPhotoImg').attr('src',currentImage );
+		  if(mainType !='munged') {
+	  		 $('.ImageOverlay').hide();
+  		}
+	  
 	  
   })
   $('.product-single__thumbnail').mouseover(function() {
 	   currentImage =  $('#ProductPhotoImg').attr('src');
+	   $('.ImageOverlay').hide();
 	   path = $(this).attr('href');
 	    $('#ProductPhotoImg').attr('src',path );
+	    
   });
   $('.product-single__thumbnail').mouseout(function() { 
   		$('#ProductPhotoImg').attr('src',currentImage );
+  		if(mainType =='munged') {
+	  		 $('.ImageOverlay').show();
+  		}
   })
    $('.product-single__thumbnail').click(function () {
 	    currentImage =  $('#ProductPhotoImg').attr('src');
+	    mainType = 'alternate';
    })
   jQuery(function($) {
     new Shopify.OptionSelectors('productSelect', {
