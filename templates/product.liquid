@@ -30,13 +30,17 @@
   <div class="grid product-single">
 	  
 	  
-    <div class="grid__item large--one-half  medium--one-half large--one-whole text-center">
+    <div class="grid__item large--seven-twelfths  medium--seven-twelfths large--one-whole text-center">
      
      
 {% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type == "Watch" or product.type == "Sport Watch" %}
       <div class="product-single__photos ProductPhoto grid__item ten-twelfths push--large--one-twelfth large--right medium--right small--one-whole" id="ProductPhoto">
 	{% else %}
+
 	<div class="product-single__photos ProductPhoto one-whole" id="ProductPhoto">
+
+	
+
 
 	{% endif %}    
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
@@ -61,16 +65,17 @@
         </ul>
       {% endif %}
 	  {% endcomment %}
-    
+    {% comment %}
     {% include 'product-alternate-views' %}     
+    {% endcomment %}
      {% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type =='Watch' or product.type == 'Sport Watch' %}
-       <div class="grid__item one-sixth left small--one-whole">
+       <div class="grid__item one-eighth left small--one-whole">
 		 {% include 'product-alternative-views-new' %}
 	 </div>
 	 {% endif %}   
     </div>
 
-    <div class="grid__item large--four-twelfths push--large--one-twelfth medium--five-twelfths small--one-whole">
+    <div class="grid__item large--four-twelfths  medium--five-twelfths push--large--one-twelfth small--one-whole">
 
       <h2 itemprop="name">{{ product.title }}</h2>
 	  <h5 itemprop="vendor">by <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a></h5>
