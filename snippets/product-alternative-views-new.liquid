@@ -1,0 +1,97 @@
+{% comment %}
+    Product specific Alt images
+{% endcomment %}
+<!-- Metal Watch Alt Images -->        
+{% if product.type == "Watch" or product.type == "Alloy watch"%}
+    <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+        
+        <li class="one-whole small--one-sixth small--left">
+            <a href="{{ product_preview | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ product_preview | img_url: 'compact' }}" alt="{{ image.alt | escape }}" class="bordered">
+            </a>
+        </li>
+        <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'MetalAltAngle_Side.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'MetalAltAngle_SideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}" class="bordered">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'MetalAltAngle_Angle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'MetalAltAngle_AngleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}" class="bordered">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'metal_Lifestyle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'metal_LifestyleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+
+          <li class="one-whole small--one-sixth small--left">
+            <a href="{{ product_art | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ product_art | img_url: 'compact' }}" alt="{{ image.alt | escape }}" class="bordered">
+            </a>
+        </li>
+    </ul>
+{% endif %}
+
+<!-- Sport Watch Alt Images -->        
+{% if product.type == "Sport Watch" %}
+    <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+       <li class="one-whole small--one-sixth small--left">
+            <a href="{{ product_preview | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ product_preview | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'SiliconeWatch_Side.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'SiliconeWatch_SideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'SiliconeWatch_Angle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'SiliconeWatch_AngleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'silicone_Lifestyle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'silicone_LifestyleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+          <li class="one-whole small--one-sixth small--left">
+            <a href="{{ product_art | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ product_art | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        
+    </ul>
+   {% endif %} 
+     {% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" %}
+    <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+       <li class="one-whole small--one-sixth small--left">
+            <a href="{{ product_preview | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ product_preview | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'cellphone_Side.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'cellphone_SideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'cellphonecase_Inside.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'cellphoneCase_InsideThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'cellphone_Lifestyle.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'cellphone_LifestyleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+          <li class="one-whole small--one-sixth small--left">
+            <a href="{{ product_art | img_url: 'grande' }}" class="product-single__thumbnail">
+                <img src="{{ product_art | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+        
+    </ul>
+{% endif %}
