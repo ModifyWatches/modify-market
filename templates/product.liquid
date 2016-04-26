@@ -36,7 +36,7 @@
 {% if product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" or product.type == "Watch" or product.type == "Sport Watch" %}
       <div class="product-single__photos ProductPhoto grid__item ten-twelfths push--large--one-twelfth large--right medium--right small--one-whole" id="ProductPhoto">
 	{% else %}
-	<div class="product-single__photos ProductPhoto  one-whole" id="ProductPhoto">
+	<div class="product-single__photos ProductPhoto one-whole" id="ProductPhoto">
 
 	{% endif %}    
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
