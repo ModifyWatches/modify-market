@@ -1,0 +1,216 @@
+ {% if product.type == "Sport Watch" %}
+   
+      <div class="grid__item one-third small--one-whole">
+        <h3>The Watch</h3>
+        <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+          <li>Japanese Quartz Movement</li>
+          <li>Stainless steel, scratch-resistant PC</li>
+          <li>Super-soft, lightweight, and durable UV-coated silicone straps</li>
+          <li>3ATM Water Resistant</li>
+        </ul>
+       
+      </div>
+     <div class="grid__item one-third small--one-whole">
+        <h3>Hand-Assembled in USA</h3>
+        <p>All Modify Watches are Made-to-Order. That means we print and assemble your watches here in our office in San Francisco as soon as you place your order. </p>
+        <p>Proud member of <a href="http://www.sfmade.org/blog/modifywatches/">SFMade.</a></p>
+      </div>
+      <div class="grid__item one-third small--one-whole">
+        <h3>1-Year Warranty</h3>
+        <p>We want you to love your watch. Sooooo, if it stops working, we'll fix it. And if your battery dies in a few years, we'll fix that too. You're in the ModiFamily now :)</p>
+        <p><a href="/pages/faq">Read more ></a></p>
+      </div>
+      
+      {% elsif product.type == "Watch" %}
+      <div class="grid__item one-third small--one-whole">            
+	      <h3>The Watch</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+            <li>Stainless steel back, gun metal case</li>
+            <li>Durable and comfortable dense woven nylon strap</li>
+            <li>5ATM Water Resistant (Go swimming!)</li>
+            <li>Japanese Quartz Movement</li>
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Hand-Assembled in USA</h3>
+            <p>All Modify Watches are Made-to-Order. That means we print and assemble your watches here in our office in San Francisco as soon as you place your order. </p>
+            <p>Proud member of <a href="http://www.sfmade.org/blog/modifywatches/">SFMade.</a></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>1-Year Warranty</h3>
+            <p>We want you to love your watch. Sooooo, if it stops working, we'll fix it. And if your battery dies in a few years, we'll fix that too. You're in the ModiFamily now :)</p>
+            <p><a href="/pages/faq">Read more ></a></p>
+        </div>
+        
+        
+	{% elsif product.type == "Men's T-Shirt" %}
+      <div class="grid__item one-third small--one-whole">            
+	      <h3>The Garment </h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+            <li>Relaxed Men's Canvas 3001 T-shirt</li>
+			<li>100% combed and ringspun cotton, 4.2 oz.</li>
+			<li>Athletic Heather is 90/10 cotton/polyester</li>
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Sizing</h3>
+            <p><img src="{{ 'sizing_MensT.png' | asset_url }}" alt="Men's T-Shirt Sizes" /></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+        
+     {% elsif product.type == "Men's Long Sleeve T-Shirt" %}
+      <div class="grid__item one-third small--one-whole">            
+	      <h3>The Garment</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+            <li>Relaxed fit Men's long sleeve T-shirt</li>
+			<li>100% pre-shrunk cotton 5.2 oz</li>
+			<li>Long set-in sleeves with rib knit cuffs for stretch and recovery</li>
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Sizing</h3>
+            <p><img src="{{ 'sizing_MensLS.png' | asset_url }}" alt="Men's L/S T-Shirt Sizes" /></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+
+
+		{% elsif product.type == "Women's T-Shirt" %}
+      <div class="grid__item one-third small--one-whole">            
+	      <h3>The Garment</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+            <li>Relaxed Women's Bella 6004 T-shirt</li>
+        <li>100% combed and ringspun cotton, 4.2 oz.</li>
+        <li>Athletic Heather is 90/10 cotton/polyester</li>
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Sizing</h3>
+            <p><img src="{{ 'sizing_WomensT.png' | asset_url }}" alt="Women's T-Shirt Sizes" /></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+
+
+		{% elsif product.type == "Women's Long Sleeve T-Shirt" %}
+		<div class="grid__item one-third small--one-whole">            
+	      <h3>The Garment</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+           <li>Relaxed fit Women's scoop neck T-shirt</li>
+        <li>Pre-shrunk 50/50 cotton/polyester, 4.9 oz</li>
+        <li>Lightweight french terry</li>
+
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Sizing</h3>
+            <p><img src="{{ 'sizing_WomensLS.png' | asset_url }}" alt="Women's L/S T-Shirt Sizes" /></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+
+		{% elsif product.type == "Hoodie" or product.type == "Pullover Hoodie" %}
+		<div class="grid__item one-third small--one-whole">            
+	      <h3>The Garment</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+           <li>Comfort fit ringspun pre-shrunk fleece</li>
+        <li>80% cotton/20% polyester, 9 oz</li>
+        <li>Allover coverseamed construction</li>
+
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Sizing</h3>
+            <p><img src="{{ 'sizing_PullOverHoodie.png' | asset_url }}" alt="Pullover Hoodie Sizes" /></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+        
+        {% elsif product.type == "Zip Hoodie" %}
+		<div class="grid__item one-third small--one-whole">            
+	      <h3>The Garment</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+           <li>Comfort fit ringspun pre-shrunk french terry</li>
+        <li>55% cotton/45% polyester, 7.5 oz</li>
+        <li>Allover coverseamed construction</li>
+
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Sizing</h3>
+            <p> <img src="{{ 'sizing_ZipHoodie.png' | asset_url }}" alt="Zip Hoodie Sizes" /></p>
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+
+
+		{% elsif product.type == "6/6s Case" or product.type == "5/5s Case" or product.type == "iPhone Case" %}
+		<div class="grid__item one-third small--one-whole">            
+	      <h3>The Case</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+          <li>Super bright colors embedded Directly into the case</li>
+        <li>.08" thick ultra slim clip style case</li>
+        <li>Extremely durable, shatterproof poly-carbonate plastic</li>
+
+            </ul>
+           
+        </div>
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+		 <div class="grid__item one-third small--one-whole">
+        <h3>Printed in USA</h3>
+        <p>All Modify Phone Cases are Made-to-Order and printed in the USA</p>
+      </div>
+		{% elsif product.type == "Mug" %}
+		<div class="grid__item one-third small--one-whole">            
+	      <h3>The Mug</h3>
+            <ul class="the-watch" style="margin-left: 18px; margin-bottom: 18px;">
+          <li>Super Bright Colors Embedded Directly into the Mug</li>
+        <li>11 oz, dishwasher and microwave safe</li>
+
+            </ul>
+           
+        </div>
+      
+        <div class="grid__item one-third small--one-whole">
+            <h3>Warranty and Returns</h3>
+            <p>All Modify products are made on demand. At this point, we can only accept returns / exchanges for quality issues. Please
+            <a href="/pages/faq">learn more here! </a></p>
+        </div>
+		 <div class="grid__item one-third small--one-whole">
+        <h3>Printed in USA</h3>
+        <p>All Modify Mugs are Made-to-Order and printed in the USA</p>
+      </div>
+
+
+    {% endif %}
+    
