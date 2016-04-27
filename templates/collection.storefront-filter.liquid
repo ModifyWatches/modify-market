@@ -1,0 +1,228 @@
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900">
+{% assign prefix = collection.handle | prepend: '' %}
+
+{% assign collection_banner = prefix | append: '_banner.jpg' | asset_url %}
+{% assign collection_tile = prefix | append: '_tile.jpg' | asset_url %}
+{% assign collection_lifestyle_1 = prefix | append: '_lifestyle-1.jpg' | asset_url %}
+{% assign collection_lifestyle_2 = prefix | append: '_lifestyle-2.jpg' | asset_url %}
+
+{% assign collection_mod_asset = 'collection_small_mod_asset2.jpg' | asset_url %}
+
+{% assign pagination_limit = 150 %}
+{% paginate collection.products by pagination_limit %}
+{% assign tag_count = collection.all_tags | size %}
+{% assign tag_threshold = 8 %}
+ {% assign grid_item_width_half = 'one-half' %}
+
+</main> 
+<div class="expandedWidth newCollectionBanner" style="background-image: url('{{ collection_banner }}')">
+	<div class="collectionInfo">
+		<div class="collectNames">
+			<div class="iconHolder">
+			 	<img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} tile image" class="partnerIcon roundedBorder">
+			</div>
+			<div class="namesHolder">
+			 	<h3 class="small--text-center">{{ collection.title }}</h3>
+			 	{% include 'new-follow' %}
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		<div class="collectionBio">
+			 
+			 <div class="minimalText maxHeight">
+				 {{ collection.description }}
+			 	<div class="readMore"><a href="#">Read More</a></div>
+			 </div>
+			 <div id="shareHolder">
+				 Help share {{ collection.title }}'s story<br>
+			 <div class="share-buttons share-buttons-panel" data-style="big" data-counter="false" data-oauth="true" data-hover="true" data-promo-callout="none" data-buttons="twitter,facebook,pinterest"></div>
+			 </div>
+		</div>
+	</div>
+	<div style="clear:both"></div>
+</div>
+ <main class="wrapper main-content small-margin" role="main">
+
+<div class="grid--rev">
+  <div class="grid__item large--one-whole medium--one-whole">
+  
+  
+  
+  <div id="tabs">
+	  <ul class="collab-tiles2 small--text-center  large--one-half medium--one-half">
+		  <li><a href="#product-tab" class="reverseLink"><h5>Products</h5></a></li>
+		   <li><a href="#artwork-tab" class="reverseLink"><h5>Artwork</h5></a></li>
+	  </ul>
+  
+        <div id="product-tab">
+	      <div class="one-fifth left">
+		      <ul class="collection-matrix">
+				 {% for product in collection.products %}
+				 	 {% if product.type =='Art' %}
+					 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width_half }}">
+					  {% include 'art-preview-grid' %}
+					 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				      
+								 <div style="clear: both"></div>
+				</ul>
+				<button class="btn" id="viewAll">view all</button>
+				<div id="product-list-foot"></div>
+
+	      </div>  
+	       <div class="collection_product four-fifths left">
+		
+		{% assign counter = 0 %}
+		{% for product in collection.products %}
+	 	 	{% if product.type !='Art' %}
+	 	 		{% assign counter = counter | plus: 1 %}
+	 	 	{% endif %}
+	 	{% endfor %}	 	
+				 	 
+    	{% assign grid_item_width = 'large--one-quarter medium--one-quarter small--one-half' %}
+		{% assign var = 0 %}	
+				<ul class="collection-matrix">
+					
+				 {% for product in collection.products  %}
+				 	 {% if product.type !='Art' %}
+				 	 
+				 	 {% if var == 4  and counter > 7%}
+				 	 <li class="grid__item large--one-half medium--one-half small--one-whole lifestyle">
+				 	 	<img src="{{ collection_lifestyle_1 }}"/>
+				 	 </li>
+				 	  {% elsif var == 6 and counter > 7 %}
+				 	  <div style="clear:both" class="lifestyle"></div>
+				 	 {% elsif var == 8 %}
+				 	 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole lifestyle">
+				 	 	<img src="{{ collection_lifestyle_2 }}"/>
+				 	 </li> 
+				 	  {% elsif var == 10 %}
+				 	  
+				 	 {% endif %}
+				 	 
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }} theProducts" data-tags="{{product.tags}}">
+				  {% include 'product-grid-item' %}
+				  
+				   {% assign var = var | plus: 1 %}
+				 </li> 
+				 	
+				 	
+				 	{% endif %}
+				 {% endfor %}
+				 
+				 {% if var == 8 and counter == 8 %}
+				 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole">
+				 	 	<img src="{{ collection_lifestyle_2 }}"/>
+				 	 </li> 
+				 {% endif %}
+				 {% if var <= 7 %}
+				  <div style="clear: both"></div>  
+				  <li class="grid__item large--one-half medium--one-half small--one-whole">
+				 	 	<img src="{{ collection_lifestyle_1 }}"/>
+				 	 </li>
+				 	  <li class="grid__item large--one-half medium--one-half small--one-whole">
+				 	 	<img src="{{ collection_lifestyle_2 }}"/>
+				 	 </li>
+				 {% endif %}
+				  <div style="clear: both"></div>      
+				<div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			
+
+    </div>
+    </div>
+     <div id="artwork-tab">
+	 
+	       <div class="collection_product">
+       	
+    	
+			
+				<ul class="collection-matrix">
+				 {% for product in collection.products %}
+				 	 {% if product.type =='Art' %}
+					 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+					  {% include 'art-grid' %}
+					 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				      
+								 <div style="clear: both"></div>
+				</ul>
+				
+				<div id="product-list-foot"></div>
+			
+
+   
+    </div>
+
+    
+	
+  </div>
+  </div>
+</div>
+<div style="clear:both"></div>
+{% include 'trending-stores' %}
+
+
+{% include 'collab-signup-link' %}
+
+
+
+{% endpaginate %}
+
+{% include 'vertical-tracking' %}
+
+<!-- Scripts -->
+<script>
+
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+
+  analytics.page('Partner Storefront', {
+    title: "{{ collection.title }}",
+    url: window.location.href,
+    path: '{{ collection.url }}',
+	vertical: '{{ vertical }}',
+    referrer: document.referrer
+  });
+$(document).ready(function() {
+	var currentArt = '';
+	$('.artPreview').click(function(e) {
+		$('.artPreview').removeClass('selectedPreview');
+		
+		e.preventDefault();
+		currentArt = $(this).attr('data-title');
+		$('.lifestyle').hide();
+		
+		$('.theProducts').each(function() {
+			theTags = $(this).attr('data-tags');
+			console.log(theTags+' '+currentArt);
+			if (theTags.indexOf(currentArt) >= 0) {
+				$(this).show();
+			}else {
+				$(this).hide();
+			}
+			
+			
+		})
+		$(this).addClass('selectedPreview');
+	})
+	
+	$('#viewAll').click(function() {
+		currentArt = '';
+		$('.artPreview').removeClass('selectedPreview');
+		$('.theProducts').show();
+		$('.lifestyle').show();
+		
+	})
+})
+</script>
