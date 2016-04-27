@@ -187,7 +187,7 @@
       {% comment %}
         If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
         in the URL, we can show next/previous links to other products in the collection.
-      {% endcomment %}
+      
       {% if collection %}
         {% if collection.previous_product or collection.next_product %}
           <p>
@@ -204,7 +204,7 @@
           </p>
         {% endif %}
       {% endif %}
-
+{% endcomment %}
     </div>
   </div>
    <div class="grid-uniform text-left big-margin">
