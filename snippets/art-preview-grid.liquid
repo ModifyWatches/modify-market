@@ -1,5 +1,4 @@
-<!-- /snippets/product-grid-item.liquid -->
-{% assign collab = product.vendor | handleize %}
+<!-- /snippets/art-grid.liquid -->
 {% comment %}
 
   This snippet is used to showcase each product during the loop,
@@ -19,7 +18,7 @@
   Set the default grid_item_width if no variable is set
 {% endcomment %}
 {% unless grid_item_width %}
-  {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
 {% endunless %}
 
 {% comment %}
@@ -38,7 +37,7 @@
   {% assign sold_out = false %}
 {% endif %}
 
-<div class="productsGrid" data-type="{{product.type}}">
+<div class="artGrid">
 
   {% comment %}
     Link to your product with the 'within: collection' filter for the link to be aware of the collection.
@@ -52,26 +51,8 @@
       - http://docs.shopify.com/support/your-store/collections/how-to-navigate-within-a-collection
 
   {% endcomment %}
-  <a href="{{ product.url | within: collection }}" class="grid__image">
-    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+  <a href="#" class="grid__image artPreview" data-title="{{ product.title }}">
+    <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
-  <img src="{{ collections[collab].image | img_url: 'small' }}" class="tinyArt roundedBorder" />
-  <div class="productsInfo">
-	  <p class="h6 text-left">
-	    <a href="{{ product.url | within: collection }}">{{ product.title  | truncatewords:5 | truncate:30}}</a>
-	  </p>
-	  <p class="super-small text-left">
-		 By, <a href="{{ collections[collab].url}}" > {{ product.vendor }} </a>
-	  </p>
-	   <p class="text-left orange-text">
-		  {% if product.type == 'Sport Watch' %}
-		  	$50.00
-		  {% elsif product.type == 'Watch' %}
-		  	$75.00
-		  {% else %}	
-		   {{ product.price | money }}
-		   {% endif %}
-	  </p>
-		    
-	</div>
-</div>
+  
+ </div>

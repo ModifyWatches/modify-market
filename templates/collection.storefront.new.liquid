@@ -15,7 +15,7 @@
 {% paginate collection.products by pagination_limit %}
 {% assign tag_count = collection.all_tags | size %}
 {% assign tag_threshold = 8 %}
-
+ {% assign grid_item_width_half = 'one-half' %}
 
 </main> 
 <div class="expandedWidth newCollectionBanner" style="background-image: url('{{ collection_banner }}')">
@@ -58,7 +58,24 @@
 	  </ul>
   
         <div id="product-tab">
-	       <div class="collection_product">
+	      <div class="one-fifth left">
+		      <ul class="collection-matrix">
+				 {% for product in collection.products %}
+				 	 {% if product.type =='Art' %}
+					 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width_half }}">
+					  {% include 'art-preview-grid' %}
+					 </li> 
+				 	{% endif %}
+				 {% endfor %}
+				  <div style="clear: both"></div>
+				      
+								 <div style="clear: both"></div>
+				</ul>
+				<button class="btn" id="viewAll">view all</button>
+				<div id="product-list-foot"></div>
+
+	      </div>  
+	       <div class="collection_product four-fifths left">
 		
 		{% assign counter = 0 %}
 		{% for product in collection.products %}
@@ -75,19 +92,20 @@
 				 	 {% if product.type !='Art' %}
 				 	 
 				 	 {% if var == 4  and counter > 7%}
-				 	 <li class="grid__item large--one-half medium--one-half small--one-whole">
+				 	 <li class="grid__item large--one-half medium--one-half small--one-whole lifestyle">
 				 	 	<img src="{{ collection_lifestyle_1 }}"/>
 				 	 </li>
 				 	  {% elsif var == 6 and counter > 7 %}
-				 	  <div style="clear:both"></div>
+				 	  <div style="clear:both" class="lifestyle"></div>
 				 	 {% elsif var == 8 %}
-				 	 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole">
+				 	 <li class="grid__item grid__item large--one-half medium--one-half small--one-whole lifestyle">
 				 	 	<img src="{{ collection_lifestyle_2 }}"/>
 				 	 </li> 
 				 	  {% elsif var == 10 %}
 				 	  
 				 	 {% endif %}
-				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }}">
+				 	 
+				 <li id="product-{{ forloop.index | plus:paginate.current_offset }}" class="grid__item {{ grid_item_width }} theProducts" data-tags="{{product.tags}}">
 				  {% include 'product-grid-item' %}
 				  
 				   {% assign var = var | plus: 1 %}
@@ -176,5 +194,35 @@
 	vertical: '{{ vertical }}',
     referrer: document.referrer
   });
-
+$(document).ready(function() {
+	var currentArt = '';
+	$('.artPreview').click(function(e) {
+		$('.artPreview').removeClass('selectedPreview');
+		
+		e.preventDefault();
+		currentArt = $(this).attr('data-title');
+		$('.lifestyle').hide();
+		
+		$('.theProducts').each(function() {
+			theTags = $(this).attr('data-tags');
+			console.log(theTags+' '+currentArt);
+			if (theTags.indexOf(currentArt) >= 0) {
+				$(this).show();
+			}else {
+				$(this).hide();
+			}
+			
+			
+		})
+		$(this).addClass('selectedPreview');
+	})
+	
+	$('#viewAll').click(function() {
+		currentArt = '';
+		$('.artPreview').removeClass('selectedPreview');
+		$('.theProducts').show();
+		$('.lifestyle').show();
+		
+	})
+})
 </script>
