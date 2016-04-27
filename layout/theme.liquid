@@ -104,7 +104,12 @@
           allOrdersCount: {{ customer.orders_count }},
           allOrderIds: [{% for order in customer.orders %}{{ order.id }},{% endfor %}],
           tags: ["{{ customer.tags | join: '", "' }}"]
-        });
+          }, {
+            integrations: {
+              'All': false,
+              'Mixpanel': true
+            }
+          });
       {% endif %}
         window.analytics.page();
       }}();

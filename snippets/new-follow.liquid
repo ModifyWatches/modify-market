@@ -47,7 +47,12 @@
 	          analytics.identify(email, { 
 	            anonymousId: window.analytics.user().anonymousId(), 
 	            email: email 
-	          });
+	          }, {
+							integrations: {
+								'All': false,
+								'Mixpanel': true
+							}
+						});
 	        };
 	
 	        analytics.track('Followed Collection', { email: email, collection:collection });
