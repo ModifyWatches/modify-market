@@ -72,16 +72,22 @@
                 <img src="{{ product_preview | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
             </a>
         </li>
-        <li class="one-whole small--one-sixth small--left">
-            <a href="{{ 'cellphone_Lifestyle.jpg' | asset_url }}" class="product-single__thumbnail">
-                <img src="{{ 'cellphone_LifestyleThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
-            </a>
-        </li>
-          <li class="one-whole small--one-sixth small--left">
+         <li class="one-whole small--one-sixth small--left">
             <a href="{{ product_art | img_url: 'grande' }}" class="product-single__thumbnail">
                 <img src="{{ product_art | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
             </a>
         </li>
+         <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'cellphone_Float.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'cellphone_FloatThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>	
+        <li class="one-whole small--one-sixth small--left">
+            <a href="{{ 'cellPhoneCase.jpg' | asset_url }}" class="product-single__thumbnail">
+                <img src="{{ 'cellPhoneCaseThumb.jpg' | asset_url }}" alt="{{ image.alt | escape }}">
+            </a>
+        </li>
+         
         
     </ul>
 {% endif %}
