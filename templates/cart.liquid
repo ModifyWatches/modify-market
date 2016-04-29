@@ -172,7 +172,7 @@
   $(window).load(function() {
 	  analytics.page('Cart', {
 	    itemCount: {{ cart.item_count }},
-	    totalPrice: {{ cart.total_price }},
+	    totalPrice: {{ cart.total_price | money_without_currency }},
 	    totalWeight: {{ cart.total_weight }}
 	  });
 	

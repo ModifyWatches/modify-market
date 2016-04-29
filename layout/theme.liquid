@@ -110,8 +110,14 @@
               'Mixpanel': true
             }
           });
+      {% else %}                
+        $(window).load(function() {
+          analytics.identify(window.analytics.user().anonymousId());
+          analytics.alias(window.analytics.user().anonymousId());
+        });
       {% endif %}
-        window.analytics.page();
+      
+      //  window.analytics.page();
       }}();
 
     </script>
@@ -356,7 +362,7 @@
              <div class="partnerLinkInfo">
 	             <img src="{{ 'navImage.jpg' | asset_url }}" />
 				 <p>
-					Want to create great gear for your fans? Get started for free!<br>
+					Want to create great watches for your fans? Get started for free!<br>
 					<a href="/pages/storefronts">Learn more ></a> 
 				 </p>
              </div>
